@@ -1,0 +1,659 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rul "http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#"
+     xml:base="http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:rul="http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#contradictoryRules -->
+
+    <owl:ObjectProperty rdf:about="&rul;contradictoryRules">
+        <rdfs:range rdf:resource="&rul;Rules"/>
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="&rul;hasCondition">
+        <rdfs:domain rdf:resource="&rul;ConditionGroups"/>
+        <rdfs:range rdf:resource="&rul;RuleConditions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasConditionGroup -->
+
+    <owl:ObjectProperty rdf:about="&rul;hasConditionGroup">
+        <rdfs:range rdf:resource="&rul;ConditionGroups"/>
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasOperator -->
+
+    <owl:ObjectProperty rdf:about="&rul;hasOperator">
+        <rdfs:range rdf:resource="&rul;Operators"/>
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#inconsistentRuleConditions -->
+
+    <owl:ObjectProperty rdf:about="&rul;inconsistentRuleConditions">
+        <rdfs:range rdf:resource="&rul;RuleConditions"/>
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#oppositedOperators -->
+
+    <owl:ObjectProperty rdf:about="&rul;oppositedOperators">
+        <rdfs:domain rdf:resource="&rul;Operators"/>
+        <rdfs:range rdf:resource="&rul;Operators"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#overlappedConditionGroups -->
+
+    <owl:ObjectProperty rdf:about="&rul;overlappedConditionGroups">
+        <rdfs:range rdf:resource="&rul;ConditionGroups"/>
+        <rdfs:domain rdf:resource="&rul;ConditionGroups"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#overlappedRules -->
+
+    <owl:ObjectProperty rdf:about="&rul;overlappedRules">
+        <rdfs:range rdf:resource="&rul;Rules"/>
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#sameConditionGroups -->
+
+    <owl:ObjectProperty rdf:about="&rul;sameConditionGroups">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&rul;ConditionGroups"/>
+        <rdfs:domain rdf:resource="&rul;ConditionGroups"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#sameRuleConditions -->
+
+    <owl:ObjectProperty rdf:about="&rul;sameRuleConditions">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+        <rdfs:range rdf:resource="&rul;RuleConditions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#sameRules -->
+
+    <owl:ObjectProperty rdf:about="&rul;sameRules">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+        <rdfs:range rdf:resource="&rul;Rules"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#tautologicalConditionGroups -->
+
+    <owl:ObjectProperty rdf:about="&rul;tautologicalConditionGroups">
+        <rdfs:range rdf:resource="&rul;ConditionGroups"/>
+        <rdfs:domain rdf:resource="&rul;ConditionGroups"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasArgumentDataType -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasArgumentDataType">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasArgumentType -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasArgumentType">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasId -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasId">
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasLeftArgumentAttributeID -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasLeftArgumentAttributeID">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasLiteralArgumentDataType -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasLiteralArgumentDataType">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasLiteralArgumentValue -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasLiteralArgumentValue">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasName">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasNumberOfConditionGroups -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasNumberOfConditionGroups">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasNumberOfConditions -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasNumberOfConditions">
+        <rdfs:domain rdf:resource="&rul;ConditionGroups"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasProfileId -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasProfileId">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasResult -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasResult">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasRightArgumentAttributeID -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasRightArgumentAttributeID">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasRightArgumentListID -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasRightArgumentListID">
+        <rdfs:domain rdf:resource="&rul;RuleConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasScore -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasScore">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#hasURL -->
+
+    <owl:DatatypeProperty rdf:about="&rul;hasURL">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#isActive -->
+
+    <owl:DatatypeProperty rdf:about="&rul;isActive">
+        <rdfs:domain rdf:resource="&rul;Rules"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ConditionGroups -->
+
+    <owl:Class rdf:about="&rul;ConditionGroups"/>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ConditionGroups1 -->
+
+    <owl:Class rdf:about="&rul;ConditionGroups1">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditions"/>
+                <owl:hasValue rdf:datatype="&xsd;string">1</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;ConditionGroups"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ConditionGroups2 -->
+
+    <owl:Class rdf:about="&rul;ConditionGroups2">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditions"/>
+                <owl:hasValue rdf:datatype="&xsd;string">2</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;ConditionGroups"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ConditionGroups3 -->
+
+    <owl:Class rdf:about="&rul;ConditionGroups3">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditions"/>
+                <owl:hasValue rdf:datatype="&xsd;string">3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;ConditionGroups"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ConditionGroups4 -->
+
+    <owl:Class rdf:about="&rul;ConditionGroups4">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditions"/>
+                <owl:hasValue rdf:datatype="&xsd;string">4</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;ConditionGroups"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ConditionGroups5 -->
+
+    <owl:Class rdf:about="&rul;ConditionGroups5">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditions"/>
+                <owl:hasValue rdf:datatype="&xsd;string">5</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;ConditionGroups"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#InconsistentConditionGroups -->
+
+    <owl:Class rdf:about="&rul;InconsistentConditionGroups">
+        <rdfs:subClassOf rdf:resource="&rul;ConditionGroups"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#InconsistentRules -->
+
+    <owl:Class rdf:about="&rul;InconsistentRules">
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Operators -->
+
+    <owl:Class rdf:about="&rul;Operators"/>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#RuleConditions -->
+
+    <owl:Class rdf:about="&rul;RuleConditions"/>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules -->
+
+    <owl:Class rdf:about="&rul;Rules"/>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules1 -->
+
+    <owl:Class rdf:about="&rul;Rules1">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditionGroups"/>
+                <owl:hasValue rdf:datatype="&xsd;string">1</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules2 -->
+
+    <owl:Class rdf:about="&rul;Rules2">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditionGroups"/>
+                <owl:hasValue rdf:datatype="&xsd;string">2</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules3 -->
+
+    <owl:Class rdf:about="&rul;Rules3">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditionGroups"/>
+                <owl:hasValue rdf:datatype="&xsd;string">3</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules4 -->
+
+    <owl:Class rdf:about="&rul;Rules4">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditionGroups"/>
+                <owl:hasValue rdf:datatype="&xsd;string">4</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules5 -->
+
+    <owl:Class rdf:about="&rul;Rules5">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditionGroups"/>
+                <owl:hasValue rdf:datatype="&xsd;string">5</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Rules6 -->
+
+    <owl:Class rdf:about="&rul;Rules6">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rul;hasNumberOfConditionGroups"/>
+                <owl:hasValue rdf:datatype="&xsd;string">6</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#TautologicalRules -->
+
+    <owl:Class rdf:about="&rul;TautologicalRules">
+        <rdfs:subClassOf rdf:resource="&rul;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Contains -->
+
+    <owl:NamedIndividual rdf:about="&rul;Contains">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;DoesNotContain"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#ContainsAnyFromList -->
+
+    <owl:NamedIndividual rdf:about="&rul;ContainsAnyFromList">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;DoesNotContainAnyFromList"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#DoesNotContain -->
+
+    <owl:NamedIndividual rdf:about="&rul;DoesNotContain">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;Contains"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#DoesNotContainAnyFromList -->
+
+    <owl:NamedIndividual rdf:about="&rul;DoesNotContainAnyFromList">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;ContainsAnyFromList"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#DoesNotEndWithAnyFromList -->
+
+    <owl:NamedIndividual rdf:about="&rul;DoesNotEndWithAnyFromList">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;EndsWithAnyFromList"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#DoesNotMatch -->
+
+    <owl:NamedIndividual rdf:about="&rul;DoesNotMatch">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;Matches"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#EndsWithAnyFromList -->
+
+    <owl:NamedIndividual rdf:about="&rul;EndsWithAnyFromList">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;DoesNotEndWithAnyFromList"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Equals -->
+
+    <owl:NamedIndividual rdf:about="&rul;Equals">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;NotEquals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#GreaterThan -->
+
+    <owl:NamedIndividual rdf:about="&rul;GreaterThan">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;LessThan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#GreaterThanOrEquals -->
+
+    <owl:NamedIndividual rdf:about="&rul;GreaterThanOrEquals">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;LessThanOrEquals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#IncludedInList -->
+
+    <owl:NamedIndividual rdf:about="&rul;IncludedInList">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;NotIncludedInList"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#LessThan -->
+
+    <owl:NamedIndividual rdf:about="&rul;LessThan">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;GreaterThan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#LessThanOrEquals -->
+
+    <owl:NamedIndividual rdf:about="&rul;LessThanOrEquals">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;GreaterThanOrEquals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#Matches -->
+
+    <owl:NamedIndividual rdf:about="&rul;Matches">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;DoesNotMatch"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#NotEquals -->
+
+    <owl:NamedIndividual rdf:about="&rul;NotEquals">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;Equals"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#NotIncludedInList -->
+
+    <owl:NamedIndividual rdf:about="&rul;NotIncludedInList">
+        <rdf:type rdf:resource="&rul;Operators"/>
+        <oppositedOperators rdf:resource="&rul;IncludedInList"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,2767 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/SwTO.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/SwTO.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment xml:lang="en">SwTO - Software Testing Ontology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="TestExecution">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="TestCase"/>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:ID="hasValue"/>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                  <owl:Class rdf:ID="TestCaseExpectedValue"/>
+                </owl:someValuesFrom>
+              </owl:Restriction>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="executesTestCase"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestEnvironmentDevelopment"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="antecedesActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="TestResultsEvaluation"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestCaseGeneration"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TestActivity"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestIncorrectnessTracking"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Execution of tests should embody a basic principle of scientific experimentation: everything done during testing should be performed and documented clearly enough that another person could replicate the results. Hence, testing should be performed in accordance with documented procedures using a clearly defined version of the software under test.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestResultsEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestLogProduction"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">execution</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestPlanning"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="WhiteBox">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TestTechnique"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CodeBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FaultBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="IntuitionAndExperience"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SpecificationBasedTechniques"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="UsageBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BlackBox"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="SoftwareFault">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Incorrectness"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="pt">falha</rdfs:label>
+    <rdfs:label xml:lang="en">fault</rdfs:label>
+    <rdfs:comment xml:lang="en">Anormal condition that may cause a reduction in, or loss of, the capability of a functional unit to perform a required function.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">As falhas podem causar defeitos. O testes podem apontar defeitos mas são as falhas que efetivamente devem ser removidas.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SoftwareFailure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SoftwareError"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="BetaTest">
+    <rdfs:label xml:lang="en">beta testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RecoveryTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StressTest"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SoftwareTest"/>
+    </rdfs:subClassOf>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Tem que ter uma release</owl:versionInfo>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="ExternalTeam"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isRealizedBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PerformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConfigurationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="InstallationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AcceptanceTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Before the software is released, it is sometimes given to a small, representative set of potential users for trial use, either external team (beta testing).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="UsabilityTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RegressionTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="GrayBox">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodeBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FaultBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SpecificationBasedTechniques"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UsageBasedTechnique"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">glass box</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BlackBox"/>
+          <owl:Class rdf:about="#WhiteBox"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="DecisionTable">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Decision tables represent logical relationships between conditions (roughly, inputs) and actions(roughly, outputs). Test cases are systematically derived by considering every possible combination of conditions and actions.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpecificationBasedTechniques"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BoundaryValueAnalysis"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EquivalencePartitioning"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FiniteStateMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RandomTesting"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Correctness">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Incorrectness"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TestFundamental"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:complementOf>
+          <owl:Class rdf:about="#Incorrectness"/>
+        </owl:complementOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">correct</rdfs:label>
+    <rdfs:comment xml:lang="en">Correct value or condition</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SoftwareFailure">
+    <rdfs:label xml:lang="en">failure/defect</rdfs:label>
+    <rdfs:comment xml:lang="en">The inability of a system to perform its required functions within specified performance requirements.</rdfs:comment>
+    <rdfs:comment xml:lang="pt">defeito</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Incorrectness"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#SoftwareFault"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareError"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="SoftwareReliabilityEngineeredTesting">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Is a testing method encompassing the whole development process, whereby testing is designed and guided by reliability objectives and expected relative usage and criticality of different functions in the field.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OperationalProfile"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#UsageBasedTechnique"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestCaseGeneration">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestIncorrectnessTracking"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestExecution"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestExecution"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test case generation</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestLogProduction"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="generatesTestCase"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#TestCase"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#generatesTestCase"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isBasedOn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="TestLevel"/>
+              <owl:Class rdf:about="#TestTechnique"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPlanning"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Generation of test cases is based on the level of testing to be performed and the particular testing techniques. Test cases should be under the control of software configuration management and include the expected results for each test.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="succeedsActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestPlanning"/>
+              <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestActivity"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestResultsEvaluation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#TestLogProduction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestActivity"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Testing activities can be entered into a test log to identify when a test was conducted, who performed the test, what software configuration was the basis fro testing, and other relevant identification information. Unexpected or incorrect test results can be recorded in a problem-reporting system, the data of which form the basis for later debugging and for fixing the problems that were observed as failures during testing. Also, anomalies not classified as faults could be documented in cas they later turn out to be more serious than first thought. Test reports are also an input to the change management request process</rdfs:comment>
+    <owl:disjointWith rdf:resource="#TestCaseGeneration"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestResultsEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestExecution"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPlanning"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestIncorrectnessTracking"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">test log</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestResultsEvaluation"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MutationTesting">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ErrorGuessing"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FaultBasedTechnique"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">mutation testing</rdfs:label>
+    <rdfs:comment xml:lang="en">A mutant is a slightly modified version of the program under test, differing form it by a small, syntactic change.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TestTool">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestActivity"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SoftwareTestDomainConcept"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestToolUsedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test tool</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ExploratoryTesting">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Exploratory testing is defined as simultaneous  learning, test design, and test execution; that is, the tests are not deined in advance in an established test plan, but are dynamically designed, executed and modified. The effectiveness of exploratory testing relies on the software engineer's knowledge, which can be derived from various sources: observed product behavior during testing, familiarity with the application, the platform, the failure process, the type of possible faults and failures.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AdHocTesting"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="TestCaseProcedure">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isProcedureOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestCase"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="TestVariable"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="containsTestVariable"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isProcedureOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TestCase"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TestDocumentation"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestPlan"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestDesignSpecification"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">test procedure specification</rdfs:label>
+    <rdfs:comment xml:lang="en">A test procedure specification identifies all steps required to operate the system and exercise the specified test cases in order to implement the associated test design. Test procedures are separated from test design specifications as they are intended to be followed step by step and should not have extraneous detail.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestCase"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="succeedsDocumentation"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestCase"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestIncorrectnessTracking">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestResultsEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestCaseGeneration"/>
+    <owl:disjointWith rdf:resource="#TestLogProduction"/>
+    <rdfs:label xml:lang="en">defect tracking</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestActivity"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestResultsEvaluation"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="recordsIncorrectness"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Incorrectness"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#recordsIncorrectness"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Incorrectness"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Failures observed during testing are most often due to faults or defects in the software. Such defects can be analyzed to determine when they were introduced into the software, what kind of error caused them to be created (poorly defined requirements, incorrect variable declaration, memory leak, programming sysntax error, for example), and when they could have been first observed in the software. Defect-tracking information is used to determine what aspects of software engineering need improvemented and how effective previous analyses and testing have been.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPlanning"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestExecution"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BoundaryValueAnalysis">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Test cases are chosen on and near the boundaries of the input domain of variables, with the underlying rationale that many faults tend to concentrate near the extreme values of inputs.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#DecisionTable"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EquivalencePartitioning"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FiniteStateMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RandomTesting"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpecificationBasedTechniques"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TestStrategyBasedInSwDevelopment">
+    <rdfs:comment xml:lang="en">The strategy or target of the test is a single module, a group of such modules (related by purpose, use, beharior, or structure), or a whole system. Three big test stages can be conceptually distinguished, namely Unit, Integration and System.</rdfs:comment>
+    <rdfs:label xml:lang="en">strategy</rdfs:label>
+    <rdfs:label xml:lang="pt">alvo de teste</rdfs:label>
+    <rdfs:label xml:lang="en">target</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestLevel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TestCaseSelectionCriteria">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isBasedIn"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestStrategyBasedInSwDevelopment"/>
+              <owl:Class rdf:about="#SoftwareTest"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A test selection criterion is a means of deciding what a suitable set of test cases should be. A selection criterion can be used for selecting the test cases of for checking whether a selected test suite is adequate, that is, to decide whether the testing can be stopped.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTest"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isBasedIn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTest"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestStrategyBasedInSwDevelopment"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isBasedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test selection criteria</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestVeredict"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestVeredictProduction"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="selectsTestCase"/>
+        </owl:onProperty>
+        <owl:valuesFrom>
+          <owl:Class rdf:about="#TestCase"/>
+        </owl:valuesFrom>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BlackBox">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodeBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SpecificationBasedTechniques"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UsageBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FaultBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WhiteBox"/>
+    <rdfs:label xml:lang="en">black box</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#UsageBasedTechnique">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodeBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FaultBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SpecificationBasedTechniques"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#BlackBox"/>
+    <owl:disjointWith rdf:resource="#GrayBox"/>
+    <owl:disjointWith rdf:resource="#WhiteBox"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RecoveryTest">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Recovey testing is aimed at verifying software restart capabilities after a "desaster".</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTest"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PerformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RegressionTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UsabilityTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#RecoveryTest"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPrerequisit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationTest"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">recovery testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcceptanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StressTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#PerformanceTest">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StressTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTest"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">This is specifically aimed at verifying that the software meets the specified performance requirements, for instance, capacity and response time.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UsabilityTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcceptanceTest"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">performance testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RegressionTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#TestVariable">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Agent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestVeredictProduction"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasData"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="TestVariableData"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasData"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TestVariableData"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestCaseProcedure"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestVariableOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestCaseProcedure"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestVariableOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Incorrectness">
+    <rdfs:comment xml:lang="en">Many terms are used in the software engineering literature to describe a malfunction. It is essential to clearly distinguish between the cause of a malfunction.</rdfs:comment>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Definir melhor as subclasses</owl:versionInfo>
+    <rdfs:label xml:lang="en">incorrect</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SoftwareError"/>
+          <owl:Class rdf:about="#SoftwareFailure"/>
+          <owl:Class rdf:about="#SoftwareFault"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Correctness"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EquivalencePartitioning">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The input domain is subdivided into a collection of subsets, or equivalent classes, which are deemed equivalent according to a specified relation, and a representative set of tests (some times only one) is taken from each class.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#BoundaryValueAnalysis"/>
+    <owl:disjointWith rdf:resource="#DecisionTable"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FiniteStateMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RandomTesting"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpecificationBasedTechniques"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestVariableData">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Agent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestVeredictProduction"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isDataOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestVariable"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestVariable"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isDataOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DataFlowBasedCriteria">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CodeBasedTechnique"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ControlFlowBasedCriteria"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">In data-flow-based testing the control flowgraph is annotated with information about how the program variables are defined, used, and killed (undefined). </rdfs:comment>
+    <rdfs:label xml:lang="en">data flow based criteria</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TestCase">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="isGeneratedBy"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isGeneratedBy"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#TestCaseGeneration"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestCaseProcedure"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasProcedure"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A test case specification documents the actual values used for input along with the anticipated out-puts. A test case also identifies constraints on the test procedures resulting from use of that specific test case. Test cases are separated from test designs to allow for use in more than one design and to allow for reuse in other situations.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasProcedure"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestCaseProcedure"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasValue"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestCaseExpectedValue"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="antecedesDocumentation"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestDesignSpecification"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPlan"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestDocumentation"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestDesignSpecification"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestCaseProcedure"/>
+    <rdfs:label xml:lang="en">test case</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TestActivity">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestDocumentation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestLevel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestGuide"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">test activity</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestTool"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestActivityOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestPattern"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTestDomainConcept"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestMeasurementMethod"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestActivityOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestVeredictProduction">
+    <owl:disjointWith rdf:resource="#TestVariableData"/>
+    <owl:disjointWith rdf:resource="#TestCaseSelectionCriteria"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestVeredict"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasVeredict"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Agent"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="byAgent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Agent"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#byAgent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestTeam"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TestVeredict"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasVeredict"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestVariable"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FaultDensityEvaluation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProgramDimensional"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A program under test can be assessed by counting and classifying the discovered faults by their types. For each fault class, fault density is meadured as the ratio between the number of faults found and the size of the program.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ReliabilityEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ReliabilityGrowthModelEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestCoverageEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FaultSeedingEvaluation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#OperationalProfile">
+    <rdfs:subClassOf rdf:resource="#UsageBasedTechnique"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >In testing for reliability evaluation, the test environment must reproduce the operational environment of the software as closely as prossible. The idea is to infer, from the observed test results, the future reliability of the software when in actual use. To do this, inputs are assigned a probability distribution, or profile, according to their occurrence in actual operation.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#SoftwareReliabilityEngineeredTesting"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestMeasurementMethod">
+    <rdfs:label xml:lang="en">test related measures</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestMeasurementMethodOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestLevel"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Provide an evaluation of the program under test based on the observed test outputs, and those which evaluate the thoroughness of the test set. Measurement may also be used to optimize the planning and execution of the tests.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SoftwareTestDomainConcept"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestMeasurementMethodOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestVeredict">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <TestVeredict rdf:ID="fail"/>
+          <TestVeredict rdf:ID="pass"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment xml:lang="en">Agent's veridict</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTest"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Agent's veridict</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestCaseValue"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestTeam"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Agent"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestCaseSelectionCriteria"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SoftwareTest">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestTeam"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestLevel"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Testing is conducted in view of a specific objective, which is stated more or less explicitly, and with varying degrees of precision. Testing objectives considers testing for specific conditions or properties. Testing objective varies with the test target; in general, different purposes being addressed at a different level of testing. Not all types of testing apply to every software product, not has every possible type has been listed.</rdfs:comment>
+    <rdfs:label xml:lang="en">software test</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestCaseValue"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestStrategyBasedInSwDevelopment"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="canBeCombinedWith"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">testing objectives</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestCaseSelectionCriteria"/>
+    <owl:disjointWith rdf:resource="#TestVeredict"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SoftwareError">
+    <owl:disjointWith rdf:resource="#SoftwareFailure"/>
+    <owl:disjointWith rdf:resource="#SoftwareFault"/>
+    <rdfs:comment xml:lang="en">Discrepancy between a computed, observed or measured value or condition and the true, specified or theoretically correct value or condition.</rdfs:comment>
+    <rdfs:label xml:lang="en">error</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Incorrectness"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SpecificationBasedTechniques">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CodeBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FaultBasedTechnique"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#UsageBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#BlackBox"/>
+    <owl:disjointWith rdf:resource="#GrayBox"/>
+    <owl:disjointWith rdf:resource="#WhiteBox"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#RandomTesting">
+    <owl:disjointWith rdf:resource="#BoundaryValueAnalysis"/>
+    <owl:disjointWith rdf:resource="#DecisionTable"/>
+    <owl:disjointWith rdf:resource="#EquivalencePartitioning"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FiniteStateMachine"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tests are generated purely at random. This form of testing falls under the heading of the specification-base entry, since at least the input domain must be known, to be able to pick random points within it.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SpecificationBasedTechniques"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SoftwareTestDomainConcept">
+    <rdfs:label xml:lang="en">software test domain concept</rdfs:label>
+    <rdfs:comment xml:lang="en">Software Test Domain Concept</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="UnitTest">
+    <rdfs:comment xml:lang="en">Unit testing verifies the functioning isolation of software pieces which are separately testable. Depending on the context, these could be the individual subprograms or a larger component made of tightly related unit.</rdfs:comment>
+    <rdfs:label xml:lang="en">unit test</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="IntegrationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SystemTest"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#TestStrategyBasedInSwDevelopment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StressTest">
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RegressionTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Stress testing exercises software at the maximum design load, as well as beyond it.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:label xml:lang="en">stress testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcceptanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UsabilityTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#TestPlanning">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestResultsEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestIncorrectnessTracking"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="createsTestPlan"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#TestPlan"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#TestPlan"/>
+            </owl:someValuesFrom>
+            <owl:onProperty rdf:resource="#createsTestPlan"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#TestLogProduction"/>
+    <rdfs:label xml:lang="en">planning</rdfs:label>
+    <rdfs:comment xml:lang="en">Like any other aspect of project management, testing activities must be planned. Key aspects of test planning include coordination of personnel, management of available test facilities and equipment (which may include magnetic media, test plans and procedures), and planning for possible undesirable outcomes. Planning for testing should start with the early stages of the requirement process, and test plans and procedures must be systematically and continuously developed, and possibly refined, as development proceeds.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestExecution"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#TestActivity"/>
+    <owl:disjointWith rdf:resource="#TestExecution"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+              <owl:Class rdf:about="#TestCaseGeneration"/>
+              <owl:Class rdf:about="#TestExecution"/>
+              <owl:Class rdf:about="#TestResultsEvaluation"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestCaseGeneration"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TestResultsEvaluation"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestCaseValue">
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Correctness"/>
+              <owl:Class rdf:about="#Incorrectness"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isInterpretedAs"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestFundamental"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestVeredict"/>
+    <owl:disjointWith rdf:resource="#SoftwareTest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CodeBasedTechnique">
+    <owl:disjointWith rdf:resource="#GrayBox"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FaultBasedTechnique"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">code based techniques</rdfs:label>
+    <owl:disjointWith rdf:resource="#BlackBox"/>
+    <owl:disjointWith rdf:resource="#WhiteBox"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#SpecificationBasedTechniques"/>
+    <owl:disjointWith rdf:resource="#UsageBasedTechnique"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TestScript">
+    <rdfs:subClassOf rdf:resource="#TestTool"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProgramDimensional">
+    <rdfs:subClassOf rdf:resource="#TestMeasurementMethod"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Evaluation of the program under test. Measures based on program size (for example, source line of code or function points) or on program structure (like complexity) are used to guide testing measurement.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#FiniteStateMachine">
+    <owl:disjointWith rdf:resource="#BoundaryValueAnalysis"/>
+    <owl:disjointWith rdf:resource="#DecisionTable"/>
+    <owl:disjointWith rdf:resource="#EquivalencePartitioning"/>
+    <owl:disjointWith rdf:resource="#RandomTesting"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >By modeling a program as a finite state machine, tests can be selected in order to cover states and transitions on it.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SpecificationBasedTechniques"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestDocumentation">
+    <rdfs:label xml:lang="en">test documentation</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestDocumentationOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestDocumentationOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPattern"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestLevel"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Documentation is an integral part of the formalization of the test process. Test documentats may include, among others, Test Plan, Test Design Specifiation, Test Procedures Specification, Test Case Specification, Test Log, and Test Incident or Problem Report. The software under test is documented as the Test Item. Test documentation should be produced and continually updated, to the same level of quality as other types of documentation in software engineering.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TestFundamental">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestTechnique"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">test fundamentals</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestMeasurementMethod"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestLevel"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestFundamentalOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">It covers the basic definitions in the field of software testing the basic terminology and key issues, and its relationship with other activities.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestFundamentalOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestTechnique">
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestTechnique"/>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:ID="combineThemselves"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test techniques</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestGuide"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">One of the aims of testing is to reveal as much potential for failure as possible, and many techniques have been developed to do this. The leading principle underlying such techniques is to be as systematic as possible in identifying a representative set of program behaviors; for instance, considering subclasses of the input domain, scenarios, states and dataflow. Sometimes, test techniques are confused with test objectives. Test techniques are to be viewed as aids which help to ensure the achievement of test objectives.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestTechniqueOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestFundamental"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestTechniqueOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestMeasurementMethod"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="useSelectionCrieteria"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TestCaseSelectionCriteria"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SystemTest">
+    <rdfs:label xml:lang="en">system testing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TestStrategyBasedInSwDevelopment"/>
+    <rdfs:comment xml:lang="en">System testing is concerned with the behavior of a whole system. The majority of functional failures should already have been identified during unit and integration testing. System testing is usually considered appropriate for comparing the system to the non-functional system requirements, such as security, speed, accuracy, and reliability. External interfaces to other applications, utilities, hardware devices or the operating environment are also evaluated at this level.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntegrationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#UnitTest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#IntegrationTest">
+    <rdfs:subClassOf rdf:resource="#TestStrategyBasedInSwDevelopment"/>
+    <rdfs:label xml:lang="en">integration testing</rdfs:label>
+    <rdfs:comment xml:lang="en">Integration testing is the process of verifying the interaction between software componets. Modern systematic integration strategies are rather architecture-driven, which implies integrating the software components or subsystems based on identified functional threads.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#SystemTest"/>
+    <owl:disjointWith rdf:resource="#UnitTest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RegressionTest">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <rdfs:label xml:lang="en">regression testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcceptanceTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Regression testing is the "selective retesting of a system or component to verify that modifications have not caused unintended effects". In practice, the idea is to show that software which previously passed the tests still does. </rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#UsabilityTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#UsabilityTest">
+    <rdfs:label xml:lang="en">usability testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcceptanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConfigurationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RegressionTest"/>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">This process evaluates how easy it is to end-users to use and learn the software, including user documentation; how effectively the software functions in supporting user tasks; and, finally, its ability to recover form user errors.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AdHocTesting">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >In ad hoc, the tests are derived relying on the software engineer's skill, intuition, and experience with similar programs. Ad hoc testing might be useful for identifying special tests, those not easily captured by formalized techniques.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:label>
+    <owl:disjointWith rdf:resource="#ExploratoryTesting"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestDesignSpecification">
+    <rdfs:subClassOf rdf:resource="#TestDocumentation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="specifiesSelectionCriteria"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestCaseSelectionCriteria"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test design specification</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestCase"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestCaseSelectionCriteria"/>
+        <owl:onProperty rdf:resource="#specifiesSelectionCriteria"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestPlan"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#succeedsDocumentation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestCaseProcedure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPlan"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestCase"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesDocumentation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A test design specification refines the test approach and identifies the features to be covered by the design and its associated tests. It also identifies the test cases and test procedures, if any, required to accomplish the testing and specifies the feature pass/fail criteria.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="specifiesAgent"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Agent"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TestDimensional">
+    <rdfs:subClassOf rdf:resource="#TestMeasurementMethod"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TestCaseObtainedValue">
+    <rdfs:label xml:lang="en">obtained value</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TestCaseValue"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ConfigurationTest">
+    <owl:disjointWith rdf:resource="#RegressionTest"/>
+    <owl:disjointWith rdf:resource="#UsabilityTest"/>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+    <rdfs:comment xml:lang="en">In cases where software is built to serve different users, configuration testing analyzes the software under the various specified configurations.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AcceptanceTest"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">configuration testing</rdfs:label>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#FaultBasedTechnique">
+    <rdfs:subClassOf rdf:resource="#TestTechnique"/>
+    <rdfs:comment xml:lang="en">Fault-based testing techniques devise test cases specifically aimed at revealing categories of likely or predefined faults.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#UsageBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#CodeBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#SpecificationBasedTechniques"/>
+    <owl:disjointWith rdf:resource="#BlackBox"/>
+    <rdfs:label xml:lang="en">fault based techniques</rdfs:label>
+    <owl:disjointWith rdf:resource="#GrayBox"/>
+    <owl:disjointWith rdf:resource="#WhiteBox"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntuitionAndExperience"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ErrorGuessing">
+    <rdfs:comment xml:lang="en">In error guessing, test cases are specifically designed by software engineers trying to figure out the most plausible faults in a given program. A good source of information is the history of faults discovered in earlier projects, as well as the software engineer's expertise.</rdfs:comment>
+    <rdfs:label xml:lang="en">error guessing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#FaultBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#MutationTesting"/>
+  </owl:Class>
+  <owl:Class rdf:about="#FaultSeedingEvaluation">
+    <owl:disjointWith rdf:resource="#FaultDensityEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReliabilityEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReliabilityGrowthModelEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestCoverageEvaluation"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#TestDimensional"/>
+    <rdfs:comment xml:lang="en">Some faults are artificially introduced into the program before test. When the tests are executed, some of these seeded faults will be revealed, and possibly some faults which were already there will be as well. In theory, depending on which of the artificial faults are discovered, and how many, testing effectiveness can be evaluated, and the remaining number of genuine faults can be estimated.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TestGuide">
+    <owl:disjointWith rdf:resource="#TestTechnique"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">The testing phases could be guided by various aims, for example: in risk-based testing, which uses the product risks to prioritize and focus the test strategy; or in scenario-based testing, in which test cases are defined based on specified software scenarios.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestGuideOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test guides</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestPattern"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestGuideOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TestCoverageEvaluation">
+    <rdfs:subClassOf rdf:resource="#TestDimensional"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReliabilityEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReliabilityGrowthModelEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#FaultDensityEvaluation"/>
+    <owl:disjointWith rdf:resource="#FaultSeedingEvaluation"/>
+    <rdfs:comment xml:lang="en">To evaluate the thoroughness of the executed tests, testers can monitor the elements covered, so that they can dynamically measure the ratio between covered elements and their total number. For example, it is possible to measure the percentage of covered branches in the program flowgraph, or that of the functional requirements exercised among those listed in the specifications document.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AcceptanceTest">
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+    <rdfs:comment xml:lang="en">Acceptance testing checks the system behavior agains the customer's requirements, however these may have been expressed; the customers undertake, or specify, typical tasks to check that their requirements have been met or that the organization has identified these for the target market for the software. This testing activity may or may not involve the developers of the system.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <owl:disjointWith rdf:resource="#RegressionTest"/>
+    <owl:disjointWith rdf:resource="#UsabilityTest"/>
+    <rdfs:label xml:lang="en">acceptance/qualification testing</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#InstallationTest"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith rdf:resource="#ConfigurationTest"/>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestPattern">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SoftwareTestProcess"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestPatternOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">To carry out testing or maintenance in an organized and cost-effective way, the means used to test each part of the software should be reused systematically. This repository of test materials must be under the control of software configuration management, so that changes to software requirements or design can be reflected in changes to the scope of the tests conducted. The test solution adopted for testing some application types under certain circumstances, with the motivations behind the decisions taken, form a test pattern which can itself be documented for later reuse in similar projects.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <rdfs:label xml:lang="en">test patterns</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestDocumentation"/>
+    <owl:disjointWith rdf:resource="#TestGuide"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestPatternOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#SoftwareTestProcess"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#InstallationTest">
+    <owl:disjointWith rdf:resource="#ConfigurationTest"/>
+    <rdfs:label xml:lang="en">installation testing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith rdf:resource="#UsabilityTest"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#AcceptanceTest"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrerequisit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+    <owl:disjointWith rdf:resource="#AcceptanceTest"/>
+    <rdfs:comment xml:lang="en">Usually after completion of software and acceptance testing, the software can be verified upon installation in the target environment. Inatallation testing can be viewed as system testing conducted once again according to hardware configuration requirements. Intallation produces may also be verified.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConformanceTest"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <owl:disjointWith rdf:resource="#RegressionTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ConformanceTest">
+    <owl:disjointWith rdf:resource="#UsabilityTest"/>
+    <owl:disjointWith rdf:resource="#AcceptanceTest"/>
+    <owl:disjointWith rdf:resource="#RegressionTest"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlphaTest"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Conformance testing/Functional testing/Correctness testing is aimed at validating whether or not the observed beharvior of the tested software conforms to its specifications.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <rdfs:label xml:lang="en">conformance/functional/correctness testing</rdfs:label>
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:disjointWith rdf:resource="#InstallationTest"/>
+    <owl:disjointWith rdf:resource="#ConfigurationTest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestPlan">
+    <owl:disjointWith rdf:resource="#TestCaseProcedure"/>
+    <rdfs:subClassOf rdf:resource="#TestDocumentation"/>
+    <owl:disjointWith rdf:resource="#TestDesignSpecification"/>
+    <rdfs:label xml:lang="en">test plan</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestGuide"/>
+              <owl:Class rdf:about="#TestLevel"/>
+              <owl:Class rdf:about="#TestPattern"/>
+              <owl:Class rdf:about="#TestTechnique"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="organizesTestCriteria"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">The test plan prescribes the scope, approach, resources, and schedule of the testing activities. It identifies the items to be tested, the features to be tested, the testing tasks to be performed, the personnel responsible for each task, and the risks associated with the plan.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesDocumentation"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestDesignSpecification"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestCase"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isCreatedBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TestPlanning"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SoftwareTestProcess">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestLevel"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestLevel"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TestLevel"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestTool"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestTool"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestTechnique"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestTechnique"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestMeasurementMethod"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestMeasurementMethod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestPattern"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestPattern"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestMeasurementMethod"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestDocumentation"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestDocumentation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestPattern"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestFundamental"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestFundamental"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestActivity"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TestActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <rdfs:label xml:lang="en">software testing process</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestGuide"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestGuide"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasTestActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestGuide"/>
+    <owl:disjointWith rdf:resource="#TestTechnique"/>
+    <owl:disjointWith rdf:resource="#TestDocumentation"/>
+    <rdfs:comment xml:lang="en">Software testing consists of the dynamic verification of the behavior of a program on a finite set of test cases, suitably selected from the usually infinite executions domain, against the expected behavior. Testing concepts, strategies, techniques, and measures need to be integrated into a defined and controlled process which is run by people. The test process supports testing activities and provides guidance to testing teams, from test planning to test output evaluation, in such a way as to provide justified assurance that the test objectives will be met cost-effectively.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#TestFundamental"/>
+    <owl:disjointWith rdf:resource="#TestTool"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Agent">
+    <owl:disjointWith rdf:resource="#TestVariable"/>
+    <owl:disjointWith rdf:resource="#TestVariableData"/>
+    <owl:disjointWith rdf:resource="#TestVeredict"/>
+    <rdfs:comment xml:lang="en">An agent is an autonomous entity, that takes alone decisions without the interference of a system or another one entity. An agent should be capable of interact with the environment and with others agents, choosing trusted and cooperate or not with them.  </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#TestFundamental"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Agent"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="interactsWithAgent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">agent</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ReliabilityEvaluation">
+    <rdfs:comment xml:lang="en">A statistic estimate of software reliability, which can be obtained by reliability achievement and evaluation, can be used to evaluate a product and decide whether or not testing can be stopped.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#FaultDensityEvaluation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReliabilityGrowthModelEvaluation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestCoverageEvaluation"/>
+    <owl:disjointWith rdf:resource="#FaultSeedingEvaluation"/>
+    <rdfs:subClassOf rdf:resource="#ProgramDimensional"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AlphaTest">
+    <owl:disjointWith rdf:resource="#RecoveryTest"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Tem que ter uma Release</owl:versionInfo>
+    <rdfs:comment xml:lang="en">Before the software is released, it is sometimes given to a small, representative set of potential users for trial use, either in-house (alpha testing)</rdfs:comment>
+    <owl:disjointWith rdf:resource="#AcceptanceTest"/>
+    <owl:disjointWith rdf:resource="#UsabilityTest"/>
+    <rdfs:subClassOf rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith rdf:resource="#BetaTest"/>
+    <rdfs:label xml:lang="en">alpha testing</rdfs:label>
+    <owl:disjointWith rdf:resource="#RegressionTest"/>
+    <owl:disjointWith rdf:resource="#InstallationTest"/>
+    <owl:disjointWith rdf:resource="#ConformanceTest"/>
+    <owl:disjointWith rdf:resource="#PerformanceTest"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="InternalTeam"/>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="#isRealizedBy"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ConfigurationTest"/>
+    <owl:disjointWith rdf:resource="#StressTest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#InternalTeam">
+    <rdfs:comment xml:lang="en">The test team can be composed of internal members that is, on the project team, involved or not in software construction.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ExternalTeam"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TestTeam"/>
+          <owl:Class>
+            <owl:complementOf>
+              <owl:Class rdf:about="#ExternalTeam"/>
+            </owl:complementOf>
+          </owl:Class>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">internal team</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TestTeam">
+    <owl:disjointWith rdf:resource="#TestVeredict"/>
+    <owl:disjointWith rdf:resource="#SoftwareTest"/>
+    <owl:disjointWith rdf:resource="#TestVeredictProduction"/>
+    <rdfs:subClassOf rdf:resource="#TestFundamental"/>
+    <rdfs:label xml:lang="en">test team</rdfs:label>
+    <rdfs:comment xml:lang="en">Formalization of the test process may involve formalizing the test team organization as well. The test team cam be composed of internal members, of external members, in the hope of bringing in an unbiased, independent perspective, or, finally, of both internal and external members. Considerations of costs, schedule, maturity levels of the involved organizations, and criticality of the application may determine the decision.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#IntuitionAndExperience">
+    <owl:disjointWith rdf:resource="#BlackBox"/>
+    <owl:disjointWith rdf:resource="#FaultBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#GrayBox"/>
+    <owl:disjointWith rdf:resource="#CodeBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#SpecificationBasedTechniques"/>
+    <owl:disjointWith rdf:resource="#UsageBasedTechnique"/>
+    <rdfs:subClassOf rdf:resource="#TestTechnique"/>
+    <owl:disjointWith rdf:resource="#WhiteBox"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Techniques based on the software engineer's intuition and experience.</rdfs:comment>
+    <rdfs:label xml:lang="en">intuition and experience</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ReliabilityGrowthModelEvaluation">
+    <rdfs:subClassOf rdf:resource="#ProgramDimensional"/>
+    <owl:disjointWith rdf:resource="#FaultDensityEvaluation"/>
+    <owl:disjointWith rdf:resource="#ReliabilityEvaluation"/>
+    <owl:disjointWith rdf:resource="#TestCoverageEvaluation"/>
+    <owl:disjointWith rdf:resource="#FaultSeedingEvaluation"/>
+    <rdfs:comment xml:lang="en">Reliability growth models provide a prediction of reliability based on the failures observed under reliability achievement and evaluation. They assume, in general, that the faults that caused the observed failures have been fixed (although some models also accept imperfect fixes), and thus, on average, the product's reliability exhibits an increasing trend. </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ExternalTeam">
+    <owl:disjointWith rdf:resource="#InternalTeam"/>
+    <rdfs:comment xml:lang="en">In the hope of bringing in an unbiased, independent perspective.</rdfs:comment>
+    <rdfs:label xml:lang="en">external team</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TestTeam"/>
+          <owl:Class>
+            <owl:complementOf rdf:resource="#InternalTeam"/>
+          </owl:Class>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#TestCaseExpectedValue">
+    <rdfs:subClassOf rdf:resource="#TestCaseValue"/>
+    <rdfs:label xml:lang="en">expected value</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TestResultsEvaluation">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TestPlanning"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#TestActivity"/>
+    <rdfs:comment xml:lang="en">The results of testing must be evaluated to determine whether or not the test has been successful. In most cases, "successful" means that software performed as expected and did not have any major unexpected outcomes. Not all unexpected outcomes are necessarily faults however, but could be judged to be simply noise. Before a failure can be removed, an analysis and debugging effort is needed to isolate, identify, and describe it. When test results are particularly important, a formal review board may be convened to evaluate them.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#TestIncorrectnessTracking"/>
+    <owl:disjointWith rdf:resource="#TestExecution"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestIncorrectnessTracking"/>
+              <owl:Class rdf:about="#TestLogProduction"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">test results evaluation</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestEnvironmentDevelopment"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestLogProduction"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestPlanning"/>
+              <owl:Class rdf:about="#TestExecution"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TestExecution"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestPlanning"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="evaluatesTestCase"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#TestCase"/>
+              <owl:Restriction>
+                <owl:someValuesFrom rdf:resource="#TestCaseObtainedValue"/>
+                <owl:onProperty rdf:resource="#hasValue"/>
+              </owl:Restriction>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#TestCaseGeneration"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ControlFlowBasedCriteria">
+    <rdfs:label xml:lang="en">control flow based criteria</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Control-flow-based coverage criteria is aimed at covering all the statements or blocks of statements in a program, or specified combinations of them. </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#CodeBasedTechnique"/>
+    <owl:disjointWith rdf:resource="#DataFlowBasedCriteria"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestLevel">
+    <owl:disjointWith rdf:resource="#TestFundamental"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTestLevelOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#SoftwareTestProcess"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#SoftwareTestDomainConcept"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isTestLevelOf"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#SoftwareTestProcess"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestActivity"/>
+    <owl:disjointWith rdf:resource="#TestMeasurementMethod"/>
+    <owl:disjointWith rdf:resource="#TestDocumentation"/>
+    <rdfs:label xml:lang="en">test levels</rdfs:label>
+    <rdfs:comment xml:lang="en">Software testing is usually performed at different levels along the development and maintenace process.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#SoftwareTestProcess"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestEnvironmentDevelopment">
+    <rdfs:comment xml:lang="en">The environment used for testing should be compatible with the software engineering tools. It should facilitate development and control of test cases, as well as logging and recovery of expected results, scripts, and other testing materials.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestExecution"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#antecedesActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TestPlanning"/>
+    <owl:disjointWith rdf:resource="#TestLogProduction"/>
+    <owl:disjointWith rdf:resource="#TestResultsEvaluation"/>
+    <rdfs:subClassOf rdf:resource="#TestActivity"/>
+    <owl:disjointWith rdf:resource="#TestExecution"/>
+    <owl:disjointWith rdf:resource="#TestCaseGeneration"/>
+    <rdfs:label xml:lang="en">test environment development</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestIncorrectnessTracking"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="selectsTestTool"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TestTool"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TestPlanning"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#isBasedOn">
+    <rdfs:range>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TestLevel"/>
+          <owl:Class rdf:about="#TestTechnique"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#TestCaseGeneration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestTechniqueOf">
+    <rdfs:domain rdf:resource="#TestTechnique"/>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:ID="isPartOf"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasTestTechnique"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestPattern">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:ID="hasPart"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isTestPatternOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:range rdf:resource="#TestPattern"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#specifiesAgent">
+    <rdfs:domain rdf:resource="#TestDesignSpecification"/>
+    <rdfs:range rdf:resource="#Agent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasData">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isDataOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestVariableOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#containsTestVariable"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#TestVariable"/>
+    <rdfs:range rdf:resource="#TestCaseProcedure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="obtainedValue">
+    <rdfs:subPropertyOf rdf:resource="#hasValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestTechnique">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#isTestTechniqueOf"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:range rdf:resource="#TestTechnique"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestFundamentalOf">
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasTestFundamental"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#TestFundamental"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestActivity">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isTestActivityOf"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#TestActivity"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#antecedesActivity">
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:about="#succeedsActivity"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSuccessIf">
+    <rdfs:range rdf:resource="#TestVeredict"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestLevelOf">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasTestLevel"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#TestLevel"/>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestActivityOf">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:domain rdf:resource="#TestActivity"/>
+    <owl:inverseOf rdf:resource="#hasTestActivity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#selectsTestCase">
+    <rdfs:domain rdf:resource="#TestCaseSelectionCriteria"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="meansurementResult"/>
+  <owl:ObjectProperty rdf:about="#isInterpretedAs">
+    <rdfs:domain rdf:resource="#TestCaseValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isVeredictOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="producesVeredict"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#TestVeredict"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isVeredictOf</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestMeasurementMethodOf">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#TestMeasurementMethod"/>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasTestMeasurementMethod"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isPerformedBy"/>
+  <owl:ObjectProperty rdf:ID="definesWhatIs">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Correctness"/>
+          <owl:Class rdf:about="#Incorrectness"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestFundamental">
+    <owl:inverseOf rdf:resource="#isTestFundamentalOf"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:range rdf:resource="#TestFundamental"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="verifyRequirement">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isVerifiedBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestDocumentation">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isTestDocumentationOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:range rdf:resource="#TestDocumentation"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDimension"/>
+  <owl:ObjectProperty rdf:about="#isDataOf">
+    <owl:inverseOf rdf:resource="#hasData"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isVerifiedBy">
+    <owl:inverseOf rdf:resource="#verifyRequirement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isGeneratedBy">
+    <rdfs:domain rdf:resource="#TestCase"/>
+    <rdfs:range rdf:resource="#TestCaseGeneration"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#generatesTestCase"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#succeedsDocumentation">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#antecedesDocumentation"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasPrerequisit">
+    <rdfs:domain rdf:resource="#SoftwareTest"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="errorResult">
+    <rdfs:range rdf:resource="#SoftwareError"/>
+    <rdfs:subPropertyOf rdf:resource="#meansurementResult"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#canBeCombinedWith">
+    <rdfs:domain rdf:resource="#SoftwareTest"/>
+    <rdfs:range rdf:resource="#TestStrategyBasedInSwDevelopment"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The test objective varies with the test target; in general, different purposes being addressed at a different level of testing.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="failureResult">
+    <rdfs:range rdf:resource="#SoftwareFailure"/>
+    <rdfs:subPropertyOf rdf:resource="#meansurementResult"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="measuresValue">
+    <rdfs:range rdf:resource="#TestCaseValue"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="valueIsMeasuredBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isProcedureOf">
+    <rdfs:domain rdf:resource="#TestCaseProcedure"/>
+    <rdfs:range rdf:resource="#TestCase"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasProcedure"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#containsTestVariable">
+    <owl:inverseOf rdf:resource="#isTestVariableOf"/>
+    <rdfs:range rdf:resource="#TestVariable"/>
+    <rdfs:domain rdf:resource="#TestCaseProcedure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestGuideOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasTestGuide"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:domain rdf:resource="#TestGuide"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="integrates"/>
+  <owl:ObjectProperty rdf:ID="isSoftwareTestProcessOf">
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestTool">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isTestToolUsedIn"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#TestTool"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestLevel">
+    <owl:inverseOf rdf:resource="#isTestLevelOf"/>
+    <rdfs:range rdf:resource="#TestLevel"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isBasedIn">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TestStrategyBasedInSwDevelopment"/>
+          <owl:Class rdf:about="#SoftwareTest"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#TestCaseSelectionCriteria"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestToolUsedIn">
+    <owl:inverseOf rdf:resource="#hasTestTool"/>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:domain rdf:resource="#TestTool"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestPatternOf">
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#hasTestPattern"/>
+    <rdfs:domain rdf:resource="#TestPattern"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTestDocumentationOf">
+    <owl:inverseOf rdf:resource="#hasTestDocumentation"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#TestDocumentation"/>
+    <rdfs:range rdf:resource="#SoftwareTestProcess"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#generatesTestCase">
+    <rdfs:range rdf:resource="#TestCase"/>
+    <owl:inverseOf rdf:resource="#isGeneratedBy"/>
+    <rdfs:domain rdf:resource="#TestCaseGeneration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="expectedValue">
+    <rdfs:subPropertyOf rdf:resource="#hasValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="considersRequirement">
+    <rdfs:domain rdf:resource="#TestDesignSpecification"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isUsedBy"/>
+  <owl:ObjectProperty rdf:ID="canBeMappedInTo"/>
+  <owl:ObjectProperty rdf:about="#antecedesDocumentation">
+    <owl:inverseOf rdf:resource="#succeedsDocumentation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isDefinedBy"/>
+  <owl:ObjectProperty rdf:about="#producesVeredict">
+    <rdfs:range rdf:resource="#TestVeredict"/>
+    <owl:inverseOf rdf:resource="#isVeredictOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestMeasurementMethod">
+    <owl:inverseOf rdf:resource="#isTestMeasurementMethodOf"/>
+    <rdfs:range rdf:resource="#TestMeasurementMethod"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasProcedure">
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#isProcedureOf"/>
+    <rdfs:range rdf:resource="#TestCaseProcedure"/>
+    <rdfs:domain rdf:resource="#TestCase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="evaluates"/>
+  <owl:ObjectProperty rdf:about="#byAgent">
+    <rdfs:range rdf:resource="#Agent"/>
+    <rdfs:domain rdf:resource="#TestVeredictProduction"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="needsOracleCriteria">
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#useSelectionCrieteria">
+    <rdfs:domain rdf:resource="#TestTechnique"/>
+    <rdfs:range rdf:resource="#TestCaseSelectionCriteria"/>
+    <rdfs:comment xml:lang="en">The many proposed test techniques differ essentially in how they select the test set, and software engineers must be aware that different selection criteria may yield vastly the most suitable selection creterion under given conditions is a very complex problem; in practice, risk analysis techniques and test engineerint expertise are applied.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="faultResult">
+    <rdfs:range rdf:resource="#SoftwareFault"/>
+    <rdfs:subPropertyOf rdf:resource="#meansurementResult"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#valueIsMeasuredBy">
+    <owl:inverseOf rdf:resource="#measuresValue"/>
+    <rdfs:domain rdf:resource="#TestCaseValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="correctResult">
+    <rdfs:range rdf:resource="#Correctness"/>
+    <rdfs:subPropertyOf rdf:resource="#meansurementResult"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestGuide">
+    <rdfs:range rdf:resource="#TestGuide"/>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasPart"/>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf rdf:resource="#isTestGuideOf"/>
+    <rdfs:domain rdf:resource="#SoftwareTestProcess"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="diagnoses"/>
+  <owl:ObjectProperty rdf:ID="organizesActivity">
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isFormedBy"/>
+  <owl:DatatypeProperty rdf:ID="hasTestDesignPropose">
+    <rdfs:domain rdf:resource="#TestDesignSpecification"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTrainingNeeds">
+    <rdfs:domain rdf:resource="#TestPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTestPlanFeatures">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTestPlanEnviromentalNeeds">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasApprovals">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPrereq">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assumptions that must be met before the test case can be run.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasOutPutSpecification">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestCase"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasAgentName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTestPlanApproach">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasReleaseVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSchedule">
+    <rdfs:domain rdf:resource="#TestPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasOracleCriteriaDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTestData">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >List of variables and their possible values used in the test case. The test case should be performed once for each combination of values. These values are written in set notation, one per line. E.g.: loginID = {Valid loginID, invalid loginID, valid email, invalid email, empty}
+password = {valid, invalid, empty}</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasInputSpecification">
+    <rdfs:domain rdf:resource="#TestCase"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPurpose">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestCase"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Short sentence or two about the aspect of the system is being tested. If this gets too long, break the test case up or put more information into the feature descriptions.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTestPlanResource">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSteps">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Steps to carry out the test. 
+1.  visit LoginPage
+2. enter userID
+3. enter password
+4. click login
+5. see the terms of use page
+6. click agree radio button at page bottom
+7. click submit button
+8. see PersonalPage
+9. verify that welcome message is correct username
+</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasVeridictName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTestPlanScope">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TestPlan"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#hasPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:about="#isPartOf"/>
+    </owl:inverseOf>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="#isPartOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasPart"/>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="#succeedsActivity">
+    <owl:inverseOf rdf:resource="#antecedesActivity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:TransitiveProperty>
+  <owl:SymmetricProperty rdf:about="#combineThemselves">
+    <owl:inverseOf rdf:resource="#combineThemselves"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#TestTechnique"/>
+    <rdfs:domain rdf:resource="#TestTechnique"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:ID="hasSoftwareRequirementVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Software Requirement Version</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="betaTestingNeeds">
+    <rdfs:domain rdf:resource="#BetaTest"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPriority">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >highly desirable</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >optional</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >desirable</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >mandatory</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:comment xml:lang="en">In general, the higher the priority, the more essential the requirement is for meeting the overall goals of the software. Oftem classified on a fixed-poit scale such as mandatory, highly desirable, desirable or optional, the priority often has to be balanced against the cost of development and implementation.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">All kind of software requirement costs, like a material, people, etc.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="forSoftwareInTest">
+    <rdfs:domain rdf:resource="#TestVeredictProduction"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTestPlanIdentifier">
+    <rdfs:domain rdf:resource="#TestPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasVeredict">
+    <rdfs:domain rdf:resource="#TestVeredictProduction"/>
+    <rdfs:range rdf:resource="#TestVeredict"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasRisk">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">Software requirement risk</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="alphaTestingNeeds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AlphaTest"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTestingRelatedTerminologyName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasScope">
+    <rdfs:comment xml:lang="en">Scope refers to the extent to which a requirement affects the software and software components. Some requirements, particularly certain nonfunctional ones, have a global scope in that their satisfaction cannot be allocated to a discrete component.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <rdf:List/>
+  <TestScript rdf:ID="isofs.sh"/>
+  <rdf:List/>
+  <TestScript rdf:ID="ltpfsnolvn.sh"/>
+  <rdf:List/>
+  <DecisionTable rdf:ID="Cause-effectGraphing"/>
+  <TestScript rdf:ID="ltp-scsi_debug.sh"/>
+  <rdf:List/>
+  <TestScript rdf:ID="test_containers.sh"/>
+  <TestScript rdf:ID="runEALtest.sh"/>
+  <TestTool rdf:ID="mkrootfs"/>
+  <rdf:List/>
+  <TestScript rdf:ID="runpan.sh"/>
+  <rdf:List/>
+  <rdf:List/>
+  <rdf:List/>
+  <TestScript rdf:ID="adp.sh"/>
+  <TestTool rdf:ID="ltpupdate"/>
+  <rdf:Description rdf:ID="__deleted__">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </rdf:Description>
+  <TestTool rdf:ID="TeSG"/>
+  <TestScript rdf:ID="ltp-aiodio.sh"/>
+  <BoundaryValueAnalysis rdf:ID="RobustnessTesting"/>
+  <TestTool rdf:ID="autoltp"/>
+  <TestTool rdf:ID="ltp_master"/>
+  <TestScript rdf:ID="ltpfslvm.sh"/>
+  <TestScript rdf:ID="test_selinux.sh"/>
+  <TestScript rdf:ID="autofs4.sh"/>
+  <TestScript rdf:ID="adp_test.sh"/>
+  <TestScript rdf:ID="networktest.sh"/>
+  <TestScript rdf:ID="ltpstress.sh"/>
+  <TestScript rdf:ID="tpn_tools.sh"/>
+  <TestScript rdf:ID="adp_children.sh"/>
+  <TestTool rdf:ID="ltpoutput2"/>
+  <TestScript rdf:ID="syscalls.sh"/>
+  <TestScript rdf:ID="autofs1.sh"/>
+  <TestTool rdf:ID="ltp_check"/>
+  <TestTool rdf:ID="ltpoutput"/>
+  <TestScript rdf:ID="diskio.sh"/>
+  <TestScript rdf:ID="networkstress.sh"/>
+  <TestScript rdf:ID="ltpdnapper.sh"/>
+  <rdf:List/>
+  <rdf:List/>
+  <TestScript rdf:ID="math.sh"/>
+  <TestScript rdf:ID="exportfs.sh"/>
+  <TestScript rdf:ID="sysfs.sh"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
