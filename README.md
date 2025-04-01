@@ -1,3 +1,3 @@
 # SoftKG
 
-Repository for Softology/SoftKG
+Repository for SoftKG
