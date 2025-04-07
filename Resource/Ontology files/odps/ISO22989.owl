@@ -1,0 +1,875 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/schieseck/ontologies/2023/7/untitled-ontology-13#"
+     xml:base="http://www.semanticweb.org/schieseck/ontologies/2023/7/untitled-ontology-13"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ISO22989="http://www.semanticweb.org/schieseck/ISO22989#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/schieseck/ISO22989"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#basedOnAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#basedOnAlgorithm">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLAlgorithm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#basedOnLearning -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#basedOnLearning">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MachineLearning"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#consistsOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AIComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#creates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#creates">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Inference"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Prediction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#determines -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#determines">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#executes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#executes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Inference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#fulfills -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#fulfills">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Prediction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasDataSink -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasDataSink">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Storage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataSink"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasDataSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasDataSource">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Acquisition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataSource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasDesign -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasDesign">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasFunction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AIComponent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasParameter">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Hyperparameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasParameterMod -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasParameterMod">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#hasTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#hasTask">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isAcquiredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isAcquiredBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Acquisition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isComposedOfData -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isComposedOfData">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataSet"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isComposedOfSample -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isComposedOfSample">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Sample"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isCreatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isCreatedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isEvaluatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isEvaluatedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Evaluation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isPerformedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isPerformedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MachineLearning"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MachineLearning"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isProcessedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isProcessedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isStoredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isStoredBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Storage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#isValidatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#isValidatedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Validation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#usesAI -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#usesAI">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AIType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#usesData -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#usesData">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Evaluation"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Inference"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Validation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#EvaluationData"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ProductionData"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#TestData"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#TrainingData"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ValidationData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#usesMetric -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#usesMetric">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#usesOptimizer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO22989#usesOptimizer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#AIComponent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#AIComponent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#AISystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#AIType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#AIType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Accuracy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Accuracy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Acquisition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Acquisition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Annotation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Annotation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Augmentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Augmentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Automate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Automate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Classification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Classification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Cloud -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Cloud">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Clustering -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Clustering">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#DataProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#DataSet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataSet"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#DataSink -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataSink"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#DataSource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataSource"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Edge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Edge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Evaluation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Evaluation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#EvaluationData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#EvaluationData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#F1Score -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#F1Score">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Filtering -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Filtering">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Generation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Generation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#GradientDescent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#GradientDescent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#NetwonMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Hybrid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Hybrid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Hyperparameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Hyperparameter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Imputation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Imputation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Inference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Inference">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Labeling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Labeling">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#LearningType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#MLAlgorithm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MLAlgorithm"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#MLModel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#MachineLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MachineLearning"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Merging -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Merging">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#ModelParameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#NetwonMethod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#NetwonMethod">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Normalization -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Normalization">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Precision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Precision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Prediction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Prediction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#ProductionData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ProductionData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Recall -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Recall">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Regression -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Regression">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#ReinforcementLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ReinforcementLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Sample -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Sample"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Sampling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Sampling">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#SemiSupervisedLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SemiSupervisedLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Storage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Storage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#SubSymbolic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SubSymbolic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AIType"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Symbolic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#SupervisedLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SupervisedLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Symbolic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Symbolic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AIType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#SystemDesign -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#TestData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#TestData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Training -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Training">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#TrainingData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#TrainingData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#UnsupervisedLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#UnsupervisedLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Validation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Validation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#ValidationData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ValidationData">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#AIComponent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#AIType"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Data"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataSet"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataSink"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataSource"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Function"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Hyperparameter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#LearningType"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MLAlgorithm"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#MachineLearning"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#OptimizingMethod"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Sample"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Task"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Accuracy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#F1Score"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Precision"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Recall"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Acquisition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Automate"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#DataProcess"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Evaluation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Inference"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Prediction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Storage"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Validation"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Annotation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Augmentation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Filtering"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Imputation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Labeling"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Normalization"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Sampling"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Classification"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Clustering"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Generation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Regression"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Cloud"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Edge"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Hybrid"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#EvaluationData"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ProductionData"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#TestData"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#TrainingData"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ValidationData"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#ReinforcementLearning"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SemiSupervisedLearning"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#SupervisedLearning"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#UnsupervisedLearning"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

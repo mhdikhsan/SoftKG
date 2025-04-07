@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/schieseck/VDI3682/"
+     xml:base="http://www.semanticweb.org/schieseck/VDI3682/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:VDI3682="http://www.semanticweb.org/schieseck/VDI3682#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/schieseck/VDI3682"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/VDI3682#consistsOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Process"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Process"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#SystemBorder"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#hasElement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/VDI3682#hasElement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/VDI3682#hasInput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/VDI3682#hasOutput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#isAssignedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/VDI3682#isAssignedTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#TechnicalRessource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#TechnicalRessource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#AlternativeFlow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#AlternativeFlow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Assignment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Energy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Energy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Flow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Information -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Information">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#ParallelFlow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#ParallelFlow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Process -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Process"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Product -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Product">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#State -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#SystemBorder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#SystemBorder"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#TechnicalRessource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/VDI3682#TechnicalRessource"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#State"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#SystemBorder"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#TechnicalRessource"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Energy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Information"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Product"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

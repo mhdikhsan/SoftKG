@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#"
+     xml:base="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl">
+        <rdfs:comment>This ontology is part of SEON. It defines concepts to describe flaws found in program code.</rdfs:comment>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/general/2012/02/measurement.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#affectsCodeEntity -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#affectsCodeEntity">
+        <rdfs:comment>A design disharmony affects a piece of code, such as a class or method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#identifiedByMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#identifiedByMeasurement">
+        <rdfs:comment>Certain measurements can be used to identify design disharmonies. E.g., a high number of lines of code, many dependencies, and a large number of fields and methods could indicate a god class. The measurements that actually lead to the identification of a design disharmony can be related with this property to a an instance of a disharmony.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/measurement.owl#Measurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DataClass -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DataClass">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A data holder class without complex functionality that other class rely on.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>A flaw encountered in program code. Also known as code smell. The strategies to detect all these dishamonies were proposed by Lanza and Marinescu in the book Object Oriented Metrics in Practice, Springer 2006.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DispersedCoupling -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DispersedCoupling">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A method that calls a few methods form each of a large number of unrelated classes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#FeatureEnvy -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#FeatureEnvy">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A method that uses data of other classes (directly or via accessor methods) more than that of its own.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#GodClass -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#GodClass">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A class that tends to centralize the intelligence of the system or parts of it.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#IntensiveCoupling -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#IntensiveCoupling">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A method that calls many methods from few unrelated classes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#RefusedParentBequest -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#RefusedParentBequest">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A class that uses very few inheritance specific members (i.e. protected methods and attributes) of its parent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#ShotgunSurgery -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#ShotgunSurgery">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A methods that is called by many other methods belonging to many different classes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#TraditionBreaker -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#TraditionBreaker">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl#DesignDisharmony"/>
+        <rdfs:comment>A class providing a large set of of &apos;services&apos; that are unrelated to those provided by its base class.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1912) http://owlapi.sourceforge.net -->
+

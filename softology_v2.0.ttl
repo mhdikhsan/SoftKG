@@ -1,0 +1,555 @@
+@prefix soft:      <http://example.org/softology#> .
+@prefix schema:    <http://schema.org/> .
+@prefix rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:       <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+
+############################
+# Ontology Header
+############################
+
+soft:Ontology a owl:Ontology ;
+    rdfs:label "Softology Ontology for Comprehensive Software Documentation" ;
+    rdfs:comment "This ontology integrates metadata from various external standards and sources (e.g., GitHub, ontologies, and schema.org) for documenting software comprehensively." .
+
+############################
+# Core Classes
+############################
+
+# Main Software Entity (Core Metadata)
+soft:Software a owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:comment "The software entity. Mapped to: swo:SWO_0000001, sd:Software, ontosoft:Software, sciObj:Computer_application; external standard: schema:SoftwareApplication." .
+
+# Software Image (e.g., Docker image, logo, visualization)
+soft:SoftwareImage a owl:Class ;
+    rdfs:label "Software Image" ;
+    rdfs:comment "Represents an image resource related to the software. Mapped to: sd:SoftwareImage, pvont:SoftwareImage; external standard: schema:image." .
+
+# Supporting Classes for Provenance, Licensing, and Ecosystem
+soft:Person a owl:Class ;
+    rdfs:label "Person" .
+
+soft:Organization a owl:Class ;
+    rdfs:label "Organization" .
+
+############################
+# Identifying Information
+############################
+
+soft:hasName a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasName" ;
+    rdfs:comment "Software name. Mapped to: ontosoft:hasName, sd:name, rul:hasName, dct:title; external standard: schema:name." .
+
+soft:hasIdentifier a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasIdentifier" ;
+    rdfs:comment "Unique identifier (DOI, UUID, or GitHub ID). Mapped to: ontosoft:hasUniqueId, sd:doi, seon:hasContentIdentifier, dc:identifier; external standard: schema:identifier." .
+
+############################
+# Temporal Metadata
+############################
+
+soft:creationDate a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "creationDate" ;
+    rdfs:comment "Repository creation date. Mapped to: created_at, sd:dateCreated, seon:hasCreationDate, dct:created; external standard: schema:dateCreated." .
+
+soft:modificationDate a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "modificationDate" ;
+    rdfs:comment "Last modification date. Mapped to: updated_at, seon:hasModificationDate, dct:modified; external standard: schema:dateModified." .
+
+soft:publicationDate a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "publicationDate" ;
+    rdfs:comment "Release or publication date. Mapped to: pushed_at, sd:datePublished, seon:hasReleaseDate; external standard: schema:datePublished." .
+
+############################
+# General Description
+############################
+
+soft:hasDescription a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasDescription" ;
+    rdfs:comment "Detailed description of the software. Mapped to: ontosoft:hasDescription, sd:description, dct:description; external standard: schema:description." .
+
+soft:hasShortDescription a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasShortDescription" ;
+    rdfs:comment "Concise summary. Mapped to: ontosoft:hasShortDescription, sd:shortDescription." .
+
+soft:hasTag a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasTag" ;
+    rdfs:comment "Tags or keywords. Mapped to: sd:tag, pvont:hasTag, olia_system:hasTag; external standard: schema:keywords." .
+
+soft:hasOfficialWebsite a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "hasOfficialWebsite" ;
+    rdfs:comment "Project homepage. Mapped to: homepage, ontosoft:hasProjectWebsite; external standard: schema:url." .
+
+soft:downloadUrl a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "downloadUrl" ;
+    rdfs:comment "Link to downloadable resources. Mapped to: downloads_url; external standard: schema:downloadUrl." .
+
+soft:installUrl a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "installUrl" ;
+    rdfs:comment "Installation guide URL. External standard: schema:installUrl." .
+
+soft:hasCitation a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasCitation" ;
+    rdfs:comment "Preferred citation information. Mapped to: ontosoft:hasPreferredCitation, sd:citation; external standard: schema:citation." .
+
+soft:hasKeywords a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasKeywords" ;
+    rdfs:comment "Domain-specific keywords. Mapped to: ontosoft:hasDomainKeywords, sd:keywords; external standard: schema:keywords." .
+
+soft:hasDevelopmentStatus a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "hasDevelopmentStatus" ;
+    rdfs:comment "Indicates active development (false) or deprecated (true). Mapped to: archived, ontosoft:hasActiveDevelopment; external standard: codemeta:developmentStatus." .
+
+soft:isAccessibleForFree a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "isAccessibleForFree" ;
+    rdfs:comment "Indicates whether the software is free. External standard: schema:isAccessibleForFree." .
+
+soft:hasVisualization a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "hasVisualization" ;
+    rdfs:comment "Screenshot or demo link. Mapped to: sd:Visualization." .
+
+############################
+# Purpose
+############################
+
+soft:hasSoftwareCategory a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasSoftwareCategory" ;
+    rdfs:comment "Software category (e.g., 'Library', 'Tool'). Mapped to: ontosoft:hasSoftwareCategory; external standard: schema:applicationCategory." .
+
+soft:hasApplicationSubcategory a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasApplicationSubcategory" ;
+    rdfs:comment "Software subcategory (e.g., 'Web Framework'). External standard: schema:applicationSubCategory." .
+
+soft:hasFunction a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasFunction" ;
+    rdfs:comment "Core functionality. Mapped to: AIAS:hasFunction, sciObj:Function; external standard: schema:featureList." .
+
+############################
+# Version Control
+############################
+
+soft:hasVersion a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasVersion" ;
+    rdfs:comment "Version tag (e.g., 'v1.0.0'). Mapped to: tag_name (releases), ontosoft:hasSoftwareVersion, swo:SWO_0000081; external standard: schema:softwareVersion." .
+
+soft:releaseNotes a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "releaseNotes" ;
+    rdfs:comment "Changelog or release notes. Mapped to: body (releases); external standard: codemeta:releaseNotes." .
+
+soft:isFork a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "isFork" ;
+    rdfs:comment "Indicates whether the repository is a fork. Mapped to: fork; external standard: schema:fork." .
+
+soft:defaultBranch a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "defaultBranch" ;
+    rdfs:comment "Default branch (e.g., 'main'). Mapped to: default_branch; external standard: schema:branch." .
+
+soft:commitHash a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "commitHash" ;
+    rdfs:comment "Commit hash. Mapped to: sha (commits); external standard: schema:commit." .
+
+soft:hasIssues a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "hasIssues" ;
+    rdfs:comment "Issue tracker status. Mapped to: has_issues, sd:issueTracker; external standard: codemeta:issueTracker." .
+
+############################
+# Provenance
+############################
+
+soft:hasAuthor a owl:ObjectProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range soft:Person ;
+    rdfs:label "hasAuthor" ;
+    rdfs:comment "Creator’s GitHub username. Mapped to: owner.login, ontosoft:hasCreator, sd:author, dct:creator; external standard: schema:author." .
+
+soft:hasContributor a owl:ObjectProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range soft:Person ;
+    rdfs:label "hasContributor" ;
+    rdfs:comment "List of contributors. Mapped to: contributors_url, ontosoft:hasMajorContributor, sd:contributor, dct:contributor; external standard: schema:contributor." .
+
+soft:hasMaintainer a owl:ObjectProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range soft:Person ;
+    rdfs:label "hasMaintainer" ;
+    rdfs:comment "Current maintainer(s). Mapped to: codemeta:maintainer." .
+
+soft:hasPublisher a owl:ObjectProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range soft:Organization ;
+    rdfs:label "hasPublisher" ;
+    rdfs:comment "Publishing organization. Mapped to: organization, ontosoft:hasPublisher, sd:publisher; external standard: schema:publisher." .
+
+############################
+# Licensing
+############################
+
+soft:hasLicense a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasLicense" ;
+    rdfs:comment "SPDX license ID (e.g., 'MIT'). Mapped to: license.spdx_id, swo:has_license, ontosoft:hasLicense, sd:license, dct:license; external standard: schema:license." .
+
+soft:copyrightHolder a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "copyrightHolder" ;
+    rdfs:comment "Copyright owner. Mapped to: sd:copyrightHolder; external standard: schema:copyrightHolder." .
+
+soft:copyrightYear a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "copyrightYear" ;
+    rdfs:comment "Year of copyright. Mapped to: sd:copyrightYear; external standard: schema:copyrightYear." .
+
+############################
+# Technical Aspects
+############################
+
+soft:supportsOperatingSystem a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "supportsOperatingSystem" ;
+    rdfs:comment "Supported operating system(s) (e.g., 'Linux'). Mapped to: ontosoft:supportsOperatingSystem, swo:SWO_0000150, sd:operatingSystems; external standard: schema:operatingSystem." .
+
+soft:runtimePlatform a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "runtimePlatform" ;
+    rdfs:comment "Runtime platform (e.g., 'Node.js'). External standard: codemeta:runtimePlatform." .
+
+soft:programmingLanguage a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "programmingLanguage" ;
+    rdfs:comment "Primary programming language (e.g., 'Python'). Mapped to: language, ontosoft:hasImplementationLanguage, obo:IAO_0000025, sd:programmingLanguage; external standard: schema:programmingLanguage." .
+
+soft:memoryRequirements a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "memoryRequirements" ;
+    rdfs:comment "Minimum RAM needed. Mapped to: ontosoft:requiresAverageMemory; external standard: schema:memoryRequirements." .
+
+soft:processorRequirements a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "processorRequirements" ;
+    rdfs:comment "CPU requirements. Mapped to: sd:processorRequirements; external standard: schema:processorRequirements." .
+
+soft:storageRequirements a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "storageRequirements" ;
+    rdfs:comment "Disk space needed. External standard: schema:storageRequirements." .
+
+soft:interfaceType a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "interfaceType" ;
+    rdfs:comment "Interface type (e.g., 'CLI', 'API'). Mapped to: swo:SWO_0004001; external standard: schema:applicationSubCategory." .
+
+############################
+# Inter-Software Relations
+############################
+
+soft:hasRequirements a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasRequirements" ;
+    rdfs:comment "System/software prerequisites. Mapped to: sd:softwareRequirements; external standard: schema:requirements." .
+
+soft:hasDependencies a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasDependencies" ;
+    rdfs:comment "Required dependencies. Mapped to: dependencies, ontosoft:hasDependency, cosc:library-dependens-on; external standard: codemeta:softwareRequirements." .
+
+############################
+# Source Code
+############################
+
+soft:codeRepository a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "codeRepository" ;
+    rdfs:comment "Repository clone URL. Mapped to: clone_url, ontosoft:hasCodeLocation; external standard: schema:codeRepository." .
+
+############################
+# Ecosystem
+############################
+
+soft:hasCommunity a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasCommunity" ;
+    rdfs:comment "Community forums or chat. Mapped to: ontosoft:hasSoftwareCommunity; external standard: codemeta:community." .
+
+soft:hasFunder a owl:ObjectProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range soft:Organization ;
+    rdfs:label "hasFunder" ;
+    rdfs:comment "Funding organization. Mapped to: ontosoft:hasFundingSources; external standard: schema:funder." .
+
+soft:hasSoftwareSupport a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasSoftwareSupport" ;
+    rdfs:comment "Support channels (e.g., email, Slack). Mapped to: ontosoft:hasSoftwareSupport." .
+
+soft:hasUsageInformation a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasUsageInformation" ;
+    rdfs:comment "Usage guidelines. Mapped to: ontosoft:hasUsageInformation." .
+
+############################
+# Documentation
+############################
+
+soft:hasDocumentation a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "hasDocumentation" ;
+    rdfs:comment "Link to documentation. Mapped to: ontosoft:hasDocumentation, sd:hasDocumentation; external standard: schema:documentation." .
+
+soft:hasPaperName a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasPaperName" ;
+    rdfs:comment "Name of associated paper. Mapped to: schema:name." .
+
+soft:paperPublicationYear a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "paperPublicationYear" ;
+    rdfs:comment "Year of publication. Mapped to: schema:datePublished." .
+
+soft:relatedLink a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "relatedLink" ;
+    rdfs:comment "Relevant external resource link. Mapped to: schema:relatedLink." .
+
+############################
+# Testing
+############################
+
+soft:hasTestData a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasTestData" ;
+    rdfs:comment "Testing methodology. Mapped to: ontosoft:hasTestData, swto:SoftwareTest." .
+
+soft:hasTestCase a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasTestCase" ;
+    rdfs:comment "Test case descriptions. Mapped to: swto:TestCase." .
+
+soft:hasTestTechnique a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasTestTechnique" ;
+    rdfs:comment "Testing approaches (e.g., 'Unit Testing'). Mapped to: swto:hasTestTechnique." .
+
+soft:hasTestTool a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasTestTool" ;
+    rdfs:comment "Tools used for testing (e.g., 'JUnit', 'Selenium'). Mapped to: swto:hasTestTool." .
+
+############################
+# Configuration
+############################
+
+soft:hasConfiguration a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasConfiguration" ;
+    rdfs:comment "Configuration details. Mapped to: sd:SoftwareConfiguration." .
+
+soft:hasComponent a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasComponent" ;
+    rdfs:comment "Sub-components. Mapped to: AIAS:hasComponent; external standard: schema:hasPart." .
+
+soft:hasConstraints a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasConstraints" ;
+    rdfs:comment "Usage constraints. Mapped to: sd:hasConstraint." .
+
+############################
+# IO (Input/Output)
+############################
+
+soft:hasInput a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasInput" ;
+    rdfs:comment "Input format. Mapped to: ontosoft:hasInput, sd:hasInput; external standard: schema:input." .
+
+soft:hasOutput a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasOutput" ;
+    rdfs:comment "Output format. Mapped to: ontosoft:hasOutput, sd:hasOutput; external standard: schema:output." .
+
+############################
+# Additional Concepts
+############################
+
+soft:hasReview a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasReview" ;
+    rdfs:comment "Peer review status. Mapped to: schema:review." .
+
+soft:hasTargetProduct a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "hasTargetProduct" ;
+    rdfs:comment "Intended end-use product. Mapped to: schema:targetProduct." .
+
+soft:hasPart a owl:DatatypeProperty ;
+    rdfs:domain soft:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "hasPart" ;
+    rdfs:comment "Sub-resources or parts. Mapped to: sd:hasPart; external standard: schema:hasPart." .
+
+############################
+# Example Individual
+############################
+
+soft:ExampleSoftware a soft:Software ;
+    rdfs:label "Example Software" ;
+    soft:hasName "Example Software" ;
+    soft:hasIdentifier "123e4567-e89b-12d3-a456-426614174000" ;
+    soft:creationDate "2023-01-01T00:00:00Z"^^xsd:dateTime ;
+    soft:modificationDate "2023-04-01T00:00:00Z"^^xsd:dateTime ;
+    soft:publicationDate "2023-04-01T12:00:00Z"^^xsd:dateTime ;
+    soft:hasDescription "A detailed description of the example software." ;
+    soft:hasShortDescription "A concise summary." ;
+    soft:hasTag "example, demo" ;
+    soft:hasOfficialWebsite <http://example.org/software> ;
+    soft:downloadUrl <http://example.org/software/download> ;
+    soft:installUrl <http://example.org/software/install> ;
+    soft:hasCitation "Doe, J. (2023). Example Software Citation." ;
+    soft:hasKeywords "example, demo, software" ;
+    soft:hasDevelopmentStatus false ;
+    soft:isAccessibleForFree true ;
+    soft:hasVisualization <http://example.org/software/visualization.png> ;
+    soft:hasSoftwareCategory "Tool" ;
+    soft:hasApplicationSubcategory "Web Framework" ;
+    soft:hasFunction "Provides demo functionality." ;
+    soft:hasVersion "v1.0.0" ;
+    soft:releaseNotes "Initial release with basic features." ;
+    soft:isFork false ;
+    soft:defaultBranch "main" ;
+    soft:commitHash "abcdef1234567890" ;
+    soft:hasIssues true ;
+    soft:hasAuthor soft:ExampleAuthor ;
+    soft:hasContributor soft:ExampleContributor ;
+    soft:hasMaintainer soft:ExampleMaintainer ;
+    soft:hasPublisher soft:ExampleOrganization ;
+    soft:hasLicense "MIT" ;
+    soft:copyrightHolder "Example Corp" ;
+    soft:copyrightYear "2023"^^xsd:gYear ;
+    soft:supportsOperatingSystem "Linux" ;
+    soft:runtimePlatform "Node.js" ;
+    soft:programmingLanguage "Python" ;
+    soft:memoryRequirements "512MB" ;
+    soft:processorRequirements "1 GHz" ;
+    soft:storageRequirements "100MB" ;
+    soft:interfaceType "CLI" ;
+    soft:hasRequirements "Requires Python 3.8+" ;
+    soft:hasDependencies "dependency1, dependency2" ;
+    soft:codeRepository <https://github.com/example/example-software> ;
+    soft:hasCommunity "http://community.example.org" ;
+    soft:hasFunder soft:ExampleFunder ;
+    soft:hasSoftwareSupport "support@example.org" ;
+    soft:hasUsageInformation "Usage guidelines here." ;
+    soft:hasDocumentation <http://example.org/software/docs> ;
+    soft:hasPaperName "Example Paper" ;
+    soft:paperPublicationYear "2023"^^xsd:gYear ;
+    soft:relatedLink <http://example.org/related> ;
+    soft:hasTestData "Test methodology details." ;
+    soft:hasTestCase "Test case description." ;
+    soft:hasTestTechnique "Unit Testing" ;
+    soft:hasTestTool "JUnit" ;
+    soft:hasConfiguration "Default configuration" ;
+    soft:hasComponent "Component details" ;
+    soft:hasConstraints "None" ;
+    soft:hasInput "Input format description" ;
+    soft:hasOutput "Output format description" ;
+    soft:hasReview "Peer reviewed" ;
+    soft:hasTargetProduct "Final product" ;
+    soft:hasPart <http://example.org/software/part1> .
+
+soft:ExampleAuthor a soft:Person ;
+    rdfs:label "Example Author" .
+
+soft:ExampleContributor a soft:Person ;
+    rdfs:label "Example Contributor" .
+
+soft:ExampleMaintainer a soft:Person ;
+    rdfs:label "Example Maintainer" .
+
+soft:ExampleOrganization a soft:Organization ;
+    rdfs:label "Example Organization" .
+
+soft:ExampleFunder a soft:Organization ;
+    rdfs:label "Example Funder" .

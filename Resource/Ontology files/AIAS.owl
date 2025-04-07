@@ -1,0 +1,1034 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/schieseck/AIAS#"
+     xml:base="http://www.semanticweb.org/schieseck/AIAS"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:AIAS="http://www.semanticweb.org/schieseck/AIAS#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:ISO7489="http://www.semanticweb.org/schieseck/ISO7489#"
+     xmlns:VDI3682="http://www.semanticweb.org/schieseck/VDI3682#"
+     xmlns:ISO22989="http://www.semanticweb.org/schieseck/ISO22989#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/schieseck/AIAS">
+        <owl:imports rdf:resource="http://www.semanticweb.org/schieseck/ISO22989"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/schieseck/ISO7489"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/schieseck/VDI3682"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#communicatesWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#communicatesWith">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#hasCommunication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#hasCommunication -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#hasCommunication">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Component"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#hasComponent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#hasComponent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Component"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#hasFlow -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#hasFlow">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Process"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#hasFunction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Function"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#hasProduct -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#hasProduct">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#hasRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#hasRelation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#isAssignedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#isAssignedBy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#isAssignedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/AIAS#isAssignedTo">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/AIAS#Component"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/AIAS#Function"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#hasInput -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#hasInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#hasFlow"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#hasOutput -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#hasOutput">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#hasFlow"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Actuator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Actuator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#CloudSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#CloudSystem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Component -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Component"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ComputerSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#ComputerSystem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Controller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Controller">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#EdgeDevice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#EdgeDevice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Function"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#PersonalComputer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#PersonalComputer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Process -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Process">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#ProcessOperator"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Relation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Relation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Resource">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#TechnicalRessource"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Sensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/AIAS#Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO22989#Function -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO22989#Function">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Function"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Communication -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Communication">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Relation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Assignment -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Assignment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Relation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#Flow -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#Flow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Relation"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/VDI3682#State -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/VDI3682#State">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Component"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Accuracy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Accuracy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationMetric"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#AcquisitionDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#AcquisitionDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Application -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Application">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Application"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#AutomateDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#AutomateDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Azure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Azure">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/AIAS#CloudSystem"/>
+        <isAssignedTo rdf:resource="http://www.semanticweb.org/schieseck/AIAS#TrainingDeployment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#BatchSize -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#BatchSize">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Hyperparameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#BeltWearConditionClassification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#BeltWearConditionClassification">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Classification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#BeltWearConditionModel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#BeltWearConditionModel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLModel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#CloudDesign -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#CloudDesign">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Cloud"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#CloudStorage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#CloudStorage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Storage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ControllerActuatorCom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ControllerActuatorCom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ControllerEdgeDevCom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ControllerEdgeDevCom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ControllerSensorCom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ControllerSensorCom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#DataLink -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#DataLink">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataLink"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#DataMerging -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#DataMerging">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Merging"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#DataMergingDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#DataMergingDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#DataNormalization -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#DataNormalization">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Normalization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#EdgeCloudCom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#EdgeCloudCom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ElectricMotor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ElectricMotor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Actuator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#EtherCAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#EtherCAT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Name"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Ethernet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Ethernet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Ethernet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#EvaluationData -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#EvaluationData">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#EvaluationData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#EvaluationDataSet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#EvaluationDataSet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataSet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#EvaluationDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#EvaluationDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ExampleAISystem -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ExampleAISystem">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#AISystem"/>
+        <ISO22989:hasTask rdf:resource="http://www.semanticweb.org/schieseck/AIAS#BeltWearConditionClassification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#GradientDescent -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#GradientDescent">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#GradientDescent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#HiddenLayer1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#HiddenLayer1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#HiddenLayer2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#HiddenLayer2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#IP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#IP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#IP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#InferenceDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#InferenceDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#InputLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#InputLayer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Internet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Internet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Name"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#LearningRate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#LearningRate">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Hyperparameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#LongShortTermMemoryNeuronalNetwork -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#LongShortTermMemoryNeuronalNetwork">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MLAlgorithm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#MachineLearning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#MachineLearning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#MachineLearning"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#MetalPlate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#MetalPlate">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Product"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ModelEvaluation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ModelEvaluation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Evaluation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ModelInference -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ModelInference">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Inference"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ModelPrediction -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ModelPrediction">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Prediction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ModelTraining -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ModelTraining">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+        <isAssignedTo rdf:resource="http://www.semanticweb.org/schieseck/AIAS#TrainingDeployment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ModelValidation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ModelValidation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Validation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Network -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Network">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Network"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#NormalizationDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#NormalizationDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#OutputLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#OutputLayer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Physical -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Physical">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Physical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Position -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Position">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Sample"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#PositionDataRecord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#PositionDataRecord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Acquisition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#PositionDataRecordDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#PositionDataRecordDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#PositionSensor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#PositionSensor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Sensor"/>
+        <hasCommunication rdf:resource="http://www.semanticweb.org/schieseck/AIAS#ControllerSensorCom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ProcessDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ProcessDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ProductionData -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ProductionData">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ProductionData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#RaspberryPI4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#RaspberryPI4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/AIAS#EdgeDevice"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#SiemensS7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#SiemensS7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Controller"/>
+        <hasCommunication rdf:resource="http://www.semanticweb.org/schieseck/AIAS#ControllerActuatorCom"/>
+        <hasCommunication rdf:resource="http://www.semanticweb.org/schieseck/AIAS#ControllerEdgeDevCom"/>
+        <hasCommunication rdf:resource="http://www.semanticweb.org/schieseck/AIAS#ControllerSensorCom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#SigmoidActivation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#SigmoidActivation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ModelParameter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#StampInput -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#StampInput">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#StampOutput -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#StampOutput">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Flow"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#StampPositionAutomation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#StampPositionAutomation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Automate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#StampedPart -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#StampedPart">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Product"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#StampingProcess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#StampingProcess">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/AIAS#Process"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#StorageDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#StorageDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#SupervisedLearning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#SupervisedLearning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#SupervisedLearning"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TCP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TCP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#TCP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TestData -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TestData">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#TestData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TestSystemDesign -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TestSystemDesign">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#SystemDesign"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Time -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Time">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Sample"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TimeDataRecord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TimeDataRecord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Acquisition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TimeDataRecordDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TimeDataRecordDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TrainingData -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TrainingData">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#TrainingData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TrainingDataSet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TrainingDataSet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataSet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#TrainingDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#TrainingDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#Transport -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#Transport">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Transport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ValidationData -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ValidationData">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#ValidationData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ValidationDataSet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ValidationDataSet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#DataSet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#ValidationDeployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#ValidationDeployment">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#http -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#http">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#HTTP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#https -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#https">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#HTTPS"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/AIAS#1000BASE-T -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/schieseck/AIAS#1000BASE-T">
+        <rdf:type rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#1000BASE-T"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If the inference is done in the cloud, than the system design &quot;cloud system&quot; is correct</rdfs:comment>
+        <rdfs:label>Test</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/schieseck/AIAS#CloudSystem"/>
+                        <swrl:argument1 rdf:resource="c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/schieseck/VDI3682#Assignment"/>
+                                <swrl:argument1 rdf:resource="a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/schieseck/AIAS#isAssignedTo"/>
+                                        <swrl:argument1 rdf:resource="t"/>
+                                        <swrl:argument2 rdf:resource="a"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#Training"/>
+                                                <swrl:argument1 rdf:resource="t"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/schieseck/AIAS#isAssignedTo"/>
+                                                        <swrl:argument1 rdf:resource="c"/>
+                                                        <swrl:argument2 rdf:resource="a"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/schieseck/ISO22989#hasDesign"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/schieseck/AIAS#ExampleAISystem"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/schieseck/AIAS#CloudDesign"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,1016 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY sciObj "http://cui.unige.ch/~deribauh/SciObj#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ace_lexicon "http://attempto.ifi.uzh.ch/ace_lexicon#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://cui.unige.ch/~deribauh/SciObj#"
+     xml:base="http://cui.unige.ch/~deribauh/SciObj"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sciObj="http://cui.unige.ch/~deribauh/SciObj#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#">
+    <owl:Ontology rdf:about="http://cui.unige.ch/~deribauh/SciObj">
+        <dc:contributor rdf:datatype="&xsd;string">Gilles Falquet</dc:contributor>
+        <dc:creator rdf:datatype="&xsd;string">Helene de Ribaupierre</dc:creator>
+        <dc:date>2013-09-02</dc:date>
+        <dc:description xml:lang="en">This ontology describe different type of scientific object. Scientific object are object that can be use in more than one research and have some standard. For exemple, algorithm can be scientific object, or psychological test.
+This ontology describes only the computer science software technologies and it&apos;s the light version used in the JAPE rules</dc:description>
+        <dc:title xml:lang="en">sciObjComputer the scientific object ontology for computer science</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl -->
+
+    <owl:AnnotationProperty rdf:about="&ace_lexicon;CN_pl"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg -->
+
+    <owl:AnnotationProperty rdf:about="&ace_lexicon;CN_sg"/>
+    
+
+
+    <!-- http://attempto.ifi.uzh.ch/ace_lexicon#PN_sg -->
+
+    <owl:AnnotationProperty rdf:about="&ace_lexicon;PN_sg"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#is_measured_by -->
+
+    <owl:ObjectProperty rdf:about="&sciObj;is_measured_by"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#measures -->
+
+    <owl:ObjectProperty rdf:about="&sciObj;measures">
+        <owl:inverseOf rdf:resource="&sciObj;is_measured_by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Probability -->
+
+    <owl:DatatypeProperty rdf:about="&sciObj;Probability"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Term -->
+
+    <owl:DatatypeProperty rdf:about="&sciObj;Term"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#API -->
+
+    <owl:Class rdf:about="&sciObj;API">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Algorithm -->
+
+    <owl:Class rdf:about="&sciObj;Algorithm">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_sg>Algorithm</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Algorithms</ace_lexicon:CN_pl>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Application -->
+
+    <owl:Class rdf:about="&sciObj;Application">
+        <owl:equivalentClass rdf:resource="&sciObj;Computer_application"/>
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Architecture -->
+
+    <owl:Class rdf:about="&sciObj;Architecture">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Computer_application -->
+
+    <owl:Class rdf:about="&sciObj;Computer_application">
+        <owl:equivalentClass rdf:resource="&sciObj;Computer_program"/>
+        <owl:equivalentClass rdf:resource="&sciObj;Software"/>
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Computer_language -->
+
+    <owl:Class rdf:about="&sciObj;Computer_language">
+        <rdfs:subClassOf rdf:resource="&sciObj;Language"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Computer_program -->
+
+    <owl:Class rdf:about="&sciObj;Computer_program">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Conceptual_model -->
+
+    <owl:Class rdf:about="&sciObj;Conceptual_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_pl>Conceptual_models</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Conceptual_model</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Contemplative_theory -->
+
+    <owl:Class rdf:about="&sciObj;Contemplative_theory">
+        <rdfs:subClassOf rdf:resource="&sciObj;Theory"/>
+        <ace_lexicon:CN_sg>Contemplative_theory</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Contemplative_theories</ace_lexicon:CN_pl>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Data -->
+
+    <owl:Class rdf:about="&sciObj;Data">
+        <rdfs:subClassOf rdf:resource="&sciObj;Scientific_Object"/>
+        <ace_lexicon:CN_sg>Data</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Datas</ace_lexicon:CN_pl>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Data_set -->
+
+    <owl:Class rdf:about="&sciObj;Data_set">
+        <rdfs:subClassOf rdf:resource="&sciObj;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Database -->
+
+    <owl:Class rdf:about="&sciObj;Database">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Economic_model -->
+
+    <owl:Class rdf:about="&sciObj;Economic_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_pl>Economic_models</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Economic_model</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Engine -->
+
+    <owl:Class rdf:about="&sciObj;Engine">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Environment -->
+
+    <owl:Class rdf:about="&sciObj;Environment">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Equation -->
+
+    <owl:Class rdf:about="&sciObj;Equation">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_pl>Equations</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Equation</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Formalism -->
+
+    <owl:Class rdf:about="&sciObj;Formalism">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Framework -->
+
+    <owl:Class rdf:about="&sciObj;Framework">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Function -->
+
+    <owl:Class rdf:about="&sciObj;Function">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Implementation -->
+
+    <owl:Class rdf:about="&sciObj;Implementation">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Information_model -->
+
+    <owl:Class rdf:about="&sciObj;Information_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_pl>Information_models</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Information_model</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Infrastructure -->
+
+    <owl:Class rdf:about="&sciObj;Infrastructure">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Interface -->
+
+    <owl:Class rdf:about="&sciObj;Interface">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Language -->
+
+    <owl:Class rdf:about="&sciObj;Language">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Logical_model -->
+
+    <owl:Class rdf:about="&sciObj;Logical_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_sg>Logical_model</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Logical_models</ace_lexicon:CN_pl>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Mathematical_model -->
+
+    <owl:Class rdf:about="&sciObj;Mathematical_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_pl>Mathematical_models</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Mathematical_model</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Model -->
+
+    <owl:Class rdf:about="&sciObj;Model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Scientific_Object"/>
+        <ace_lexicon:CN_pl>Models</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Model</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Network -->
+
+    <owl:Class rdf:about="&sciObj;Network">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Ontology -->
+
+    <owl:Class rdf:about="&sciObj;Ontology">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Operating_system -->
+
+    <owl:Class rdf:about="&sciObj;Operating_system">
+        <rdfs:subClassOf rdf:resource="&sciObj;Computer_program"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Platform -->
+
+    <owl:Class rdf:about="&sciObj;Platform">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Prototype -->
+
+    <owl:Class rdf:about="&sciObj;Prototype">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Rational_theory -->
+
+    <owl:Class rdf:about="&sciObj;Rational_theory">
+        <rdfs:subClassOf rdf:resource="&sciObj;Theory"/>
+        <ace_lexicon:CN_sg>Rational_theory</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>Rational_theories</ace_lexicon:CN_pl>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Repository -->
+
+    <owl:Class rdf:about="&sciObj;Repository">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Scientific_Object -->
+
+    <owl:Class rdf:about="&sciObj;Scientific_Object">
+        <ace_lexicon:CN_sg>sciObj</ace_lexicon:CN_sg>
+        <ace_lexicon:CN_pl>sciObjs</ace_lexicon:CN_pl>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Service -->
+
+    <owl:Class rdf:about="&sciObj;Service">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Social_model -->
+
+    <owl:Class rdf:about="&sciObj;Social_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:CN_pl>Social_modes</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Social_mode</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Software -->
+
+    <owl:Class rdf:about="&sciObj;Software">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Statistical_model -->
+
+    <owl:Class rdf:about="&sciObj;Statistical_model">
+        <rdfs:subClassOf rdf:resource="&sciObj;Model"/>
+        <ace_lexicon:PN_sg>Statistical_model</ace_lexicon:PN_sg>
+        <ace_lexicon:CN_pl>Statistical_models</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Statistical_model</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#System -->
+
+    <owl:Class rdf:about="&sciObj;System">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Table -->
+
+    <owl:Class rdf:about="&sciObj;Table">
+        <rdfs:subClassOf rdf:resource="&sciObj;Scientific_Object"/>
+        <ace_lexicon:CN_pl>Tables</ace_lexicon:CN_pl>
+        <ace_lexicon:CN_sg>Table</ace_lexicon:CN_sg>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Terminology -->
+
+    <owl:Class rdf:about="&sciObj;Terminology">
+        <rdfs:subClassOf rdf:resource="&sciObj;Tool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Theory -->
+
+    <owl:Class rdf:about="&sciObj;Theory">
+        <rdfs:subClassOf rdf:resource="&sciObj;Scientific_Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Tool -->
+
+    <owl:Class rdf:about="&sciObj;Tool">
+        <rdfs:subClassOf rdf:resource="&sciObj;Scientific_Object"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#C++ -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;C++">
+        <Probability rdf:datatype="&xsd;integer">100</Probability>
+        <Term rdf:datatype="&xsd;string">c++</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#DBPedia -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;DBPedia">
+        <Probability rdf:datatype="&xsd;integer">100</Probability>
+        <Term rdf:datatype="&xsd;string">dbpedia</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Environment -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;Environment">
+        <rdf:type rdf:resource="&sciObj;Environment"/>
+        <Term>Environment</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#OSX -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;OSX"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Statistical_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;Statistical_model">
+        <rdf:type rdf:resource="&sciObj;Statistical_model"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Tools_for_deriving_occupational_status -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;Tools_for_deriving_occupational_status"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#Wikipedia -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;Wikipedia">
+        <Probability rdf:datatype="&xsd;integer">100</Probability>
+        <Term rdf:datatype="&xsd;string">wikipedia</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#algorithm -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;algorithm">
+        <rdf:type rdf:resource="&sciObj;Algorithm"/>
+        <Term>algorithm</Term>
+        <ace_lexicon:PN_sg>Algorithm</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#api -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;api">
+        <rdf:type rdf:resource="&sciObj;API"/>
+        <Term>api</Term>
+        <Term>apis</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#application -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;application">
+        <rdf:type rdf:resource="&sciObj;Application"/>
+        <Term>application</Term>
+        <Term>applications</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#approach -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;approach">
+        <Term>approach</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#architecture -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;architecture">
+        <rdf:type rdf:resource="&sciObj;Architecture"/>
+        <Term>architecture</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#complentative_theory -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;complentative_theory">
+        <rdf:type rdf:resource="&sciObj;Contemplative_theory"/>
+        <ace_lexicon:PN_sg>complentative_theory</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#computer_application -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;computer_application">
+        <rdf:type rdf:resource="&sciObj;Computer_application"/>
+        <Term>computer application</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#computer_language -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;computer_language">
+        <rdf:type rdf:resource="&sciObj;Computer_language"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#computer_program -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;computer_program">
+        <rdf:type rdf:resource="&sciObj;Computer_program"/>
+        <Term>program</Term>
+        <Term>computer program</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#conceptual_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;conceptual_model">
+        <rdf:type rdf:resource="&sciObj;Conceptual_model"/>
+        <ace_lexicon:PN_sg>conceptual_model</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#data -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;data">
+        <rdf:type rdf:resource="&sciObj;Data"/>
+        <Term>data</Term>
+        <Term>data set</Term>
+        <ace_lexicon:PN_sg>data</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#data_set -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;data_set">
+        <rdf:type rdf:resource="&sciObj;Data_set"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#database -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;database">
+        <rdf:type rdf:resource="&sciObj;Database"/>
+        <Term>Database</Term>
+        <Term>Databases</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#economical_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;economical_model">
+        <rdf:type rdf:resource="&sciObj;Economic_model"/>
+        <ace_lexicon:PN_sg>economical_model</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#engine -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;engine">
+        <rdf:type rdf:resource="&sciObj;Engine"/>
+        <Term>engine</Term>
+        <Term>engines</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#equation -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;equation">
+        <rdf:type rdf:resource="&sciObj;Equation"/>
+        <ace_lexicon:PN_sg>equation</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#formalism -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;formalism">
+        <rdf:type rdf:resource="&sciObj;Formalism"/>
+        <Term>formalism</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#framework -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;framework">
+        <rdf:type rdf:resource="&sciObj;Framework"/>
+        <Term>frameworks</Term>
+        <Term>framework</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#function -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;function">
+        <rdf:type rdf:resource="&sciObj;Function"/>
+        <Term>function</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#implementation -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;implementation">
+        <rdf:type rdf:resource="&sciObj;Implementation"/>
+        <Term>implementation</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#information_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;information_model">
+        <rdf:type rdf:resource="&sciObj;Information_model"/>
+        <ace_lexicon:PN_sg>information_model</ace_lexicon:PN_sg>
+        <rdfs:comment>An information model in software engineering is a representation of concepts and the relationships, constraints, rules, and operations to specify data semantics for a chosen domain of discourse. Typically it specifies relations between kinds of things, but may also include relations with individual things. It can provide sharable, stable, and organized structure of information requirements or knowledge for the domain context.(http://en.wikipedia.org/wiki/Information_model)
+</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#infrastructure -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;infrastructure">
+        <rdf:type rdf:resource="&sciObj;Infrastructure"/>
+        <Term>infrastructures</Term>
+        <Term>infrastructure</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#interface -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;interface">
+        <rdf:type rdf:resource="&sciObj;Interface"/>
+        <Term>interfaces</Term>
+        <Term>interface</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#java -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;java">
+        <Probability rdf:datatype="&xsd;integer">100</Probability>
+        <Probability>java</Probability>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#language -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;language">
+        <rdf:type rdf:resource="&sciObj;Language"/>
+        <Term rdf:datatype="&xsd;string">language</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#logical_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;logical_model">
+        <rdf:type rdf:resource="&sciObj;Logical_model"/>
+        <ace_lexicon:PN_sg>logical_model</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#mathematical_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;mathematical_model">
+        <rdf:type rdf:resource="&sciObj;Mathematical_model"/>
+        <Term>mathematical model</Term>
+        <ace_lexicon:PN_sg>mathematical_model</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#microsoft -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;microsoft">
+        <Probability rdf:datatype="&xsd;integer">100</Probability>
+        <Term rdf:datatype="&xsd;string">microsoft</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;model">
+        <rdf:type rdf:resource="&sciObj;Model"/>
+        <Term>model</Term>
+        <ace_lexicon:PN_sg>model</ace_lexicon:PN_sg>
+        <Term>models</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#network -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;network">
+        <rdf:type rdf:resource="&sciObj;Network"/>
+        <Term>network</Term>
+        <Term>networks</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#ontology -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;ontology">
+        <rdf:type rdf:resource="&sciObj;Ontology"/>
+        <Term>ontology</Term>
+        <Term>ontologie</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#operating_system -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;operating_system">
+        <rdf:type rdf:resource="&sciObj;Operating_system"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#pascal -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;pascal">
+        <Probability rdf:datatype="&xsd;integer">100</Probability>
+        <Term>pascal</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#platform -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;platform">
+        <rdf:type rdf:resource="&sciObj;Platform"/>
+        <Term>platform</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#prototype -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;prototype">
+        <rdf:type rdf:resource="&sciObj;Prototype"/>
+        <Term>prototype</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#rational_theory -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;rational_theory">
+        <rdf:type rdf:resource="&sciObj;Rational_theory"/>
+        <ace_lexicon:PN_sg>rational_theory</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#repository -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;repository">
+        <rdf:type rdf:resource="&sciObj;Repository"/>
+        <Term>repositories</Term>
+        <Term>repository</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#service -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;service">
+        <rdf:type rdf:resource="&sciObj;Service"/>
+        <Term>services</Term>
+        <Term>service</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#social_model -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;social_model">
+        <rdf:type rdf:resource="&sciObj;Social_model"/>
+        <ace_lexicon:PN_sg>social_mode</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#software -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;software">
+        <rdf:type rdf:resource="&sciObj;Software"/>
+        <Term>softwares</Term>
+        <Term>software</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#system -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;system">
+        <rdf:type rdf:resource="&sciObj;System"/>
+        <Term>system</Term>
+        <Term>systems</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#table -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;table">
+        <rdf:type rdf:resource="&sciObj;Table"/>
+        <ace_lexicon:PN_sg>table</ace_lexicon:PN_sg>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#terminology -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;terminology">
+        <rdf:type rdf:resource="&sciObj;Terminology"/>
+        <Term>terminology</Term>
+        <Term>terminologies</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#test -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;test">
+        <Term>test</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#theory -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;theory">
+        <rdf:type rdf:resource="&sciObj;Theory"/>
+        <ace_lexicon:CN_pl>theories</ace_lexicon:CN_pl>
+        <rdfs:comment>Theory is a contemplative and rational type of abstract or generalizing thinking, or the results of such thinking. Depending on the context, the results might for example include generalized explanations of how nature works.(wikipedia)</rdfs:comment>
+        <Term>theory</Term>
+        <Term>theories</Term>
+        <ace_lexicon:PN_sg>Theory</ace_lexicon:PN_sg>
+        <ace_lexicon:CN_sg>theory</ace_lexicon:CN_sg>
+        <Term>theorem</Term>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/SciObj#tool -->
+
+    <owl:NamedIndividual rdf:about="&sciObj;tool">
+        <rdf:type rdf:resource="&sciObj;Tool"/>
+        <Term>tools</Term>
+        <Term>tool</Term>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

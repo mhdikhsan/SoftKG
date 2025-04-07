@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+]>
+
+
+<rdf:RDF xmlns="http://cui.unige.ch/~deribauh/verbListScientificPaper#"
+     xml:base="http://cui.unige.ch/~deribauh/verbListScientificPaper"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper">
+     
+       
+        <dc:creator rdf:datatype="&xsd;string">Helene de Ribaupierre</dc:creator>
+        <dc:date>2015-09-02</dc:date>
+        <dc:description xml:lang="en">This ontology describe different verb used in the scientific documents to describe results, data, new artefact, etc. This ontology is used in the context of JAPE rules but can be used for different usages</dc:description>
+        <dc:title xml:lang="en">VerbListScientificPaper</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Apply -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Apply">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Attend -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Attend">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbResult"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Collect -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Collect">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Conduct -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Conduct">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Deliver -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Deliver">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbResult"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Demonstrate -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Demonstrate">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Describe -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Describe">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Develop -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Develop">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Discuss -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Discuss">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Focuse -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Focuse">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Illustrate -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Illustrate">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Indicate -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Indicate">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Introduce -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Introduce">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Investigate -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Investigate">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Perform -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Perform">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbEvalutation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Present -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Present">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Propose -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Propose">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Report -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Report">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Show -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Show">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Study -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Study">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Summerize -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Summerize">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#Use -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#Use">
+        <rdfs:subClassOf rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbEvalutation -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbEvalutation"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbIntroductif"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbMethods"/>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbResult -->
+
+    <owl:Class rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#VerbResult"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#applied -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#applied">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Apply"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#applies -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#applies">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Apply"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#apply -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#apply">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Apply"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#attend -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#attend">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Attend"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#attended -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#attended">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Attend"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#attends -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#attends">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Attend"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#collect -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#collect">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Collect"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#collected -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#collected">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Collect"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#collects -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#collects">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Collect"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#conduct -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#conduct">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Conduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#conducted -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#conducted">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Conduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#conducts -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#conducts">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Conduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#deliver -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#deliver">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Deliver"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#delivered -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#delivered">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Deliver"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#delivers -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#delivers">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Deliver"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#demonstrate -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#demonstrate">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Demonstrate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#demonstrated -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#demonstrated">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Demonstrate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#demonstrates -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#demonstrates">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Demonstrate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#describe -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#describe">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Describe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#described -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#described">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Describe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#describes -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#describes">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Describe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#develop -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#develop">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Develop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#developed -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#developed">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Develop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#develops -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#develops">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Develop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#discuss -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#discuss">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Discuss"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#discussed -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#discussed">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Discuss"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#discusses -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#discusses">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Discuss"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#focuse -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#focuse">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Focuse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#focused -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#focused">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Focuse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#focuses -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#focuses">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Focuse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#illustrate -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#illustrate">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Illustrate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#illustrated -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#illustrated">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Illustrate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#illustrates -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#illustrates">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Illustrate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#incidated -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#incidated">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Indicate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#indicate -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#indicate">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Indicate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#indicates -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#indicates">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Indicate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#introduce -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#introduce">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Introduce"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#introduced -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#introduced">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Introduce"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#introduces -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#introduces">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Introduce"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#investigate -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#investigate">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Investigate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#investigated -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#investigated">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Investigate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#investigates -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#investigates">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Investigate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#perform -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#perform">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Perform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#performed -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#performed">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Perform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#performs -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#performs">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Perform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#present -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#present">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Present"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#presented -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#presented">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Present"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#presents -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#presents">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Present"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#propose -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#propose">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Propose"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#proposed -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#proposed">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Propose"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#proposes -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#proposes">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Propose"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#report -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#report">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Report"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#reported -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#reported">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Report"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#reports -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#reports">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Report"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#show -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#show">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Show"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#showed -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#showed">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Show"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#shown -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#shown">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Show"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#shows -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#shows">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Show"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#studied -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#studied">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Study"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#studies -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#studies">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Study"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#study -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#study">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Study"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#summerize -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#summerize">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Summerize"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#summerized -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#summerized">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Summerize"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#summerizes -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#summerizes">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Summerize"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#use -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#use">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Use"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#used -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#used">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Use"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://cui.unige.ch/~deribauh/verbListScientificPaper#uses -->
+
+    <owl:NamedIndividual rdf:about="http://cui.unige.ch/~deribauh/verbListScientificPaper#uses">
+        <rdf:type rdf:resource="http://cui.unige.ch/~deribauh/verbListScientificPaper#Use"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,355 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#"
+     xml:base="http://se-on.org/ontologies/domain-specific/2012/02/history.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl">
+        <rdfs:comment>This ontology is part of SEON. It defines concepts to describe the history of files managed by version control system.</rdfs:comment>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#appearsInRelease -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#appearsInRelease">
+        <rdfs:comment>A certain version of a file can be chosen for a release.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Release"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#commitsChangeSet -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#commitsChangeSet">
+        <rdfs:comment>Committers submit a set of changed files to a version control system. This property relates the committer to the change set.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Committer"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#commitsVersion"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isCommittedIn"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#commitsVersion -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#commitsVersion">
+        <rdfs:comment>A committer submits a particular version of a file per commit to a version control system. This property relates the comitter to such a version.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Committer"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isCommittedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#constituesVersion -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#constituesVersion">
+        <rdfs:comment>A commit will lead to a new version of a file. This is denoted by this property.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Commit"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#containsVersion -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#containsVersion">
+        <rdfs:comment>Change sets contain one or more files with a particular version each.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#followsVersion -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#followsVersion">
+        <rdfs:comment>A version, if not the first one in the history, always follows an earlier one.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#precedesVersion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasVersion -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasVersion">
+        <rdfs:comment>A file can exist in several versions.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#FileUnderVersionControl"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isCommittedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isCommittedBy">
+        <rdfs:comment>A version of a file can be committed to a version control system by a committer.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Committer"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isCommittedIn -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isCommittedIn">
+        <rdfs:comment>A version of a file is committed in a change set to a version control system.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#containsVersion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isOnBranch -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isOnBranch">
+        <rdfs:comment>Particular versions of a file can be on a separate development stream, i.e., a branch.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Branch"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isVersionOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#isVersionOf">
+        <rdfs:comment>A version belongs to a particular file managed by a version control system.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#FileUnderVersionControl"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasVersion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#performsCommit -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#performsCommit">
+        <rdfs:comment>A committer performs a commit when he submits new versions of files to a version control system.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Commit"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Committer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#precedesVersion -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#precedesVersion">
+        <rdfs:comment>A version, if not the last one in the history, always precedes an later one.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#committedOn -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#committedOn">
+        <rdfs:comment>Change sets or versions are committed at a particular point in time.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasCreationDate"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasCommitMessage -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasCommitMessage">
+        <rdfs:comment>A change set or single version have a commit message denoting the reason for the change.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasContentIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasContentIdentifier">
+        <rdfs:comment>A version of a file is denoted by a number, hash value, etc.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasTag -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#hasTag">
+        <rdfs:comment>Branches or releases can be tagged.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Branch"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Release"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#linesAdded -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#linesAdded">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#linesDeleted -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#linesDeleted">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Branch -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Branch">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>A separate development stream.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#ChangeSet">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>A set of files that change together, i.e., that were committet to a version control system together.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Commit -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Commit">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Activity"/>
+        <rdfs:comment>The act of committing changes to a version control system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Committer -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Committer">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Developer"/>
+        <rdfs:comment>A developer that is allowed to commit changes to a version control system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#FileUnderVersionControl -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#FileUnderVersionControl">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#File"/>
+        <rdfs:comment>A file which is managed by a version control system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/history.owl#Version">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>A version of a file.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

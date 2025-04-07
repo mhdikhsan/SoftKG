@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/schieseck/ISO7489/"
+     xml:base="http://www.semanticweb.org/schieseck/ISO7489/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ISO7489="http://www.semanticweb.org/schieseck/ISO7489#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/schieseck/ISO7489"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#hasDataUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO7489#hasDataUnit">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#hasLayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO7489#hasLayer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#hasName -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO7489#hasName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Name"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#usesTechnology -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/schieseck/ISO7489#usesTechnology">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Application -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Application">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Bit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Bit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Communication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#DHCP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DHCP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Data">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#DataLink -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DataLink">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#DataUnit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Ethernet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Ethernet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#FTP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#FTP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Frame -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Frame">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#HTTP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#HTTP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#HTTPS -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#HTTPS">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#IP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#IP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Layer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#MQTT -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#MQTT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Name -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Name"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Network -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Network">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Package -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Package">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Physical -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Physical">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Presentation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Presentation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Segment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Segment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Session -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Session">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#TCP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#TCP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Technology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#Transport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Transport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/schieseck/ISO7489#1000BASE-T -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/schieseck/ISO7489#1000BASE-T">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Application"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Bit"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Data"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Frame"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Package"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Segment"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Application"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DataLink"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Network"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Physical"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Presentation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Session"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Transport"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Name"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Communication"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DataUnit"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Layer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#Technology"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#DHCP"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#FTP"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#HTTP"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#HTTPS"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#IP"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#MQTT"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#1000BASE-T"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#hasDataUnit"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#hasLayer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#hasName"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/schieseck/ISO7489#usesTechnology"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
