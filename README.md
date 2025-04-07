@@ -14,4 +14,3 @@ _TBD_
 
 ## License
 
-This project is licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**, enabling broad use and contribution while ensuring appropriate credit to the original authors.
