@@ -16,4 +16,5 @@
                 <http://example.org/softkg/functionality> ,
                 <http://example.org/softkg/io> ,
                 <http://example.org/softkg/requirement> ,
+                 <http://example.org/softkg/repository> ,
                 <http://example.org/softkg/testing> .

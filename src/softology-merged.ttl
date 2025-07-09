@@ -6,7 +6,7 @@
 
 #external prfixes
 @prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix seon: <http://purl.org/seon#> .
@@ -30,6 +30,8 @@
 @prefix iot-lite: <http://purl.org/iot-lite#> .
 @prefix VDI3682: <http://www.vdi.de/vdi3682#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix issues: <http://example.org/issues#> .
+
 #################################################################
 # Ontology Metadata
 #################################################################
@@ -103,6 +105,18 @@ softology:Person a owl:Class ;
 softology:Organization a owl:Class ;
     rdfs:label "Organization" ;
     rdfs:comment "An institution or group responsible for publishing, funding, or owning the software." .
+
+softology:Branch a owl:Class ;
+    rdfs:label "Branch"@en ;
+    rdfs:comment "A version control branch of a software repository."@en .
+
+softology:Commit a owl:Class ;
+    rdfs:label "Commit"@en ;
+    rdfs:comment "A specific commit or revision in a software branch."@en .
+
+softology:Issue a owl:Class ;
+    rdfs:label "Issue"@en ;
+    rdfs:comment "A reported problem, task, or enhancement request tracked in an issue tracker system."@en .
 
 #################################################################
 # Extracted Properties from SKOS Mapping
@@ -492,6 +506,28 @@ softology:isVersionOf a owl:ObjectProperty ;
     rdfs:domain softology:SoftwareVersion ;
     rdfs:range softology:Software ;
     rdfs:label "Is Version Of" .
+
+softology:hasBranch a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Branch ;
+    rdfs:label "Has Branch"@en ;
+    rdfs:comment "Links a software to one of its repository branches."@en ;
+    skos:broadMatch seon:Branch .
+
+softology:hasCommit a owl:ObjectProperty ;
+    rdfs:domain softology:Branch ;
+    rdfs:range softology:Commit ;
+    rdfs:label "Has Commit"@en ;
+    rdfs:comment "Links a branch to a specific commit or revision."@en ;
+    skos:broadMatch seon:Commit .
+
+softology:hasIssue a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Issue ;
+    rdfs:label "Has Issue"@en ;
+    rdfs:comment "Links a software to one of its known reported issues."@en ;
+    skos:relatedMatch sd:issueTracker ;
+    skos:broadMatch dcterms:issued .
 
 softology:initialReleaseDate a owl:DatatypeProperty ;
     rdfs:domain softology:SoftwareVersion ;

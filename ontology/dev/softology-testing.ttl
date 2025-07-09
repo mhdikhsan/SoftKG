@@ -5,7 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix swto: <http://www.swtestingontology.org/swto#> .
-@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
 @prefix rul: <http://www.provtools.org/antifraud#> .
 @prefix uml: <http://www.omg.org/spec/UML#> .
 

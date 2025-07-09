@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/testing" uri="softology-testing.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/repository" uri="softology-repo.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/requirement" uri="softology-requirement.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/io" uri="softology-io.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/functionality" uri="softology-functionality.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/dependency" uri="softology-dependency.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/documentation" uri="softology-documentation.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/platform" uri="softology-platform.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/license" uri="softology-license.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/provenance" uri="softology-provenance.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/versioning" uri="softology-versioning.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/core" uri="softology-core.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

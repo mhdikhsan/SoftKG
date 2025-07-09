@@ -1,0 +1,58 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix sd: <https://w3id.org/okn/o/sd#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://example.org/softkg/repository>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Repository Module" ;
+    rdfs:comment "Ontology module for modeling branches, commits, and issues in software repositories." ;
+    owl:versionIRI <http://example.org/softkg/repository/1.0> .
+
+#################################################################
+# Classes
+#################################################################
+
+softology:Branch a owl:Class ;
+    rdfs:label "Branch"@en ;
+    rdfs:comment "A version control branch of a software repository."@en .
+
+softology:Commit a owl:Class ;
+    rdfs:label "Commit"@en ;
+    rdfs:comment "A specific commit or revision in a software branch."@en .
+
+softology:Issue a owl:Class ;
+    rdfs:label "Issue"@en ;
+    rdfs:comment "A reported problem, task, or enhancement request tracked in an issue tracker system."@en .
+
+#################################################################
+# Object Properties
+#################################################################
+
+softology:hasBranch a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Branch ;
+    rdfs:label "Has Branch"@en ;
+    rdfs:comment "Links a software to one of its repository branches."@en ;
+    skos:broadMatch seon:Branch .
+
+softology:hasCommit a owl:ObjectProperty ;
+    rdfs:domain softology:Branch ;
+    rdfs:range softology:Commit ;
+    rdfs:label "Has Commit"@en ;
+    rdfs:comment "Links a branch to a specific commit or revision."@en ;
+    skos:broadMatch seon:Commit .
+
+softology:hasIssue a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Issue ;
+    rdfs:label "Has Issue"@en ;
+    rdfs:comment "Links a software to one of its known reported issues."@en ;
+    skos:relatedMatch sd:issueTracker ;
+    skos:broadMatch dcterms:issued .

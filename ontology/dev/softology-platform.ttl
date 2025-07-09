@@ -5,7 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
 @prefix swo: <http://www.ebi.ac.uk/swo/> .
 @prefix sciObj: <http://purl.org/sciObj#> .
 @prefix cwe: <http://purl.org/cwe#> .

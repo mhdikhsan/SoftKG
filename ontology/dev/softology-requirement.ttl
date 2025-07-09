@@ -5,7 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
 @prefix swto: <http://www.swtestingontology.org/swto#> .
 @prefix uml: <http://www.omg.org/spec/UML#> .
 @prefix edm: <http://edmcouncil.org/auto#> .

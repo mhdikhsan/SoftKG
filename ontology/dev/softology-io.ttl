@@ -14,7 +14,7 @@
 @prefix VDI3682: <http://www.vdi.de/vdi3682#> .
 @prefix pvont: <http://purl.org/pvont#> .
 @prefix iot-lite: <http://purl.org/iot-lite#> .
-@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
 
 <http://example.org/softkg/io>
     a owl:Ontology ;
