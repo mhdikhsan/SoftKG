@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:softology="http://example.org/softkg#"
+    xml:base="http://example.org/softkg/resource/">
+
+  <!-- Ontology Declaration -->
+  <rdf:Description rdf:about="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>Softology Instance Data</rdfs:label>
+    <rdfs:comment>RDF instance data for Softology ontology covering all modules.</rdfs:comment>
+    <owl:imports rdf:resource="http://example.org/softkg/core"/>
+  </rdf:Description>
+
+  <!-- Software Instance -->
+  <rdf:Description rdf:about="#awesomeTool">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <softology:softwareName>AwesomeTool</softology:softwareName>
+    <softology:identifier>doi:10.1234/awesome</softology:identifier>
+    <softology:description>A tool that automates ontology metadata extraction using LLM.</softology:description>
+    <softology:shortDescription>LLM-based metadata extractor</softology:shortDescription>
+    <softology:creationDate rdf:datatype="xsd:date">2024-05-01</softology:creationDate>
+    <softology:lastModified rdf:datatype="xsd:date">2025-07-01</softology:lastModified>
+    <softology:officialWebsite rdf:resource="https://awesometool.org"/>
+    <softology:hasKeyword>ontology</softology:hasKeyword>
+    <softology:hasKeyword>LLM</softology:hasKeyword>
+    <softology:hasKeyword>semantic web</softology:hasKeyword>
+    <softology:developmentStatus>active</softology:developmentStatus>
+    <softology:isOpenSource rdf:datatype="xsd:boolean">true</softology:isOpenSource>
+    <softology:sourceCodeURL rdf:resource="https://github.com/awesome/awesome-tool"/>
+    <softology:hasCategory rdf:resource="#categoryLibrary"/>
+    <softology:hasContainerImage rdf:resource="#dockerImageAwesome"/>
+    <softology:hasLatestVersion rdf:resource="#awesomeV1"/>
+    <softology:hasAuthor rdf:resource="#dev1"/>
+    <softology:hasContributor rdf:resource="#dev1"/>
+    <softology:hasPublisher rdf:resource="#orgA"/>
+    <softology:copyrightHolder rdf:resource="#orgA"/>
+    <softology:copyrightYear rdf:datatype="xsd:gYear">2024</softology:copyrightYear>
+    <softology:hasLicense rdf:resource="#mit"/>
+    <softology:supportedOS rdf:resource="#linux"/>
+    <softology:runtimePlatform rdf:resource="#nodejs"/>
+    <softology:programmingLanguage rdf:resource="#python"/>
+    <softology:hasDependency rdf:resource="#lib1"/>
+    <softology:hasFunction>Extract and align software metadata from natural language descriptions.</softology:hasFunction>
+    <softology:hasInput>Textual software descriptions</softology:hasInput>
+    <softology:hasOutput>Structured RDF metadata in Turtle format</softology:hasOutput>
+    <softology:hasRequirement>Requires GitHub repository access and internet connection.</softology:hasRequirement>
+    <softology:memoryRequirement>4GB</softology:memoryRequirement>
+    <softology:cpuRequirement>2-core CPU</softology:cpuRequirement>
+    <softology:hasConfiguration>Run via CLI with --extract argument</softology:hasConfiguration>
+    <softology:usageConstraint>Must not be used on private repositories without permission.</softology:usageConstraint>
+    <softology:hasTestCase rdf:resource="#case1"/>
+    <softology:usesTestTool rdf:resource="#tool1"/>
+    <softology:testingTechnique>Unit testing, integration testing</softology:testingTechnique>
+  </rdf:Description>
+
+  <!-- Software Version -->
+  <rdf:Description rdf:about="#awesomeV1">
+    <rdf:type rdf:resource="http://example.org/softkg#SoftwareVersion"/>
+    <rdfs:label>v1.0.0</rdfs:label>
+    <softology:initialReleaseDate rdf:datatype="xsd:date">2024-06-01</softology:initialReleaseDate>
+    <softology:releaseNotes>Initial release with CLI and API support.</softology:releaseNotes>
+    <softology:hasDocumentation rdf:resource="#docV1"/>
+  </rdf:Description>
+
+  <!-- Supporting Entities -->
+  <rdf:Description rdf:about="#categoryLibrary">
+    <rdf:type rdf:resource="http://example.org/softkg#Category"/>
+    <rdfs:label>Library</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#dockerImageAwesome">
+    <rdf:type rdf:resource="http://example.org/softkg#ContainerImage"/>
+    <rdfs:label>Docker Image for AwesomeTool</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#dev1">
+    <rdf:type rdf:resource="http://example.org/softkg#Person"/>
+    <rdfs:label>Rani Devanti</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#orgA">
+    <rdf:type rdf:resource="http://example.org/softkg#Organization"/>
+    <rdfs:label>OntoSoft Institute</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#mit">
+    <rdf:type rdf:resource="http://example.org/softkg#License"/>
+    <rdfs:label>MIT</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#linux">
+    <rdf:type rdf:resource="http://example.org/softkg#OperatingSystem"/>
+    <rdfs:label>Linux</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#nodejs">
+    <rdf:type rdf:resource="http://example.org/softkg#RuntimePlatform"/>
+    <rdfs:label>Node.js 18</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#python">
+    <rdf:type rdf:resource="http://example.org/softkg#ProgrammingLanguage"/>
+    <rdfs:label>Python</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#docV1">
+    <rdf:type rdf:resource="http://example.org/softkg#Documentation"/>
+    <rdfs:label>User Guide v1</rdfs:label>
+    <softology:documentationURL rdf:resource="https://awesometool.org/docs/v1"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#lib1">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>SPARQLlib</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#case1">
+    <rdf:type rdf:resource="http://example.org/softkg#TestCase"/>
+    <rdfs:label>Test Extraction from PDF</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#tool1">
+    <rdf:type rdf:resource="http://example.org/softkg#TestTool"/>
+    <rdfs:label>PyTest</rdfs:label>
+  </rdf:Description>
+
+</rdf:RDF>

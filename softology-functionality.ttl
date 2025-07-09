@@ -1,0 +1,88 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix sciObj: <http://purl.org/sciObj#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix AIAS: <http://purl.org/AIAS#> .
+@prefix pvont: <http://purl.org/pvont#> .
+@prefix uml: <http://www.omg.org/spec/UML#> .
+@prefix cosc: <http://w3id.org/cosc#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<http://example.org/softkg/functionality>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Functionality and Structure Module" ;
+    rdfs:comment "Ontology module for describing software functionality, subcategories, components, and internal parts." ;
+    owl:versionIRI <http://example.org/softkg/functionality/1.0> .
+
+#################################################################
+# Classes
+#################################################################
+
+softology:SoftwareComponent a owl:Class ;
+    rdfs:label "Software Component" ;
+    rdfs:comment "A sub-module or component part of the software." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+softology:hasSubcategory a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Category ;
+    rdfs:label "Has Subcategory" ;
+    skos:broadMatch sciObj:Computer_program .
+
+softology:hasComponent a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:SoftwareComponent ;
+    rdfs:label "Has Component" ;
+    skos:broadMatch AIAS:hasComponent ;
+    skos:broadMatch cosc:software-component ;
+    skos:broadMatch uml:Component ;
+    skos:broadMatch sciObj:Engine .
+
+softology:hasPart a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Software ;
+    rdfs:label "Has Part" ;
+    skos:broadMatch sd:hasPart ;
+    skos:broadMatch pvont:hasModule ;
+    skos:broadMatch dct:hasPart ;
+    skos:broadMatch uml:ownedAttribute ;
+    skos:broadMatch sd:hasPart .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:hasFunction a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Function" ;
+    skos:broadMatch seon:Method ;
+    skos:exactMatch AIAS:hasFunction ;
+    skos:broadMatch pvont:Function ;
+    skos:broadMatch uml:method ;
+    skos:broadMatch sciObj:Function .
+
+#################################################################
+# Reasoning Axioms
+#################################################################
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasComponent ;
+    owl:someValuesFrom softology:SoftwareComponent
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasPart ;
+    owl:someValuesFrom softology:Software
+] .

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://example.org/softkg/resource/" uri="resource/softology-instances.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/platform/1.0" uri="softology-platform.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/license/1.0" uri="softology-license.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/testing/1.0" uri="softology-testing.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/functionality/1.0" uri="softology-functionality.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/core/1.0" uri="softology-core.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/documentation/1.0" uri="softology-documentation.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/io/1.0" uri="softology-io.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/requirement/1.0" uri="softology-requirement.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/dependency/1.0" uri="softology-dependency.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://example.org/softkg/resource/" uri="Resource/softology-instances.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/testing" uri="softology-testing.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/requirement" uri="softology-requirement.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/io" uri="softology-io.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/functionality" uri="softology-functionality.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/dependency" uri="softology-dependency.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/documentation" uri="softology-documentation.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/platform" uri="softology-platform.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/license" uri="softology-license.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/provenance" uri="softology-provenance.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/versioning" uri="softology-versioning.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://example.org/softkg/core" uri="softology-core.ttl"/>
+    <uri id="Imports Wizard Entry" name="http://example.org/softkg/versioning/1.0" uri="softology-versioning.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://cos.ontoware.org/cosc" uri="resource/Ontology%20files/cosc.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://cos.ontoware.org/cso" uri="resource/Ontology%20files/cso.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://cui.unige.ch/~deribauh/DocumentAnnote.owl" uri="resource/Ontology%20files/MiningSoftwareOntology/AbstractKlinkWordNet_AKW.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://cui.unige.ch/~deribauh/DocumentAnnote.owl" uri="resource/Ontology%20files/MiningSoftwareOntology/AbstractKlink_AK.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://cui.unige.ch/~deribauh/DocumentAnnote.owl" uri="resource/Ontology%20files/MiningSoftwareOntology/AbstractTitleKlinkWordNet_TAKW%202.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://cui.unige.ch/~deribauh/DocumentAnnote.owl" uri="resource/Ontology%20files/MiningSoftwareOntology/AbstractTitleKlink_TAK.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://cui.unige.ch/~deribauh/DocumentAnnote.owl" uri="resource/Ontology%20files/MiningSoftwareOntology/AbstractTitle_TA.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://cui.unige.ch/~deribauh/DocumentAnnote.owl" uri="resource/Ontology%20files/MiningSoftwareOntology/Abstract_A.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://cui.unige.ch/~deribauh/SciObj" uri="resource/Ontology%20files/MiningSoftwareOntology/scientificObject.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://cui.unige.ch/~deribauh/verbListScientificPaper" uri="resource/Ontology%20files/MiningSoftwareOntology/verbListScientificPaper.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://example.org/softkg/resource/" uri="resource/softology-instances.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://ontosoft.org/software" uri="resource/Ontology%20files/ontosoft-v1.0.1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://purl.org/iot/ontology/fiesta-iot" uri="resource/Ontology%20files/fiesta-iot.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://purl.org/olia/system.owl" uri="resource/Ontology%20files/olia_system.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/change-couplings.owl" uri="resource/Ontology%20files/SE-ON/change-couplings.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/clones.owl" uri="resource/Ontology%20files/SE-ON/clones.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/code-flaws.owl" uri="resource/Ontology%20files/SE-ON/code-flaws.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/fine-grained-changes.owl" uri="resource/Ontology%20files/SE-ON/fine-grained-changes.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/integration-history-issues-code.owl" uri="resource/Ontology%20files/SE-ON/integration-history-issues-code.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/integration-history-issues.owl" uri="resource/Ontology%20files/SE-ON/integration-history-issues.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/issues-bugzilla.owl" uri="resource/Ontology%20files/SE-ON/bugzilla.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-spanning/2012/02/issues-jira.owl" uri="resource/Ontology%20files/SE-ON/jira.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-specific/2012/02/code-metrics.owl" uri="resource/Ontology%20files/SE-ON/code-metrics.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-specific/2012/02/code.owl" uri="resource/Ontology%20files/SE-ON/code.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-specific/2012/02/history.owl" uri="resource/Ontology%20files/SE-ON/history.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl" uri="resource/Ontology%20files/SE-ON/issues.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/general/2012/02/measurement.owl" uri="resource/Ontology%20files/SE-ON/measurement.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/general/2012/2/main.owl" uri="resource/Ontology%20files/SE-ON/main.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/nl/2012/02/annotations-nl.owl" uri="resource/Ontology%20files/SE-ON/annotations-nl.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/nl/2012/02/code-nl.owl" uri="resource/Ontology%20files/SE-ON/code-nl.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://se-on.org/ontologies/system-specific/2012/02/java.owl" uri="resource/Ontology%20files/SE-ON/java.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.aspire-fp7.eu/akb" uri="resource/Ontology%20files/akb-full.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.ebi.ac.uk/swo/swo.owl" uri="resource/Ontology%20files/swo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.example.org/testbed-14/flightplan" uri="resource/Ontology%20files/SWIM.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.owl-ontologies.com/SwTO.owl" uri="resource/Ontology%20files/SwTO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/federico-spiga/ontologies/" uri="resource/Ontology%20files/RobotAction.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/paula/ontologies/architecture_smells" uri="resource/Ontology%20files/ArchitectureSmellOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/schieseck/AIAS" uri="resource/Ontology%20files/AIAS.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/schieseck/ISO7489/" uri="resource/Ontology%20files/odps/ISO7489.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/schieseck/VDI3682/" uri="resource/Ontology%20files/odps/VDI3682.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/schieseck/ontologies/2023/7/untitled-ontology-13" uri="resource/Ontology%20files/odps/ISO22989.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.semanticweb.org/uml-ontology" uri="resource/Ontology%20files/UML-metaclass-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl" uri="resource/Ontology%20files/AFRA.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="duplicate:http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl" uri="resource/Ontology%20files/afro.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="http://www.w3.org/2002/07/owl" uri="resource/Ontology%20files/PerformanceTestOntology%20.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1752047443086" name="https://w3id.org/okn/o/sd" uri="resource/Ontology%20files/SoftwareDescriptionOntology.owl"/>
+    </group>
+</catalog>

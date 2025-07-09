@@ -1,0 +1,110 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix swo: <http://www.ebi.ac.uk/swo/> .
+@prefix sciObj: <http://purl.org/sciObj#> .
+@prefix cwe: <http://purl.org/cwe#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix zora: <http://purl.org/zora/actions#> .
+
+<http://example.org/softkg/platform>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Platform & Support Module" ;
+    rdfs:comment "Ontology module describing software compatibility and technical platform characteristics." ;
+    owl:versionIRI <http://example.org/softkg/platform/1.0> .
+
+#################################################################
+# Classes
+#################################################################
+
+softology:OperatingSystem a owl:Class ;
+    rdfs:label "Operating System" ;
+    rdfs:comment "An OS on which the software can be installed and executed." .
+
+softology:Platform a owl:Class ;
+    rdfs:label "Runtime Platform" ;
+    rdfs:comment "A runtime environment such as Node.js or Java Runtime." .
+
+softology:ProgrammingLanguage a owl:Class ;
+    rdfs:label "Programming Language" ;
+    rdfs:comment "A language in which the software is implemented." .
+
+softology:Interface a owl:Class ;
+    rdfs:label "Interface" ;
+    rdfs:comment "Type of interface provided by the software (e.g., CLI, GUI, API)." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+softology:supportedOS a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:OperatingSystem ;
+    rdfs:label "Supported OS" ;
+    skos:broadMatch software:supportsOperatingSystem ;
+    skos:broadMatch sd:operatingSystems ;
+    skos:broadMatch cwe:applicableOperatingSystem ;
+    skos:broadMatch sciObj:Operating_system .
+
+softology:runtimePlatform a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Platform ;
+    rdfs:label "Runtime Platform" ;
+    skos:broadMatch swo:SWO_0000150 ;
+    skos:broadMatch software:hasAverageRunTime ;
+    skos:broadMatch zora:Device ;
+    skos:broadMatch sciObj:Platform .
+
+softology:programmingLanguage a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:ProgrammingLanguage ;
+    rdfs:label "Programming Language" ;
+    skos:broadMatch obo:IAO_0000025 ;
+    skos:broadMatch software:hasImplementationLanguage ;
+    skos:broadMatch sd:programmingLanguage ;
+    skos:broadMatch zora:hasOperatingMode ;
+    skos:broadMatch cwe:applicableLanguage ;
+    skos:broadMatch sciObj:Computer_language .
+
+softology:hasInterface a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Interface ;
+    rdfs:label "Has Interface" ;
+    skos:broadMatch swo:SWO_0004001 ;
+    skos:broadMatch seon:implementsInterface ;
+    skos:broadMatch sciObj:Interface .
+
+#################################################################
+# Reasoning Axioms
+#################################################################
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:supportedOS ;
+    owl:someValuesFrom softology:OperatingSystem
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:runtimePlatform ;
+    owl:someValuesFrom softology:Platform
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:programmingLanguage ;
+    owl:someValuesFrom softology:ProgrammingLanguage
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasInterface ;
+    owl:someValuesFrom softology:Interface
+] .

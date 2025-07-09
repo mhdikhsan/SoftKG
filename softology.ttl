@@ -1,0 +1,19 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/softkg>
+    a owl:Ontology ;
+    rdfs:label "Softology Ontology" ;
+    rdfs:comment "Master ontology that imports all modular components of the SoftKG software metadata ontology." ;
+    owl:versionIRI <http://example.org/softkg/1.0> ;
+    owl:imports <http://example.org/softkg/core> ,
+                <http://example.org/softkg/versioning> ,
+                <http://example.org/softkg/provenance> ,
+                <http://example.org/softkg/license> ,
+                <http://example.org/softkg/platform> ,
+                <http://example.org/softkg/documentation> ,
+                <http://example.org/softkg/dependency> ,
+                <http://example.org/softkg/functionality> ,
+                <http://example.org/softkg/io> ,
+                <http://example.org/softkg/requirement> ,
+                <http://example.org/softkg/testing> .

@@ -1,0 +1,45 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix cosc: <http://w3id.org/cosc#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix parrot: <http://w3id.org/parrot#> .
+@prefix olia_system: <http://purl.org/olia/system#> .
+@prefix uml: <http://www.omg.org/spec/UML#> .
+
+<http://example.org/softkg/dependency>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Dependency Module" ;
+    rdfs:comment "Ontology module for describing software dependencies between software components or systems." ;
+    owl:versionIRI <http://example.org/softkg/dependency/1.0> .
+
+#################################################################
+# Object Property
+#################################################################
+
+softology:hasDependency a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Software ;
+    rdfs:label "Has Dependency" ;
+    rdfs:comment "Indicates that a software depends on another software." ;
+    skos:broadMatch software:hasDependency ;
+    skos:broadMatch cosc:library-dependens-on ;
+    skos:broadMatch seon:dependsOn ;
+    skos:broadMatch parrot:entails ;
+    skos:broadMatch olia_system:hasSource ;
+    skos:broadMatch uml:Dependency .
+
+#################################################################
+# Reasoning Axiom
+#################################################################
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasDependency ;
+    owl:someValuesFrom softology:Software
+] .

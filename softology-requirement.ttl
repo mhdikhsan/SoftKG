@@ -1,0 +1,60 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix swto: <http://www.swtestingontology.org/swto#> .
+@prefix uml: <http://www.omg.org/spec/UML#> .
+@prefix edm: <http://edmcouncil.org/auto#> .
+@prefix rul: <http://www.provtools.org/antifraud#> .
+
+
+<http://example.org/softkg/requirement>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Requirement Module" ;
+    rdfs:comment "Ontology module for describing system and configuration requirements of software." ;
+    owl:versionIRI <http://example.org/softkg/requirement/1.0> .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:hasRequirement a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Requirement" ;
+    skos:broadMatch sd:softwareRequirements ;
+    skos:broadMatch swto:hasPrerequisit ;
+    skos:broadMatch uml:InstanceSpecification .
+
+softology:memoryRequirement a owl:DatatypeProperty ;
+    rdfs:domain softology:SoftwareVersion ;
+    rdfs:range xsd:string ;
+    rdfs:label "Memory Requirement" ;
+    skos:broadMatch software:requiresAverageMemory ;
+    skos:broadMatch sd:memoryRequirements .
+
+softology:cpuRequirement a owl:DatatypeProperty ;
+    rdfs:domain softology:SoftwareVersion ;
+    rdfs:range xsd:string ;
+    rdfs:label "CPU Requirement" ;
+    skos:broadMatch sd:processorRequirements .
+
+softology:hasConfiguration a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Configuration" ;
+    skos:broadMatch sd:hasConfiguration .
+
+softology:usageConstraint a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Usage Constraint" ;
+    rdfs:comment "A textual rule or restriction applied to how the software should be used or configured." ;
+    skos:broadMatch sd:hasConstraint ;
+    skos:broadMatch rul:hasOperator ;
+    skos:broadMatch uml:Constraint .

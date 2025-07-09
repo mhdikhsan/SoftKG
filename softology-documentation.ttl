@@ -1,0 +1,70 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix seon: <http://purl.org/seon#> .
+
+<http://example.org/softkg/documentation>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Documentation Module" ;
+    rdfs:comment "Ontology module for describing software documentation, support channels, usage guidelines, and community links." ;
+    owl:versionIRI <http://example.org/softkg/documentation/1.0> .
+
+#################################################################
+# Classes
+#################################################################
+
+softology:Documentation a owl:Class ;
+    rdfs:label "Documentation" ;
+    rdfs:comment "Documentation or manuals describing how to use the software." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+softology:hasDocumentation a owl:ObjectProperty ;
+    rdfs:domain softology:SoftwareVersion ;
+    rdfs:range softology:Documentation ;
+    rdfs:label "Has Documentation" ;
+    skos:broadMatch software:hasDocumentation ;
+    skos:broadMatch sd:hasDocumentation ;
+    skos:broadMatch seon:hasDoc .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:supportChannel a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Support Channel" ;
+    skos:broadMatch software:hasSoftwareSupport ;
+    skos:broadMatch sd:supportDetails .
+
+softology:usageInfo a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Usage Info" ;
+    skos:broadMatch software:hasUsageInformation ;
+    skos:broadMatch sd:hasUsageNotes .
+
+softology:communityLink a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Community Link" ;
+    skos:broadMatch software:hasSoftwareCommunity .
+
+#################################################################
+# Reasoning Axiom
+#################################################################
+
+softology:SoftwareVersion rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasDocumentation ;
+    owl:someValuesFrom softology:Documentation
+] .

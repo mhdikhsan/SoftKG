@@ -1,0 +1,179 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+#external prfixes
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix rul: <http://www.provtools.org/antifraud#> .
+@prefix flightplan: <http://w3id.org/flightplan#> .
+@prefix cosc: <http://w3id.org/cosc#> .
+@prefix cwe: <http://purl.org/cwe#> .
+@prefix pvont: <http://purl.org/pvont#> .
+@prefix olia_system: <http://purl.org/olia/system#> .
+@prefix zora: <http://purl.org/zora/actions#> .
+
+#################################################################
+# Ontology Metadata
+#################################################################
+
+<http://example.org/softkg/core>
+    a owl:Ontology ;
+    rdfs:label "Softology Core Module" ;
+    rdfs:comment "Modular core ontology for SoftKG, enabling LLM-based software metadata extraction and Wikidata alignment." ;
+    owl:versionIRI <http://example.org/softkg/core/1.0> .
+
+#################################################################
+# Core Class
+#################################################################
+
+softology:Software a owl:Class ;
+    rdfs:label "Software" ;
+    rdfs:comment "A software system or application that can be described by metadata." .
+
+softology:Category a owl:Class ;
+    rdfs:label "Category" ;
+    rdfs:comment "A classification category for the software." .
+
+softology:ContainerImage a owl:Class ;
+    rdfs:label "Container Image" ;
+    rdfs:comment "A Docker or Singularity container image for the software." .
+
+
+#################################################################
+# Extracted Properties from SKOS Mapping
+#################################################################
+
+softology:softwareName a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Software Name" ;
+    skos:broadMatch software:hasName ;
+    skos:broadMatch sd:name ;
+    skos:broadMatch dcterms:title ;
+    skos:broadMatch rul:hasName ;
+    skos:broadMatch dc:title .
+
+softology:hasContainerImage a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:ContainerImage ;
+    rdfs:label "Has Container Image" ;
+    skos:broadMatch sd:SoftwareImage .
+
+softology:identifier a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Software Identifier" ;
+    skos:broadMatch software:hasUniqueId ;
+    skos:broadMatch sd:doi ;
+    skos:exactMatch seon:hasContentIdentifier ;
+    skos:exactMatch dc:identifier ;
+    skos:broadMatch flightplan:fpo_0000050 .
+
+softology:creationDate a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:date ;
+    rdfs:label "Creation Date" ;
+    skos:broadMatch sd:dateCreated ;
+    skos:exactMatch seon:hasCreationDate ;
+    skos:broadMatch dcterms:created ;
+    skos:broadMatch cwe:urlDate ;
+    skos:broadMatch dc:date .
+
+softology:lastModified a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:date ;
+    rdfs:label "Last Modified Date" ;
+    skos:broadMatch seon:hasModificationDate .
+
+softology:description a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Description" ;
+    skos:exactMatch sd:description ;
+    skos:broadMatch cosc:describes ;
+    skos:exactMatch seon:hasDescription ;
+    skos:exactMatch dcterms:description ;
+    skos:exactMatch dc:description ;
+    skos:exactMatch cwe:description .
+
+softology:shortDescription a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Short Description" ;
+    skos:exactMatch software:hasShortDescription ;
+    skos:exactMatch sd:shortDescription .
+
+softology:officialWebsite a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Official Website" ;
+    skos:broadMatch software:hasProjectWebsite ;
+    skos:broadMatch sd:website .
+
+softology:hasCitation a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Citation" ;
+    skos:broadMatch software:hasPreferredCitation ;
+    skos:broadMatch sd:citation .
+
+softology:hasKeyword a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Keyword" ;
+    skos:broadMatch sd:tag ;
+    skos:broadMatch seon:hasTag ;
+    skos:broadMatch pvont:hasTag ;
+    skos:broadMatch olia_system:hasTag .
+
+softology:developmentStatus a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Development Status" ;
+    skos:broadMatch software:hasActiveDevelopment ;
+    skos:broadMatch sd:status ;
+    skos:broadMatch cwe:status .
+
+softology:isOpenSource a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Is Open Source" .
+
+softology:hasScreenshot a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Screenshot" ;
+    skos:broadMatch sd:Visualization .
+
+softology:hasCategory a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Category ;
+    rdfs:label "Has Category" ;
+    skos:broadMatch software:hasSoftwareCategory ;
+    skos:broadMatch cosc:software-library .
+
+softology:sourceCodeURL a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Source Code URL" ;
+    skos:broadMatch software:hasCodeLocation ;
+    skos:broadMatch zora:code .
+
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasCategory ;
+    owl:someValuesFrom softology:Category
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasContainerImage ;
+    owl:someValuesFrom softology:ContainerImage
+] .

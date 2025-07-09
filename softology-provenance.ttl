@@ -1,0 +1,116 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix cwe: <http://purl.org/cwe#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://example.org/softkg/provenance>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Provenance Module" ;
+    rdfs:comment "Ontology module for representing authorship, contributors, publishers, and copyright metadata." ;
+    owl:versionIRI <http://example.org/softkg/provenance/1.0> .
+
+#################################################################
+# Classes
+#################################################################
+
+softology:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "An individual involved in the creation or contribution of the software." .
+
+softology:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An institution or group responsible for publishing, funding, or owning the software." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+softology:hasAuthor a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Person ;
+    rdfs:label "Has Author" ;
+    skos:broadMatch software:hasCreator ;
+    skos:broadMatch sd:author ;
+    skos:broadMatch seon:hasAuthor ;
+    skos:broadMatch dc:creator ;
+    skos:broadMatch cwe:author .
+
+softology:hasContributor a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Person ;
+    rdfs:label "Has Contributor" ;
+    skos:broadMatch software:hasMajorContributor ;
+    skos:broadMatch sd:contributor ;
+    skos:broadMatch seon:hasAuthor ;
+    skos:broadMatch dc:contributor ;
+    skos:broadMatch cwe:author .
+
+softology:hasPublisher a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Organization ;
+    rdfs:label "Has Publisher" ;
+    skos:broadMatch software:hasPublisher ;
+    skos:broadMatch sd:publisher ;
+    skos:broadMatch cwe:publisher .
+
+softology:hasFunder a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Organization ;
+    rdfs:label "Has Funder" ;
+    skos:broadMatch software:hasFundingSources ;
+    skos:broadMatch sd:fundingSource .
+
+softology:copyrightHolder a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Organization ;
+    rdfs:label "Copyright Holder" ;
+    skos:broadMatch sd:copyrightHolder .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:copyrightYear a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "Copyright Year" ;
+    skos:broadMatch sd:copyrightYear .
+
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasAuthor ;
+    owl:someValuesFrom softology:Person
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasContributor ;
+    owl:someValuesFrom softology:Person
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasPublisher ;
+    owl:someValuesFrom softology:Organization
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasFunder ;
+    owl:someValuesFrom softology:Organization
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:copyrightHolder ;
+    owl:someValuesFrom softology:Organization
+] .

@@ -1,0 +1,64 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix swo: <http://www.ebi.ac.uk/swo/> .
+@prefix cosc: <http://w3id.org/cosc#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<http://example.org/softkg/license>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology License Module" ;
+    rdfs:comment "Ontology module for representing software license, open source status, and download access." ;
+    owl:versionIRI <http://example.org/softkg/license/1.0> .
+
+#################################################################
+# Class
+#################################################################
+
+softology:License a owl:Class ;
+    rdfs:label "License" ;
+    rdfs:comment "A license under which the software is released, e.g., MIT, GPL." .
+
+#################################################################
+# Object Property
+#################################################################
+
+softology:hasLicense a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:License ;
+    rdfs:label "Has License" ;
+    skos:broadMatch swo:has_license ;
+    skos:broadMatch software:hasLicense ;
+    skos:broadMatch sd:license ;
+    skos:broadMatch cosc:license-of ;
+    skos:broadMatch dct:license .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:isOpenSource a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Is Open Source" .
+
+softology:downloadURL a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Download URL" .
+
+#################################################################
+# Reasoning Axioms
+#################################################################
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasLicense ;
+    owl:someValuesFrom softology:License
+] .

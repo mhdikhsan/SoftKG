@@ -1,0 +1,58 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix swto: <http://www.swtestingontology.org/swto#> .
+@prefix parrot: <http://w3id.org/parrot#> .
+@prefix sciObj: <http://purl.org/sciObj#> .
+@prefix cwe: <http://purl.org/cwe#> .
+@prefix uml: <http://www.omg.org/spec/UML#> .
+@prefix VDI3682: <http://www.vdi.de/vdi3682#> .
+@prefix pvont: <http://purl.org/pvont#> .
+@prefix iot-lite: <http://purl.org/iot-lite#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+
+<http://example.org/softkg/io>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology IO Module" ;
+    rdfs:comment "Ontology module for describing the types of input and output handled by software." ;
+    owl:versionIRI <http://example.org/softkg/io/1.0> .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:hasInput a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Input" ;
+    skos:broadMatch software:hasInput ;
+    skos:broadMatch software:hasTestData ;
+    skos:broadMatch seon:hasDatatype ;
+    skos:broadMatch parrot:Access_Data ;
+    skos:broadMatch cwe:cweDataProperty ;
+    skos:broadMatch uml:DataType ;
+    skos:broadMatch swto:hasTestData ;
+    skos:broadMatch sciObj:Data ;
+    skos:broadMatch seon:Variable ;
+    skos:broadMatch VDI3682:hasInput ;
+    skos:broadMatch pvont:input ;
+    skos:broadMatch swto:containsTestVariable ;
+    skos:broadMatch iot-lite:hasAttribute .
+
+softology:hasOutput a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Output" ;
+    skos:broadMatch software:hasOutput ;
+    skos:broadMatch sd:hasOutput ;
+    skos:broadMatch seon:hasReturnType ;
+    skos:broadMatch VDI3682:hasOutput ;
+    skos:broadMatch pvont:output ;
+    skos:broadMatch swto:TestCaseExpectedValue ;
+    skos:broadMatch parrot:Goal .

@@ -1,0 +1,64 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix software: <http://ontosoft.org/software#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix seon: <http://purl.org/seon#> .
+@prefix swo: <http://www.ebi.ac.uk/swo/> .
+@prefix owlterm: <http://www.w3.org/2002/07/owl#> .
+
+<http://example.org/softkg/versioning>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Versioning Module" ;
+    rdfs:comment "Ontology module describing version metadata of software within the SoftKG framework." ;
+    owl:versionIRI <http://example.org/softkg/versioning/1.0> .
+
+softology:SoftwareVersion a owl:Class ;
+    rdfs:label "Software Version" ;
+    rdfs:comment "A specific release or tagged version of a software system." .
+
+softology:hasLatestVersion a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:SoftwareVersion ;
+    rdfs:label "Has Latest Version" ;
+    skos:broadMatch software:hasSoftwareVersion ;
+    skos:broadMatch swo:SWO_0000081 ;
+    skos:broadMatch sd:SoftwareVersion ;
+    skos:broadMatch seon:Version ;
+    skos:broadMatch owlterm:versionInfo .
+
+softology:isVersionOf a owl:ObjectProperty ;
+    owl:inverseOf softology:hasLatestVersion ;
+    rdfs:domain softology:SoftwareVersion ;
+    rdfs:range softology:Software ;
+    rdfs:label "Is Version Of" .
+
+softology:initialReleaseDate a owl:DatatypeProperty ;
+    rdfs:domain softology:SoftwareVersion ;
+    rdfs:range xsd:date ;
+    rdfs:label "Initial Release Date" ;
+    skos:broadMatch sd:datePublished ;
+    skos:broadMatch seon:hasReleaseDate .
+
+softology:releaseNotes a owl:DatatypeProperty ;
+    rdfs:domain softology:SoftwareVersion ;
+    rdfs:range xsd:string ;
+    rdfs:label "Release Notes" ;
+    skos:broadMatch software:releaseNotes ;
+    skos:broadMatch sd:releaseNotes .
+
+softology:SoftwareVersion rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:isVersionOf ;
+    owl:someValuesFrom softology:Software
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasLatestVersion ;
+    owl:someValuesFrom softology:SoftwareVersion
+] .

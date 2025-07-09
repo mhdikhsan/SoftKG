@@ -1,0 +1,72 @@
+@prefix softology: <http://example.org/softkg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix swto: <http://www.swtestingontology.org/swto#> .
+@prefix sd: <http://www.w3id.org/softdes#> .
+@prefix rul: <http://www.provtools.org/antifraud#> .
+@prefix uml: <http://www.omg.org/spec/UML#> .
+
+<http://example.org/softkg/testing>
+    a owl:Ontology ;
+    owl:imports <http://example.org/softkg/core> ;
+    rdfs:label "Softology Testing Module" ;
+    rdfs:comment "Ontology module describing test cases, testing tools, techniques, and software constraints." ;
+    owl:versionIRI <http://example.org/softkg/testing/1.0> .
+
+#################################################################
+# Classes
+#################################################################
+
+softology:TestCase a owl:Class ;
+    rdfs:label "Test Case" ;
+    rdfs:comment "A defined input and expected output used to validate software behavior." .
+
+softology:TestTool a owl:Class ;
+    rdfs:label "Test Tool" ;
+    rdfs:comment "A tool or framework used in software testing (e.g., Selenium, JUnit)." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+softology:hasTestCase a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:TestCase ;
+    rdfs:label "Has Test Case" ;
+    skos:exactMatch swto:TestCase .
+
+softology:usesTestTool a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:TestTool ;
+    rdfs:label "Uses Test Tool" ;
+    skos:exactMatch swto:hasTestTool .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+softology:testingTechnique a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Testing Technique" ;
+    skos:exactMatch swto:hasTestTechnique .
+
+
+#################################################################
+# Reasoning Axioms
+#################################################################
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:hasTestCase ;
+    owl:someValuesFrom softology:TestCase
+] .
+
+softology:Software rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty softology:usesTestTool ;
+    owl:someValuesFrom softology:TestTool
+] .
