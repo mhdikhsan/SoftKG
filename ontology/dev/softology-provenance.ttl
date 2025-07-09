@@ -90,27 +90,3 @@ softology:Software rdfs:subClassOf [
     owl:onProperty softology:hasAuthor ;
     owl:someValuesFrom softology:Person
 ] .
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasContributor ;
-    owl:someValuesFrom softology:Person
-] .
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasPublisher ;
-    owl:someValuesFrom softology:Organization
-] .
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasFunder ;
-    owl:someValuesFrom softology:Organization
-] .
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:copyrightHolder ;
-    owl:someValuesFrom softology:Organization
-] .

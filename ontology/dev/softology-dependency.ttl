@@ -34,12 +34,3 @@ softology:hasDependency a owl:ObjectProperty ;
     skos:broadMatch olia_system:hasSource ;
     skos:broadMatch uml:Dependency .
 
-#################################################################
-# Reasoning Axiom
-#################################################################
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasDependency ;
-    owl:someValuesFrom softology:Software
-] .

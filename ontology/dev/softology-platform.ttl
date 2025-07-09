@@ -93,18 +93,7 @@ softology:Software rdfs:subClassOf [
 
 softology:Software rdfs:subClassOf [
     a owl:Restriction ;
-    owl:onProperty softology:runtimePlatform ;
-    owl:someValuesFrom softology:Platform
-] .
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
     owl:onProperty softology:programmingLanguage ;
     owl:someValuesFrom softology:ProgrammingLanguage
 ] .
 
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasInterface ;
-    owl:someValuesFrom softology:Interface
-] .

@@ -53,10 +53,6 @@ softology:downloadURL a owl:DatatypeProperty ;
     rdfs:range xsd:anyURI ;
     rdfs:label "Download URL" .
 
-#################################################################
-# Reasoning Axioms
-#################################################################
-
 softology:Software rdfs:subClassOf [
     a owl:Restriction ;
     owl:onProperty softology:hasLicense ;

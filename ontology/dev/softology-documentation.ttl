@@ -59,12 +59,3 @@ softology:communityLink a owl:DatatypeProperty ;
     rdfs:label "Community Link" ;
     skos:broadMatch software:hasSoftwareCommunity .
 
-#################################################################
-# Reasoning Axiom
-#################################################################
-
-softology:SoftwareVersion rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasDocumentation ;
-    owl:someValuesFrom softology:Documentation
-] .

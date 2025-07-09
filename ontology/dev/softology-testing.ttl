@@ -55,18 +55,3 @@ softology:testingTechnique a owl:DatatypeProperty ;
     skos:exactMatch swto:hasTestTechnique .
 
 
-#################################################################
-# Reasoning Axioms
-#################################################################
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasTestCase ;
-    owl:someValuesFrom softology:TestCase
-] .
-
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:usesTestTool ;
-    owl:someValuesFrom softology:TestTool
-] .

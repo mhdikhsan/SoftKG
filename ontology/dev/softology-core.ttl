@@ -172,8 +172,3 @@ softology:Software rdfs:subClassOf [
     owl:someValuesFrom softology:Category
 ] .
 
-softology:Software rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty softology:hasContainerImage ;
-    owl:someValuesFrom softology:ContainerImage
-] .
