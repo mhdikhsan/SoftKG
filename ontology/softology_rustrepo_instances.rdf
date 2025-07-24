@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:softology="http://example.org/softkg#"
+>
+
+   <rdf:Description rdf:about="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>Softology Instance Data</rdfs:label>
+    <rdfs:comment>RDF instance data for Softology ontology covering all modules.</rdfs:comment>
+    <owl:imports rdf:resource="http://example.org/softkg/core"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/softkg#User3413">
+    <rdf:type rdf:resource="http://example.org/softkg#Person"/>
+    <rdfs:label>User 3413</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#Repo41752">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>rust-url</rdfs:label>
+    <softology:softwareName>GitHub/servo/rust-url</softology:softwareName>
+    <softology:description>Rust URL parsing library developed by Servo project</softology:description>
+    <softology:sourceCodeURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/GitHub/servo/rust-url</softology:sourceCodeURL>
+    <softology:isOpenSource rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</softology:isOpenSource>
+    <softology:developmentStatus>active</softology:developmentStatus>
+    <softology:hasContributor rdf:resource="http://example.org/softkg#User3413"/>
+    <softology:hasContributor rdf:resource="http://example.org/softkg#User4840"/>
+    <softology:hasContributor rdf:resource="http://example.org/softkg#User4797"/>
+    <softology:hasContributor rdf:resource="http://example.org/softkg#User2955"/>
+    <softology:hasContributor rdf:resource="http://example.org/softkg#User4839"/>
+    <softology:hasDependency rdf:resource="http://example.org/softkg#Repo36114"/>
+    <softology:hasDependency rdf:resource="http://example.org/softkg#Repo35574"/>
+    <softology:hasDependency rdf:resource="http://example.org/softkg#Repo40494"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#Repo35574">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>unicode-normalization</rdfs:label>
+    <softology:softwareName>GitHub/unicode-rs/unicode-normalization</softology:softwareName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#User2955">
+    <rdf:type rdf:resource="http://example.org/softkg#Person"/>
+    <rdfs:label>User 2955</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#User4839">
+    <rdf:type rdf:resource="http://example.org/softkg#Person"/>
+    <rdfs:label>User 4839</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#User4797">
+    <rdf:type rdf:resource="http://example.org/softkg#Person"/>
+    <rdfs:label>User 4797</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#Repo36114">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>rust-std-candidates</rdfs:label>
+    <softology:softwareName>GitHub/SimonSapin/rust-std-candidates</softology:softwareName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#Repo40494">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>unicode-bidi</rdfs:label>
+    <softology:softwareName>GitHub/servo/unicode-bidi</softology:softwareName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/softkg#User4840">
+    <rdf:type rdf:resource="http://example.org/softkg#Person"/>
+    <rdfs:label>User 4840</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

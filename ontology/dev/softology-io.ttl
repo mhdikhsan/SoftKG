@@ -4,17 +4,18 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@prefix software: <http://ontosoft.org/software#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix swto: <http://www.swtestingontology.org/swto#> .
-@prefix parrot: <http://w3id.org/parrot#> .
-@prefix sciObj: <http://purl.org/sciObj#> .
-@prefix cwe: <http://purl.org/cwe#> .
-@prefix uml: <http://www.omg.org/spec/UML#> .
-@prefix VDI3682: <http://www.vdi.de/vdi3682#> .
-@prefix pvont: <http://purl.org/pvont#> .
-@prefix iot-lite: <http://purl.org/iot-lite#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
+@prefix schema: <https://schema.org/> .
+@prefix software:  <http://ontosoft.org/software#> .
+@prefix seon-code: <http://se-on.org/ontologies/domain-specific/2012/02/code.owl#> .
+@prefix swto:      <http://www.owl-ontologies.com/SwTO.owl#> .
+@prefix parrot:    <http://www.semanticweb.org/c1881660/ontologies/PARROT#> .
+@prefix sciObj:    <http://cui.unige.ch/~deribauh/SciObj#> .
+@prefix cwe:       <http://purl.org/cwe#> .
+@prefix uml:       <http://www.semanticweb.org/uml-ontology#> .
+@prefix VDI3682:   <http://www.semanticweb.org/schieseck/VDI3682#> .
+@prefix pvont:     <https://w3id.org/pvont#> .
+@prefix iot-lite:  <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#> .
+@prefix sd:        <https://w3id.org/okn/o/sd#> .
 
 <http://example.org/softkg/io>
     a owl:Ontology ;
@@ -33,13 +34,12 @@ softology:hasInput a owl:DatatypeProperty ;
     rdfs:label "Has Input" ;
     skos:broadMatch software:hasInput ;
     skos:broadMatch software:hasTestData ;
-    skos:broadMatch seon:hasDatatype ;
+    skos:broadMatch seon-code:hasDatatype ;
     skos:broadMatch parrot:Access_Data ;
     skos:broadMatch cwe:cweDataProperty ;
     skos:broadMatch uml:DataType ;
     skos:broadMatch swto:hasTestData ;
     skos:broadMatch sciObj:Data ;
-    skos:broadMatch seon:Variable ;
     skos:broadMatch VDI3682:hasInput ;
     skos:broadMatch pvont:input ;
     skos:broadMatch swto:containsTestVariable ;
@@ -51,8 +51,20 @@ softology:hasOutput a owl:DatatypeProperty ;
     rdfs:label "Has Output" ;
     skos:broadMatch software:hasOutput ;
     skos:broadMatch sd:hasOutput ;
-    skos:broadMatch seon:hasReturnType ;
+    skos:broadMatch seon-code:hasReturnType ;
     skos:broadMatch VDI3682:hasOutput ;
     skos:broadMatch pvont:output ;
     skos:broadMatch swto:TestCaseExpectedValue ;
     skos:broadMatch parrot:Goal .
+
+softology:hasFileFormat a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has File Format" ;
+    skos:exactMatch schema:fileFormat .
+
+softology:hasFileSize a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has File Size" ;
+    skos:exactMatch schema:hasFileSize .

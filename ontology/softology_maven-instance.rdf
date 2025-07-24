@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:softology="http://example.org/softkg#"
+  >
+
+  <!-- Ontology Declaration -->
+  <owl:Ontology rdf:about="">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>Softology Instance Data - Apache Maven</rdfs:label>
+    <rdfs:comment>Complete instance for Apache Maven software, aligned with Softology ontology.</rdfs:comment>
+    <owl:imports rdf:resource="http://example.org/softkg/core"/>
+  </owl:Ontology>
+
+  <!-- Software Instance -->
+  <rdf:Description rdf:about="#ApacheMaven">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>Apache Maven</rdfs:label>
+    <softology:softwareName>Apache Maven</softology:softwareName>
+    <softology:shortDescription>Java build automation tool</softology:shortDescription>
+    <softology:description>A build automation tool used primarily for Java projects.</softology:description>
+    <softology:creationDate rdf:datatype="xsd:date">2004-07-13</softology:creationDate>
+    <softology:isOpenSource rdf:datatype="xsd:boolean">true</softology:isOpenSource>
+    <softology:identifier>wikidata:Q139941</softology:identifier>
+    <softology:officialWebsite rdf:datatype="xsd:anyURI">https://maven.apache.org/index.html</softology:officialWebsite>
+    <softology:sourceCodeURL rdf:datatype="xsd:anyURI">https://github.com/apache/maven</softology:sourceCodeURL>
+    <softology:developmentStatus>active</softology:developmentStatus>
+    <softology:copyrightHolder rdf:resource="http://example.org/softkg#ApacheSoftwareFoundation"/>
+    <softology:copyrightYear rdf:datatype="xsd:gYear">2024</softology:copyrightYear>
+    <softology:hasAuthor rdf:resource="http://example.org/softkg#ApacheSoftwareFoundation"/>
+    <softology:hasPublisher rdf:resource="http://example.org/softkg#ApacheSoftwareFoundation"/>
+    <softology:hasLicense rdf:resource="http://example.org/softkg#ApacheLicense2_0"/>
+    <softology:hasLatestVersion rdf:resource="http://example.org/softkg#Maven_3_9_10"/>
+    <softology:hasComponent rdf:resource="http://example.org/softkg#MavenCore"/>
+    <softology:hasDependency rdf:resource="#JUnit"/>
+    <softology:hasInterface rdf:resource="http://example.org/softkg#CLI"/>
+    <softology:runtimePlatform rdf:resource="http://example.org/softkg#JavaRuntime"/>
+    <softology:supportedOS rdf:resource="http://example.org/softkg#CrossPlatform"/>
+    <softology:hasContainerImage rdf:resource="http://example.org/softkg#MavenDocker"/>
+    <softology:hasTestCase rdf:resource="http://example.org/softkg#CompileTest"/>
+    <softology:hasBranch rdf:resource="http://example.org/softkg#main"/>
+    <softology:hasIssue rdf:resource="http://example.org/softkg#Issue10891"/>
+    <softology:programmingLanguage rdf:resource="#Java"/>
+    <softology:hasCategory rdf:resource="http://example.org/softkg#BuildTool"/>
+  </rdf:Description>
+
+  <!-- Supporting Entities -->
+  <rdf:Description rdf:about="#ApacheSoftwareFoundation">
+    <rdf:type rdf:resource="http://example.org/softkg#Organization"/>
+    <rdfs:label>Apache Software Foundation</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#ApacheLicense2_0">
+    <rdf:type rdf:resource="http://example.org/softkg#License"/>
+    <rdfs:label>Apache License 2.0</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Maven_3_9_10">
+    <rdf:type rdf:resource="http://example.org/softkg#SoftwareVersion"/>
+    <rdfs:label>3.9.10</rdfs:label>
+    <softology:initialReleaseDate rdf:datatype="xsd:date">2025-06-01</softology:initialReleaseDate>
+    <softology:releaseNotes>Stable release with performance improvements.</softology:releaseNotes>
+    <softology:hasDocumentation rdf:resource="http://example.org/softkg#ApacheMavenDocs"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#ApacheMavenDocs">
+    <rdf:type rdf:resource="http://example.org/softkg#Documentation"/>
+    <rdfs:label>Apache Maven User Guide</rdfs:label>
+    <softology:documentationURL rdf:resource="https://maven.apache.org/guides/index.html"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#MavenCore">
+    <rdf:type rdf:resource="http://example.org/softkg#SoftwareComponent"/>
+    <rdfs:label>Maven Core Engine</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#JUnit">
+    <rdf:type rdf:resource="http://example.org/softkg#Software"/>
+    <rdfs:label>JUnit</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#CLI">
+    <rdf:type rdf:resource="http://example.org/softkg#Interface"/>
+    <rdfs:label>Command Line Interface</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#JavaRuntime">
+    <rdf:type rdf:resource="http://example.org/softkg#Platform"/>
+    <rdfs:label>Java Runtime Environment</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#CrossPlatform">
+    <rdf:type rdf:resource="http://example.org/softkg#OperatingSystem"/>
+    <rdfs:label>Cross Platform</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#MavenDocker">
+    <rdf:type rdf:resource="http://example.org/softkg#ContainerImage"/>
+    <rdfs:label>ghcr.io/apache/maven:3.9.10</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#CompileTest">
+    <rdf:type rdf:resource="http://example.org/softkg#TestCase"/>
+    <rdfs:label>Compile Sample Java Project</rdfs:label>
+  </rdf:Description>
+
+
+  <rdf:Description rdf:about="#main">
+    <rdf:type rdf:resource="http://example.org/softkg#Branch"/>
+    <rdfs:label>main</rdfs:label>
+    <softology:hasCommit rdf:resource="http://example.org/softkg#commit66e96ff"/>
+  </rdf:Description>
+
+   <rdf:Description rdf:about="#commit66e96ff">
+    <rdf:type rdf:resource="http://example.org/softkg#Commit"/>
+    <rdfs:label>Remove Jira URL</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#Issue10891">
+    <rdf:type rdf:resource="http://example.org/softkg#Issue"/>
+    <rdfs:label>Improve the wording of the error message for modelVersion mismatch</rdfs:label>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="#Java">
+    <rdf:type rdf:resource="http://example.org/softkg#ProgrammingLanguage"/>
+    <rdfs:label>Java</rdfs:label>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#BuildTool">
+    <rdf:type rdf:resource="http://example.org/softkg#Category"/>
+    <rdfs:label>Build Tool</rdfs:label>
+  </rdf:Description>
+
+</rdf:RDF>

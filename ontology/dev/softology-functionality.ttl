@@ -4,12 +4,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@prefix sciObj: <http://purl.org/sciObj#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix AIAS: <http://purl.org/AIAS#> .
-@prefix pvont: <http://purl.org/pvont#> .
-@prefix uml: <http://www.omg.org/spec/UML#> .
-@prefix cosc: <http://w3id.org/cosc#> .
+@prefix schema: <https://schema.org/> .
+@prefix sciObj: <http://cui.unige.ch/~deribauh/SciObj#> .
+@prefix seon-code: <http://se-on.org/ontologies/domain-specific/2012/02/code.owl#> .
+@prefix AIAS: <http://www.semanticweb.org/schieseck/AIAS#> .
+@prefix pvont: <https://w3id.org/pvont#> .
+@prefix uml: <http://www.semanticweb.org/uml-ontology#> .
+@prefix cosc: <http://cos.ontoware.org/cosc#> .
 @prefix sd: <https://w3id.org/okn/o/sd#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
@@ -36,6 +37,7 @@ softology:hasSubcategory a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:Category ;
     rdfs:label "Has Subcategory" ;
+    skos:closeMatch schema:applicationSubCategory ;
     skos:broadMatch sciObj:Computer_program .
 
 softology:hasComponent a owl:ObjectProperty ;
@@ -55,6 +57,7 @@ softology:hasPart a owl:ObjectProperty ;
     skos:broadMatch pvont:hasModule ;
     skos:broadMatch dct:hasPart ;
     skos:broadMatch uml:ownedAttribute ;
+    skos:exactMatch schema:hasPart ;
     skos:broadMatch sd:hasPart .
 
 #################################################################
@@ -65,7 +68,7 @@ softology:hasFunction a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Has Function" ;
-    skos:broadMatch seon:Method ;
+    skos:broadMatch seon-code:Method ;
     skos:exactMatch AIAS:hasFunction ;
     skos:broadMatch pvont:Function ;
     skos:broadMatch uml:method ;

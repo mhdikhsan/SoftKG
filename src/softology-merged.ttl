@@ -3,34 +3,35 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-
-#external prfixes
-@prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix rul: <http://www.provtools.org/antifraud#> .
-@prefix flightplan: <http://w3id.org/flightplan#> .
-@prefix cosc: <http://w3id.org/cosc#> .
-@prefix cwe: <http://purl.org/cwe#> .
-@prefix pvont: <http://purl.org/pvont#> .
-@prefix olia_system: <http://purl.org/olia/system#> .
-@prefix zora: <http://purl.org/zora/actions#> .
-@prefix parrot: <http://w3id.org/parrot#> .
-@prefix uml: <http://www.omg.org/spec/UML#> .
-@prefix AIAS: <http://purl.org/AIAS#> .
-@prefix sciObj: <http://purl.org/sciObj#> .
-@prefix cosc: <http://w3id.org/cosc#> .
-@prefix swo: <http://www.ebi.ac.uk/swo/> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix edm: <http://edmcouncil.org/auto#> .
-@prefix owlterm: <http://www.w3.org/2002/07/owl#> .
-@prefix swto: <http://www.swtestingontology.org/swto#> .
-@prefix iot-lite: <http://purl.org/iot-lite#> .
-@prefix VDI3682: <http://www.vdi.de/vdi3682#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix issues: <http://example.org/issues#> .
+@prefix schema: <https://schema.org/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix software:   <http://ontosoft.org/software#> .
+@prefix sd:         <https://w3id.org/okn/o/sd#> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix seon-general: <http://se-on.org/ontologies/general/2012/02/main.owl#> .
+@prefix seon-history: <http://se-on.org/ontologies/domain-specific/2012/02/history.owl#> .
+@prefix seon-code:    <http://se-on.org/ontologies/domain-specific/2012/02/code.owl#> .
+@prefix seon-issues:  <http://se-on.org/ontologies/domain-specific/2012/02/issues.owl#> .
+@prefix rul:          <http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#> .
+@prefix flightplan:   <http://www.example.org/testbed-14/flightplan#> .
+@prefix cosc:         <http://cos.ontoware.org/cosc#> .
+@prefix cwe:          <http://purl.org/cwe#> .
+@prefix pvont:        <https://w3id.org/pvont#> .
+@prefix olia_system:  <http://purl.org/olia/system.owl#> .
+@prefix zora:         <http://www.semanticweb.org/federico-spiga/ontologies/ZoraActions#> .
+@prefix parrot:       <http://www.semanticweb.org/c1881660/ontologies/PARROT#> .
+@prefix uml:          <http://www.semanticweb.org/uml-ontology#> .
+@prefix AIAS:         <http://www.semanticweb.org/schieseck/AIAS#> .
+@prefix sciObj:       <http://cui.unige.ch/~deribauh/SciObj#> .
+@prefix swo:          <http://www.ebi.ac.uk/swo/> .
+@prefix obo:          <http://purl.obolibrary.org/obo/> .
+@prefix edm:          <https://spec.edmcouncil.org/auto/ontology/AV/MetadataAV/> .
+@prefix owlterm:      <http://www.w3.org/2002/07/owl#> .
+@prefix swto:         <http://www.owl-ontologies.com/SwTO.owl#> .
+@prefix iot-lite:     <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#> .
+@prefix VDI3682:      <http://www.semanticweb.org/schieseck/VDI3682#> .
+@prefix issues:       <http://example.org/issues#> .
 
 #################################################################
 # Ontology Metadata
@@ -119,50 +120,54 @@ softology:Issue a owl:Class ;
     rdfs:comment "A reported problem, task, or enhancement request tracked in an issue tracker system."@en .
 
 #################################################################
-# Extracted Properties from SKOS Mapping
+# Extracted Properties
 #################################################################
-
 softology:softwareName a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Software Name" ;
-    skos:broadMatch software:hasName ;
+    skos:exactMatch software:hasName ;
     skos:broadMatch sd:name ;
-    skos:broadMatch dcterms:title ;
+    skos:relatedMatch dcterms:title ;
     skos:broadMatch rul:hasName ;
-    skos:broadMatch dc:title .
+    skos:relatedMatch dc:title ;
+    skos:broadMatch schema:name .
 
 softology:hasContainerImage a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:ContainerImage ;
     rdfs:label "Has Container Image" ;
-    skos:broadMatch sd:SoftwareImage .
+    skos:closeMatch sd:SoftwareImage .
+
 
 softology:identifier a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Software Identifier" ;
-    skos:broadMatch software:hasUniqueId ;
+    skos:closeMatch software:hasUniqueId ;
     skos:broadMatch sd:doi ;
-    skos:exactMatch seon:hasContentIdentifier ;
-    skos:exactMatch dc:identifier ;
+    skos:exactMatch seon-history:hasContentIdentifier ;
+    skos:broadMatch dc:identifier ;
+    skos:broadMatch schema:identifier;
     skos:broadMatch flightplan:fpo_0000050 .
 
 softology:creationDate a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:date ;
     rdfs:label "Creation Date" ;
-    skos:broadMatch sd:dateCreated ;
-    skos:exactMatch seon:hasCreationDate ;
+    skos:exactMatch sd:dateCreated ;
+    skos:exactMatch seon-general:hasCreationDate ;
     skos:broadMatch dcterms:created ;
     skos:broadMatch cwe:urlDate ;
+    skos:exactMatch schema:dateCreated;
     skos:broadMatch dc:date .
 
 softology:lastModified a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:date ;
     rdfs:label "Last Modified Date" ;
-    skos:broadMatch seon:hasModificationDate .
+    skos:exactMatch schema:dateModified;
+    skos:closeMatch seon-general:hasModificationDate .
 
 softology:description a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
@@ -170,9 +175,10 @@ softology:description a owl:DatatypeProperty ;
     rdfs:label "Description" ;
     skos:exactMatch sd:description ;
     skos:broadMatch cosc:describes ;
-    skos:exactMatch seon:hasDescription ;
+    skos:exactMatch seon-general:hasDescription ;
     skos:exactMatch dcterms:description ;
     skos:exactMatch dc:description ;
+    skos:exactMatch schema:description;
     skos:exactMatch cwe:description .
 
 softology:shortDescription a owl:DatatypeProperty ;
@@ -194,15 +200,17 @@ softology:hasCitation a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "Citation" ;
     skos:broadMatch software:hasPreferredCitation ;
-    skos:broadMatch sd:citation .
+    skos:exactMatch schema:citation ;
+    skos:closeMatch sd:citation .
 
 softology:hasKeyword a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Keyword" ;
     skos:broadMatch sd:tag ;
-    skos:broadMatch seon:hasTag ;
+    skos:broadMatch seon-history:hasTag ;
     skos:broadMatch pvont:hasTag ;
+    skos:exactMatch schema:keywords ;
     skos:broadMatch olia_system:hasTag .
 
 softology:developmentStatus a owl:DatatypeProperty ;
@@ -211,11 +219,13 @@ softology:developmentStatus a owl:DatatypeProperty ;
     rdfs:label "Development Status" ;
     skos:broadMatch software:hasActiveDevelopment ;
     skos:broadMatch sd:status ;
+    skos:exactMatch schema:developmentStatus ;
     skos:broadMatch cwe:status .
 
 softology:isOpenSource a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:boolean ;
+    skos:broadMatch schema:isAccessibleForFree ;
     rdfs:label "Is Open Source" .
 
 softology:hasScreenshot a owl:DatatypeProperty ;
@@ -228,14 +238,16 @@ softology:hasCategory a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:Category ;
     rdfs:label "Has Category" ;
-    skos:broadMatch software:hasSoftwareCategory ;
+    skos:closeMatch software:hasSoftwareCategory ;
+    skos:closeMatch schema:applicationCategory ;
     skos:broadMatch cosc:software-library .
 
 softology:sourceCodeURL a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:anyURI ;
     rdfs:label "Source Code URL" ;
-    skos:broadMatch software:hasCodeLocation ;
+    skos:closeMatch software:hasCodeLocation ;
+    skos:closeMatch schema:codeRepository ;
     skos:broadMatch zora:code .
 
 softology:hasDependency a owl:ObjectProperty ;
@@ -245,7 +257,7 @@ softology:hasDependency a owl:ObjectProperty ;
     rdfs:comment "Indicates that a software depends on another software." ;
     skos:broadMatch software:hasDependency ;
     skos:broadMatch cosc:library-dependens-on ;
-    skos:broadMatch seon:dependsOn ;
+    skos:broadMatch seon-general:dependsOn ;
     skos:broadMatch parrot:entails ;
     skos:broadMatch olia_system:hasSource ;
     skos:broadMatch uml:Dependency .
@@ -254,34 +266,36 @@ softology:hasDocumentation a owl:ObjectProperty ;
     rdfs:domain softology:SoftwareVersion ;
     rdfs:range softology:Documentation ;
     rdfs:label "Has Documentation" ;
-    skos:broadMatch software:hasDocumentation ;
-    skos:broadMatch sd:hasDocumentation ;
-    skos:broadMatch seon:hasDoc .
+    skos:closeMatch software:hasDocumentation ;
+    skos:broadMatch codemeta:buildInstructions ;
+    skos:closeMatch sd:hasDocumentation ;
+    skos:closeMatch seon-code:hasDoc .
 
 softology:supportChannel a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Support Channel" ;
-    skos:broadMatch software:hasSoftwareSupport ;
+    skos:closeMatch software:hasSoftwareSupport ;
     skos:broadMatch sd:supportDetails .
 
 softology:usageInfo a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Usage Info" ;
-    skos:broadMatch software:hasUsageInformation ;
-    skos:broadMatch sd:hasUsageNotes .
+    skos:exactMatch software:hasUsageInformation ;
+    skos:closeMatch sd:hasUsageNotes .
 
 softology:communityLink a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:anyURI ;
     rdfs:label "Community Link" ;
-    skos:broadMatch software:hasSoftwareCommunity .
+    skos:exactMatch software:hasSoftwareCommunity .
 
 softology:hasSubcategory a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:Category ;
     rdfs:label "Has Subcategory" ;
+    skos:closeMatch schema:applicationSubCategory ;
     skos:broadMatch sciObj:Computer_program .
 
 softology:hasComponent a owl:ObjectProperty ;
@@ -299,19 +313,10 @@ softology:hasPart a owl:ObjectProperty ;
     rdfs:label "Has Part" ;
     skos:broadMatch sd:hasPart ;
     skos:broadMatch pvont:hasModule ;
-    skos:broadMatch dct:hasPart ;
+    skos:broadMatch dc:hasPart ;
     skos:broadMatch uml:ownedAttribute ;
+    skos:exactMatch schema:hasPart ;
     skos:broadMatch sd:hasPart .
-
-softology:hasFunction a owl:DatatypeProperty ;
-    rdfs:domain softology:Software ;
-    rdfs:range xsd:string ;
-    rdfs:label "Has Function" ;
-    skos:broadMatch seon:Method ;
-    skos:exactMatch AIAS:hasFunction ;
-    skos:broadMatch pvont:Function ;
-    skos:broadMatch uml:method ;
-    skos:broadMatch sciObj:Function .
 
 softology:hasInput a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
@@ -319,13 +324,12 @@ softology:hasInput a owl:DatatypeProperty ;
     rdfs:label "Has Input" ;
     skos:broadMatch software:hasInput ;
     skos:broadMatch software:hasTestData ;
-    skos:broadMatch seon:hasDatatype ;
+    skos:broadMatch seon-code:hasDatatype ;
     skos:broadMatch parrot:Access_Data ;
     skos:broadMatch cwe:cweDataProperty ;
     skos:broadMatch uml:DataType ;
     skos:broadMatch swto:hasTestData ;
     skos:broadMatch sciObj:Data ;
-    skos:broadMatch seon:Variable ;
     skos:broadMatch VDI3682:hasInput ;
     skos:broadMatch pvont:input ;
     skos:broadMatch swto:containsTestVariable ;
@@ -337,30 +341,55 @@ softology:hasOutput a owl:DatatypeProperty ;
     rdfs:label "Has Output" ;
     skos:broadMatch software:hasOutput ;
     skos:broadMatch sd:hasOutput ;
-    skos:broadMatch seon:hasReturnType ;
+    skos:broadMatch seon-code:hasReturnType ;
     skos:broadMatch VDI3682:hasOutput ;
     skos:broadMatch pvont:output ;
     skos:broadMatch swto:TestCaseExpectedValue ;
     skos:broadMatch parrot:Goal .
 
+softology:hasFileFormat a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has File Format" ;
+    skos:exactMatch schema:fileFormat .
+
+softology:hasFileSize a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "Has File Size" ;
+    skos:exactMatch schema:hasFileSize .
+
+softology:isOpenSource a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Is Open Source" ;
+    skos:broadMatch schema:isAccessibleForFree .
+
+softology:downloadURL a owl:DatatypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Download URL" ;
+    skos:exactMatch schema:downloadURL .
+
 softology:hasLicense a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:License ;
     rdfs:label "Has License" ;
-    skos:broadMatch swo:has_license ;
-    skos:broadMatch software:hasLicense ;
-    skos:broadMatch sd:license ;
-    skos:broadMatch cosc:license-of ;
-    skos:broadMatch dct:license .
+    skos:exactMatch swo:has_license ;
+    skos:exactMatch software:hasLicense ;
+    skos:closeMatch sd:license ;
+    skos:closeMatch cosc:license-of ;
+    skos:broadMatch dc:license .
 
 softology:supportedOS a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:OperatingSystem ;
     rdfs:label "Supported OS" ;
-    skos:broadMatch software:supportsOperatingSystem ;
-    skos:broadMatch sd:operatingSystems ;
-    skos:broadMatch cwe:applicableOperatingSystem ;
-    skos:broadMatch sciObj:Operating_system .
+    skos:exactMatch software:supportsOperatingSystem ;
+    skos:exactMatch sd:operatingSystems ;
+    skos:closeMatch cwe:applicableOperatingSystem ;
+    skos:exactMatch schema:operatingSystem ;
+    skos:closeMatch sciObj:Operating_system .
 
 softology:runtimePlatform a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
@@ -387,16 +416,53 @@ softology:hasInterface a owl:ObjectProperty ;
     rdfs:range softology:Interface ;
     rdfs:label "Has Interface" ;
     skos:broadMatch swo:SWO_0004001 ;
-    skos:broadMatch seon:implementsInterface ;
+    skos:broadMatch seon-code:implementsInterface ;
     skos:broadMatch sciObj:Interface .
 
+softology:supportedOS a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:OperatingSystem ;
+    rdfs:label "Supported OS" ;
+    skos:exactMatch software:supportsOperatingSystem ;
+    skos:exactMatch sd:operatingSystems ;
+    skos:closeMatch cwe:applicableOperatingSystem ;
+    skos:exactMatch schema:operatingSystem ;
+    skos:closeMatch sciObj:Operating_system .
+
+softology:runtimePlatform a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Platform ;
+    rdfs:label "Runtime Platform" ;
+    skos:broadMatch swo:SWO_0000150 ;
+    skos:broadMatch software:hasAverageRunTime ;
+    skos:broadMatch zora:Device ;
+    skos:broadMatch sciObj:Platform .
+
+softology:programmingLanguage a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:ProgrammingLanguage ;
+    rdfs:label "Programming Language" ;
+    skos:broadMatch obo:IAO_0000025 ;
+    skos:broadMatch software:hasImplementationLanguage ;
+    skos:broadMatch sd:programmingLanguage ;
+    skos:broadMatch zora:hasOperatingMode ;
+    skos:broadMatch cwe:applicableLanguage ;
+    skos:broadMatch sciObj:Computer_language .
+
+softology:hasInterface a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Interface ;
+    rdfs:label "Has Interface" ;
+    skos:broadMatch swo:SWO_0004001 ;
+    skos:broadMatch seon-code:implementsInterface ;
+    skos:broadMatch sciObj:Interface .
 softology:hasAuthor a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:Person ;
     rdfs:label "Has Author" ;
     skos:broadMatch software:hasCreator ;
     skos:broadMatch sd:author ;
-    skos:broadMatch seon:hasAuthor ;
+    skos:broadMatch seon-general:hasAuthor ;
     skos:broadMatch dc:creator ;
     skos:broadMatch cwe:author .
 
@@ -406,7 +472,7 @@ softology:hasContributor a owl:ObjectProperty ;
     rdfs:label "Has Contributor" ;
     skos:broadMatch software:hasMajorContributor ;
     skos:broadMatch sd:contributor ;
-    skos:broadMatch seon:hasAuthor ;
+    skos:broadMatch seon-general:hasAuthor ;
     skos:broadMatch dc:contributor ;
     skos:broadMatch cwe:author .
 
@@ -431,11 +497,32 @@ softology:copyrightHolder a owl:ObjectProperty ;
     rdfs:label "Copyright Holder" ;
     skos:broadMatch sd:copyrightHolder .
 
-softology:copyrightYear a owl:DatatypeProperty ;
+softology:hasBranch a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
-    rdfs:range xsd:gYear ;
-    rdfs:label "Copyright Year" ;
-    skos:broadMatch sd:copyrightYear .
+    rdfs:range softology:Branch ;
+    rdfs:label "Has Branch"@en ;
+    rdfs:comment "Links a software to one of its repository branches."@en ;
+    skos:broadMatch seon-history:Branch .
+
+softology:hasCommit a owl:ObjectProperty ;
+    rdfs:domain softology:Branch ;
+    rdfs:range softology:Commit ;
+    rdfs:label "Has Commit"@en ;
+    rdfs:comment "Links a branch to a specific commit or revision."@en ;
+    skos:broadMatch seon-history:Commit .
+
+softology:hasIssue a owl:ObjectProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range softology:Issue ;
+    rdfs:label "Has Issue"@en ;
+    rdfs:comment "Links a software to one of its known reported issues."@en ;
+    skos:relatedMatch sd:issueTracker ;
+    skos:broadMatch dcterms:issued .
+
+softology:hasAccessRestriction a owl:DataTypeProperty ;
+    rdfs:domain softology:Software;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Access Restriction" .
 
 softology:hasRequirement a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
@@ -473,6 +560,11 @@ softology:usageConstraint a owl:DatatypeProperty ;
     skos:broadMatch rul:hasOperator ;
     skos:broadMatch uml:Constraint .
 
+softology:hasPermission a owl:DataTypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "has Permission" .
+
 softology:hasTestCase a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:TestCase ;
@@ -498,7 +590,7 @@ softology:hasLatestVersion a owl:ObjectProperty ;
     skos:broadMatch software:hasSoftwareVersion ;
     skos:broadMatch swo:SWO_0000081 ;
     skos:broadMatch sd:SoftwareVersion ;
-    skos:broadMatch seon:Version ;
+    skos:broadMatch seon-general:Version ;
     skos:broadMatch owlterm:versionInfo .
 
 softology:isVersionOf a owl:ObjectProperty ;
@@ -507,34 +599,12 @@ softology:isVersionOf a owl:ObjectProperty ;
     rdfs:range softology:Software ;
     rdfs:label "Is Version Of" .
 
-softology:hasBranch a owl:ObjectProperty ;
-    rdfs:domain softology:Software ;
-    rdfs:range softology:Branch ;
-    rdfs:label "Has Branch"@en ;
-    rdfs:comment "Links a software to one of its repository branches."@en ;
-    skos:broadMatch seon:Branch .
-
-softology:hasCommit a owl:ObjectProperty ;
-    rdfs:domain softology:Branch ;
-    rdfs:range softology:Commit ;
-    rdfs:label "Has Commit"@en ;
-    rdfs:comment "Links a branch to a specific commit or revision."@en ;
-    skos:broadMatch seon:Commit .
-
-softology:hasIssue a owl:ObjectProperty ;
-    rdfs:domain softology:Software ;
-    rdfs:range softology:Issue ;
-    rdfs:label "Has Issue"@en ;
-    rdfs:comment "Links a software to one of its known reported issues."@en ;
-    skos:relatedMatch sd:issueTracker ;
-    skos:broadMatch dcterms:issued .
-
 softology:initialReleaseDate a owl:DatatypeProperty ;
     rdfs:domain softology:SoftwareVersion ;
     rdfs:range xsd:date ;
     rdfs:label "Initial Release Date" ;
     skos:broadMatch sd:datePublished ;
-    skos:broadMatch seon:hasReleaseDate .
+    skos:broadMatch seon-general:hasReleaseDate .
 
 softology:releaseNotes a owl:DatatypeProperty ;
     rdfs:domain softology:SoftwareVersion ;
@@ -542,7 +612,6 @@ softology:releaseNotes a owl:DatatypeProperty ;
     rdfs:label "Release Notes" ;
     skos:broadMatch software:releaseNotes ;
     skos:broadMatch sd:releaseNotes .
-
 #################################################################
 # Reasoning Axioms
 #################################################################
@@ -564,16 +633,6 @@ softology:Software rdfs:subClassOf [
     owl:onProperty softology:hasPart ;
     owl:someValuesFrom softology:Software
 ] .
-
-softology:isOpenSource a owl:DatatypeProperty ;
-    rdfs:domain softology:Software ;
-    rdfs:range xsd:boolean ;
-    rdfs:label "Is Open Source" .
-
-softology:downloadURL a owl:DatatypeProperty ;
-    rdfs:domain softology:Software ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "Download URL" .
 
 softology:Software rdfs:subClassOf [
     a owl:Restriction ;

@@ -5,12 +5,11 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix swto: <http://www.swtestingontology.org/swto#> .
-@prefix uml: <http://www.omg.org/spec/UML#> .
-@prefix edm: <http://edmcouncil.org/auto#> .
-@prefix rul: <http://www.provtools.org/antifraud#> .
-
+@prefix sd:       <https://w3id.org/okn/o/sd#> .
+@prefix swto:     <http://www.owl-ontologies.com/SwTO.owl#> .
+@prefix uml:      <http://www.semanticweb.org/uml-ontology#> .
+@prefix edm:      <https://spec.edmcouncil.org/auto/ontology/AV/MetadataAV/> .
+@prefix rul:      <http://www.sme-ecompass.eu/ontologies/anti_fraud_rules.owl#> .
 
 <http://example.org/softkg/requirement>
     a owl:Ontology ;
@@ -58,3 +57,8 @@ softology:usageConstraint a owl:DatatypeProperty ;
     skos:broadMatch sd:hasConstraint ;
     skos:broadMatch rul:hasOperator ;
     skos:broadMatch uml:Constraint .
+
+softology:hasPermission a owl:DataTypeProperty ;
+    rdfs:domain softology:Software ;
+    rdfs:range xsd:string ;
+    rdfs:label "has Permission" .

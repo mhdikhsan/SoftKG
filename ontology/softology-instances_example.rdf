@@ -5,7 +5,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:softology="http://example.org/softkg#"
-    xml:base="http://example.org/softkg/resource/">
+    xml:base="http://example.org/softkg#">
 
   <!-- Ontology Declaration -->
   <rdf:Description rdf:about="">

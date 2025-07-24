@@ -4,9 +4,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sd:           <https://w3id.org/okn/o/sd#> .
+@prefix seon-history: <http://se-on.org/ontologies/domain-specific/2012/02/history.owl#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
 
 <http://example.org/softkg/repository>
     a owl:Ontology ;
@@ -40,14 +40,14 @@ softology:hasBranch a owl:ObjectProperty ;
     rdfs:range softology:Branch ;
     rdfs:label "Has Branch"@en ;
     rdfs:comment "Links a software to one of its repository branches."@en ;
-    skos:broadMatch seon:Branch .
+    skos:broadMatch seon-history:Branch .
 
 softology:hasCommit a owl:ObjectProperty ;
     rdfs:domain softology:Branch ;
     rdfs:range softology:Commit ;
     rdfs:label "Has Commit"@en ;
     rdfs:comment "Links a branch to a specific commit or revision."@en ;
-    skos:broadMatch seon:Commit .
+    skos:broadMatch seon-history:Commit .
 
 softology:hasIssue a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
@@ -56,3 +56,8 @@ softology:hasIssue a owl:ObjectProperty ;
     rdfs:comment "Links a software to one of its known reported issues."@en ;
     skos:relatedMatch sd:issueTracker ;
     skos:broadMatch dcterms:issued .
+
+softology:hasAccessRestriction a owl:DataTypeProperty ;
+    rdfs:domain softology:Software;
+    rdfs:range xsd:string ;
+    rdfs:label "Has Access Restriction" .

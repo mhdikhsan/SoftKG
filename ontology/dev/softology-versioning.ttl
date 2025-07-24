@@ -4,11 +4,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix swo: <http://www.ebi.ac.uk/swo/> .
-@prefix owlterm: <http://www.w3.org/2002/07/owl#> .
+@prefix software:  <http://ontosoft.org/software#> .
+@prefix sd:        <https://w3id.org/okn/o/sd#> .
+@prefix seon-general: <http://se-on.org/ontologies/general/2012/02/main.owl#> .
+@prefix swo:       <http://www.ebi.ac.uk/swo/> .
+@prefix owlterm:   <http://www.w3.org/2002/07/owl#> .
 
 <http://example.org/softkg/versioning>
     a owl:Ontology ;
@@ -28,7 +28,7 @@ softology:hasLatestVersion a owl:ObjectProperty ;
     skos:broadMatch software:hasSoftwareVersion ;
     skos:broadMatch swo:SWO_0000081 ;
     skos:broadMatch sd:SoftwareVersion ;
-    skos:broadMatch seon:Version ;
+    skos:broadMatch seon-general:Version ;
     skos:broadMatch owlterm:versionInfo .
 
 softology:isVersionOf a owl:ObjectProperty ;
@@ -42,7 +42,7 @@ softology:initialReleaseDate a owl:DatatypeProperty ;
     rdfs:range xsd:date ;
     rdfs:label "Initial Release Date" ;
     skos:broadMatch sd:datePublished ;
-    skos:broadMatch seon:hasReleaseDate .
+    skos:broadMatch seon-general:hasReleaseDate .
 
 softology:releaseNotes a owl:DatatypeProperty ;
     rdfs:domain softology:SoftwareVersion ;

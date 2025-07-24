@@ -4,14 +4,15 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+@prefix schema: <https://schema.org/> .
 @prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix swo: <http://www.ebi.ac.uk/swo/> .
-@prefix sciObj: <http://purl.org/sciObj#> .
-@prefix cwe: <http://purl.org/cwe#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix zora: <http://purl.org/zora/actions#> .
+@prefix sd:       <https://w3id.org/okn/o/sd#> .
+@prefix swo:      <http://www.ebi.ac.uk/swo/> .
+@prefix sciObj:   <http://cui.unige.ch/~deribauh/SciObj#> .
+@prefix cwe:      <http://purl.org/cwe#> .
+@prefix seon-code: <http://se-on.org/ontologies/domain-specific/2012/02/code.owl#> .
+@prefix obo:      <http://purl.obolibrary.org/obo/> .
+@prefix zora:     <http://www.semanticweb.org/federico-spiga/ontologies/ZoraActions#> .
 
 <http://example.org/softkg/platform>
     a owl:Ontology ;
@@ -48,10 +49,11 @@ softology:supportedOS a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:OperatingSystem ;
     rdfs:label "Supported OS" ;
-    skos:broadMatch software:supportsOperatingSystem ;
-    skos:broadMatch sd:operatingSystems ;
-    skos:broadMatch cwe:applicableOperatingSystem ;
-    skos:broadMatch sciObj:Operating_system .
+    skos:exactMatch software:supportsOperatingSystem ;
+    skos:exactMatch sd:operatingSystems ;
+    skos:closeMatch cwe:applicableOperatingSystem ;
+    skos:exactMatch schema:operatingSystem ;
+    skos:closeMatch sciObj:Operating_system .
 
 softology:runtimePlatform a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
@@ -78,7 +80,7 @@ softology:hasInterface a owl:ObjectProperty ;
     rdfs:range softology:Interface ;
     rdfs:label "Has Interface" ;
     skos:broadMatch swo:SWO_0004001 ;
-    skos:broadMatch seon:implementsInterface ;
+    skos:broadMatch seon-code:implementsInterface ;
     skos:broadMatch sciObj:Interface .
 
 #################################################################

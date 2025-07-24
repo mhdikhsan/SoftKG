@@ -5,11 +5,11 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix software: <http://ontosoft.org/software#> .
-@prefix cosc: <http://w3id.org/cosc#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix parrot: <http://w3id.org/parrot#> .
-@prefix olia_system: <http://purl.org/olia/system#> .
-@prefix uml: <http://www.omg.org/spec/UML#> .
+@prefix cosc: <http://cos.ontoware.org/cosc#> .
+@prefix seon-general: <http://se-on.org/ontologies/general/2012/02/main.owl#> .
+@prefix parrot: <http://www.semanticweb.org/c1881660/ontologies/PARROT#> .
+@prefix olia_system: <http://purl.org/olia/system.owl#> .
+@prefix uml: <http://www.semanticweb.org/uml-ontology#> .
 
 <http://example.org/softkg/dependency>
     a owl:Ontology ;
@@ -29,7 +29,7 @@ softology:hasDependency a owl:ObjectProperty ;
     rdfs:comment "Indicates that a software depends on another software." ;
     skos:broadMatch software:hasDependency ;
     skos:broadMatch cosc:library-dependens-on ;
-    skos:broadMatch seon:dependsOn ;
+    skos:broadMatch seon-general:dependsOn ;
     skos:broadMatch parrot:entails ;
     skos:broadMatch olia_system:hasSource ;
     skos:broadMatch uml:Dependency .

@@ -6,7 +6,8 @@
 
 @prefix software: <http://ontosoft.org/software#> .
 @prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix seon: <http://purl.org/seon#> .
+@prefix seon-code:    <http://se-on.org/ontologies/domain-specific/2012/02/code.owl#> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
 
 <http://example.org/softkg/documentation>
     a owl:Ontology ;
@@ -31,9 +32,10 @@ softology:hasDocumentation a owl:ObjectProperty ;
     rdfs:domain softology:SoftwareVersion ;
     rdfs:range softology:Documentation ;
     rdfs:label "Has Documentation" ;
-    skos:broadMatch software:hasDocumentation ;
-    skos:broadMatch sd:hasDocumentation ;
-    skos:broadMatch seon:hasDoc .
+    skos:closeMatch software:hasDocumentation ;
+    skos:broadMatch codemeta:buildInstructions ;
+    skos:closeMatch sd:hasDocumentation ;
+    skos:closeMatch seon-code:hasDoc .
 
 #################################################################
 # Datatype Properties
@@ -43,19 +45,19 @@ softology:supportChannel a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Support Channel" ;
-    skos:broadMatch software:hasSoftwareSupport ;
+    skos:closeMatch software:hasSoftwareSupport ;
     skos:broadMatch sd:supportDetails .
 
 softology:usageInfo a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:string ;
     rdfs:label "Usage Info" ;
-    skos:broadMatch software:hasUsageInformation ;
-    skos:broadMatch sd:hasUsageNotes .
+    skos:exactMatch software:hasUsageInformation ;
+    skos:closeMatch sd:hasUsageNotes .
 
 softology:communityLink a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:anyURI ;
     rdfs:label "Community Link" ;
-    skos:broadMatch software:hasSoftwareCommunity .
+    skos:exactMatch software:hasSoftwareCommunity .
 

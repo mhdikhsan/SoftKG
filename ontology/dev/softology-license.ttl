@@ -4,11 +4,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+@prefix schema: <https://schema.org/> .
 @prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix swo: <http://www.ebi.ac.uk/swo/> .
-@prefix cosc: <http://w3id.org/cosc#> .
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sd:       <https://w3id.org/okn/o/sd#> .
+@prefix swo:      <http://www.ebi.ac.uk/swo/> .
+@prefix cosc:     <http://cos.ontoware.org/cosc#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
 
 <http://example.org/softkg/license>
     a owl:Ontology ;
@@ -33,10 +34,10 @@ softology:hasLicense a owl:ObjectProperty ;
     rdfs:domain softology:Software ;
     rdfs:range softology:License ;
     rdfs:label "Has License" ;
-    skos:broadMatch swo:has_license ;
-    skos:broadMatch software:hasLicense ;
-    skos:broadMatch sd:license ;
-    skos:broadMatch cosc:license-of ;
+    skos:exactMatch swo:has_license ;
+    skos:exactMatch software:hasLicense ;
+    skos:closeMatch sd:license ;
+    skos:closeMatch cosc:license-of ;
     skos:broadMatch dct:license .
 
 #################################################################
@@ -46,12 +47,14 @@ softology:hasLicense a owl:ObjectProperty ;
 softology:isOpenSource a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:boolean ;
-    rdfs:label "Is Open Source" .
+    rdfs:label "Is Open Source" ;
+    skos:broadMatch schema:isAccessibleForFree .
 
 softology:downloadURL a owl:DatatypeProperty ;
     rdfs:domain softology:Software ;
     rdfs:range xsd:anyURI ;
-    rdfs:label "Download URL" .
+    rdfs:label "Download URL" ;
+    skos:exactMatch schema:downloadURL .
 
 softology:Software rdfs:subClassOf [
     a owl:Restriction ;

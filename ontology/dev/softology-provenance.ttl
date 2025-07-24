@@ -4,11 +4,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@prefix software: <http://ontosoft.org/software#> .
-@prefix sd: <https://w3id.org/okn/o/sd#> .
-@prefix seon: <http://purl.org/seon#> .
-@prefix cwe: <http://purl.org/cwe#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix software:     <http://ontosoft.org/software#> .
+@prefix sd:           <https://w3id.org/okn/o/sd#> .
+@prefix seon-general: <http://se-on.org/ontologies/general/2012/02/main.owl#> .
+@prefix cwe:          <http://purl.org/cwe#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
 
 <http://example.org/softkg/provenance>
     a owl:Ontology ;
@@ -39,7 +39,7 @@ softology:hasAuthor a owl:ObjectProperty ;
     rdfs:label "Has Author" ;
     skos:broadMatch software:hasCreator ;
     skos:broadMatch sd:author ;
-    skos:broadMatch seon:hasAuthor ;
+    skos:broadMatch seon-general:hasAuthor ;
     skos:broadMatch dc:creator ;
     skos:broadMatch cwe:author .
 
@@ -49,7 +49,7 @@ softology:hasContributor a owl:ObjectProperty ;
     rdfs:label "Has Contributor" ;
     skos:broadMatch software:hasMajorContributor ;
     skos:broadMatch sd:contributor ;
-    skos:broadMatch seon:hasAuthor ;
+    skos:broadMatch seon-general:hasAuthor ;
     skos:broadMatch dc:contributor ;
     skos:broadMatch cwe:author .
 
